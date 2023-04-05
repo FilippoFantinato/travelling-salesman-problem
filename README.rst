@@ -3,8 +3,6 @@ Travelling Salesman Problem
 
 The Travelling Salesman Problem is one of the most NP-hard famous problem. It asks you the following question:
 
-..
-
     Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?
 
 In this repository you can find some exact methods and heuristics for solving TSP.
@@ -38,9 +36,9 @@ TODO
       - Solution
       - Resources
     * - Gavish - Graves
-      - Mixed Linear Programming
+      - Mixed Integer Linear Programming
       - Exact
-      - 
+      - [1]_
     * - Closest Insertion
       - Heuristic
       - 2-approx *
@@ -67,9 +65,10 @@ TODO
       -
 
 
-\* if the triangular inequality is respected
+\* if the triangle inequality is respected
 
-Bibliography
-++++++++++++
+References
+++++++++++
 
+.. [1] `Gavish, Bezalel & Graves, Stephen. (2004). The Traveling Salesman Problem and Related Problems. <https://www.researchgate.net/publication/37596296_The_Traveling_Salesman_Problem_and_Related_Problems>`_
 
