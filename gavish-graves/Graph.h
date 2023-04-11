@@ -12,16 +12,11 @@ class Graph
 private:
 
     int n; int m;
+    
     std::map<V, std::map<V, W>> adj_list;
 
 public:
-
-    Graph()
-    {
-        // for(auto& edge: edges) {
-        //     this->add_edge(std::get<0>(edge), std::get<1>(edge), std::get<2>(edge));
-        // }
-    }
+    Graph() {}
 
     std::shared_ptr<std::set<V>> get_vertices() const
     {
@@ -87,7 +82,9 @@ std::ostream& operator<<(std::ostream& os, const Graph<V, W>& g)
 { 
     os << "(V: " << g.get_n() << ", E: " << g.get_m() << ")" << std::endl;
 
-    for(auto& v: g.get_vertices())
+    std::shared_ptr<std::set<V>> vertices = g.get_vertices();
+
+    for(auto& v: *vertices)
     {
         const std::map<V, W>& adj_list_v = g.get_adj_list_by_vertex(v);
 
@@ -99,7 +96,7 @@ std::ostream& operator<<(std::ostream& os, const Graph<V, W>& g)
 
             if(it != adj_list_v.cend()) os << ", "; 
         }
-        os << "}";
+        os << "}\n";
     }
 
     return os;
