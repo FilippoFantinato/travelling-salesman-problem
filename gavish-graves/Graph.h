@@ -10,29 +10,37 @@ template <class V = int, class W = double>
 class Graph
 {
 private:
+    typedef std::tuple<V, V, W> Edge;
 
     int n; int m;
-    
+
+    std::set<Edge *> edges;
     std::map<V, std::map<V, W>> adj_list;
 
 public:
-    Graph() {}
-
-    std::shared_ptr<std::set<V>> get_vertices() const
+    Graph(std::set<Edge *> edges = {})
     {
-        std::shared_ptr<std::set<V>> vertices(new std::set<V>());
+        for(auto edge: edges) 
+        {
+            this->add_edge(std::get<0>(*edge), std::get<1>(*edge), std::get<2>(*edge));
+        }
+    }
+
+    std::set<V> get_vertices() const
+    {
+        std::set<V> vertices;
 
         for(auto& it: adj_list) {
-            vertices->insert(it.first);
+            vertices.insert(it.first);
         }
 
         return vertices;
     }
 
-    // const std::set<Edge>& get_edges() const
-    // {
-    //     return this->edges;
-    // }
+    const std::set<Edge *>& get_edges() const
+    {
+        return this->edges;
+    }
 
     const std::map<V, W>& get_adj_list_by_vertex(const V v) const
     {
@@ -42,6 +50,18 @@ public:
     W get_weight(const V v, const V t) const
     {
         return this->adj_list.at(v).at(t);
+    }
+
+    bool exist_edge(const V v, const V t) const
+    {
+        try
+        {
+            this->adj_list.at(v).at(t); return true;
+        }
+        catch(const std::out_of_range& e)
+        {
+            return false;
+        }
     }
 
     int get_n() const
@@ -57,16 +77,20 @@ public:
     void add_edge(const V v, const V t, const W w)
     {
         try { this->adj_list.at(v); }
-        catch(const std::out_of_range& e) { ++n; }
+        catch(const std::out_of_range& e) { 
+            this->adj_list[v];
+            ++n;
+        }
         try { this->adj_list.at(t); }
-        catch(const std::out_of_range& e) { ++n; }
+        catch(const std::out_of_range& e) { 
+            this->adj_list[t];
+            ++n;
+        }
         
         std::map<V, W>& adj_list_v = this->adj_list[v];
         adj_list_v[t] = w;
-        std::map<V, W>& adj_list_t= this->adj_list[t];
-        adj_list_t[v] = w;
 
-        // this->edges.insert(new {v, t, w});
+        this->edges.insert(new std::tuple(v, t, w));
 
         ++m;
     }
@@ -82,9 +106,9 @@ std::ostream& operator<<(std::ostream& os, const Graph<V, W>& g)
 { 
     os << "(V: " << g.get_n() << ", E: " << g.get_m() << ")" << std::endl;
 
-    std::shared_ptr<std::set<V>> vertices = g.get_vertices();
+    std::set<V> vertices = g.get_vertices();
 
-    for(auto& v: *vertices)
+    for(auto& v: vertices)
     {
         const std::map<V, W>& adj_list_v = g.get_adj_list_by_vertex(v);
 
