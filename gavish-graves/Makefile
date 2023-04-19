@@ -1,5 +1,5 @@
 CC = g++
-CPPFLAGS = -g -Wall -O2 -MMD -MP
+CPPFLAGS = -g -Wall -O2
 LDFLAGS =
 
 CPX_BASE    = /opt/ibm/ILOG/CPLEX_Studio
@@ -12,10 +12,11 @@ OBJ = main.o
 %.o: %.cpp
 	$(CC) $(CPPFLAGS) -I$(CPX_INCDIR) -c $^ -o $@
 
-main: $(OBJ) $(DEPS)
+main: $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o main -L$(CPX_LIBDIR) $(CPX_LDFLAGS)
 
 clean:
 	rm -rf $(OBJ) main
 
 .PHONY: clean
+
