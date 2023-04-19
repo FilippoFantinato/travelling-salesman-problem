@@ -4,23 +4,42 @@
 #include "TSPSolver.h"
 #include "../cpxmacro.h"
 
+int status;
+char errmsg[BUF_SIZE];
+
 class TSPCPXSolver : public TSPSolver
 {
-private:
-    const std::string& name;
+protected:
+    CEnv env;
+    Prob lp;
+
     const bool debug;
+    const std::string& name;
 
 public:
     TSPCPXSolver(const TSP& tsp, bool debug = false, const std::string& name = "") 
         : TSPSolver(tsp), debug(debug), name(name)
     {
-        DECL_ENV(env);
-        DECL_PROB(env, lp);
+        this->env = CPXopenCPLEX(&status);
+        if (status){
+            CPXgeterrorstring(NULL, status, errmsg);
+            int trailer = std::strlen(errmsg) - 1;
+            if (trailer >= 0) errmsg[trailer] = '\0';
+            throw std::runtime_error(std::string(__FILE__) + ":" + STRINGIZE(__LINE__) + ": " + errmsg);
+        }
+
+        this->lp = CPXcreateprob(env, &status, "");
+        if (status){
+            CPXgeterrorstring(NULL, status, errmsg);
+            int trailer = std::strlen(errmsg) - 1;
+            if (trailer >= 0) errmsg[trailer] = '0';
+            throw std::runtime_error(std::string(__FILE__) + ":" + STRINGIZE(__LINE__) + ": " + errmsg);
+        }
     }
 
     virtual void build() = 0;
 
-    virtual double solve() override
+    double solve() override
     {
         build();
         
@@ -37,8 +56,8 @@ public:
 
     void free()
     {
-        CPXfreeprob(env, &lp);
-        CPXcloseCPLEX(&env);
+        // CPXfreeprob(env, &lp);
+        // CPXcloseCPLEX(&env);
     }
 };
 
@@ -50,5 +69,12 @@ public:
 // 	/// status = CPXgetcolname (env, lp, cur_colname, cur_colnamestore, cur_storespace, &surplus, 0, cur_numcols-1);
 // 	std::cout << "var in position " << i << " : " << varVals[i] << std::endl;
 // }
+
+// const int N = tsp->get_n();
+// int n_cols = CPXgetnumcols(env, lp);
+
+// // if (n_cols != N*(N-1)) { 
+// // 	throw std::runtime_error(std::string(__FILE__) + ":" + STRINGIZE(__LINE__) + ": " + "different number of variables"); 
+// // }
 
 #endif

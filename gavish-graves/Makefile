@@ -1,5 +1,5 @@
 CC = g++
-CPPFLAGS = -g -Wall -O2
+CPPFLAGS = -g -Wall -O2 -MD -MP
 LDFLAGS =
 
 CPX_BASE    = /opt/ibm/ILOG/CPLEX_Studio
@@ -7,16 +7,20 @@ CPX_INCDIR  = $(CPX_BASE)/cplex/include
 CPX_LIBDIR  = $(CPX_BASE)/cplex/lib/x86-64_linux/static_pic
 CPX_LDFLAGS = -lcplex -lm -pthread -ldl
 
-OBJ = main.o 
+SOURCES := $(wildcard *.cpp)
+OBJECTS := $(patsubst %.cpp,%.o,$(SOURCES))
+DEPENDS := $(patsubst %.cpp,%.d,$(SOURCES))
 
 %.o: %.cpp
 	$(CC) $(CPPFLAGS) -I$(CPX_INCDIR) -c $^ -o $@
 
-main: $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o main -L$(CPX_LIBDIR) $(CPX_LDFLAGS)
+main: $(OBJECTS)
+	$(CC) $(CPPFLAGS) $(OBJECTS) -o main -L$(CPX_LIBDIR) $(CPX_LDFLAGS)
+
+-include $(DEPENDS)
 
 clean:
-	rm -rf $(OBJ) main
+	rm -rf $(OBJECTS) $(DEPENDS) main
+
 
 .PHONY: clean
-

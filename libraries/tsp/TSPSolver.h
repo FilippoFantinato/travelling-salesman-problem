@@ -6,13 +6,13 @@
 
 class TSPSolver
 {
-private:
+protected:
     const TSP& tsp;
 
 public:
     TSPSolver(const TSP& tsp) : tsp(tsp) { }
 
-    virtual double solve() = 0
+    virtual double solve() = 0;
 };
 
 #endif

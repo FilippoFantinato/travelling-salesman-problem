@@ -13,19 +13,27 @@ namespace TSPFile::EUC2D
 {
     std::shared_ptr<const VertexCoordinates> read_points(std::ifstream& ifd)
     {
+        bool not_eof_met = true;
         VertexCoordinates points;
 
         std::string line;
-        while(getline(ifd, line) && (line.compare(TSPSection::eof) != 0))
+        while(not_eof_met && getline(ifd, line))
         {
-            std::stringstream ss(line);
+            Utils::trim(line);
 
-            int v; double x; double y;
-            ss >> v; ss >> x; ss >> y;
+            not_eof_met = line.compare(TSPSection::eof) != 0;
 
-            points.insert(
-                std::make_shared<std::pair<Vertex, std::shared_ptr<Coordinate>>>(v, new Point(x, y))
-            );
+            if(not_eof_met)
+            {
+                std::stringstream ss(line);
+                
+                int v; double x; double y;
+                ss >> v; ss >> x; ss >> y;
+
+                points.insert(
+                    std::make_shared<std::pair<Vertex, std::shared_ptr<Coordinate>>>(v, new Point(x, y))
+                );
+            }
         }
 
         return std::make_shared<const VertexCoordinates>(points);

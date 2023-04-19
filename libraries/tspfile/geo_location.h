@@ -8,24 +8,40 @@
 #include "types.h"
 #include "../tsp/tsp.h"
 #include "../coordinate/Coordinate.h"
+#include "../utils/trim.h"
 
 namespace TSPFile::GEO
 {
     std::shared_ptr<const VertexCoordinates> read_coordinates(std::ifstream& ifd)
     {
+        bool not_eof_met = true;
         VertexCoordinates geolocations;
 
         std::string line;
-        while(getline(ifd, line) && (line.compare(TSPSection::eof) != 0))
+        while(not_eof_met && getline(ifd, line))
         {
-            std::stringstream ss(line);
+            Utils::trim(line);
+            not_eof_met = line.compare(TSPSection::eof) != 0;
 
-            int v; double x; double y;
-            ss >> v; ss >> x; ss >> y;
+            if(not_eof_met)
+            {
+                std::stringstream ss(line);
 
-            geolocations.insert(
-                std::make_shared<std::pair<Vertex, std::shared_ptr<Coordinate>>>(v, new GeoLocation(x, y))
-            );
+                int v; double x; double y;
+                ss >> v; ss >> x; ss >> y;
+
+                std::cout << v << " " << x << " " << y << std::endl;
+
+                geolocations.insert(
+                    std::make_shared<std::pair<Vertex, std::shared_ptr<Coordinate>>>(v, new GeoLocation(x, y))
+                );
+            }
+        }
+
+        for(auto geolocation: geolocations)
+        {
+            auto geo = dynamic_cast<const GeoLocation&>(*(geolocation->second));
+            std::cout << geolocation->first << ": " << "(" << geo.longitude << ", " << geo.latitude << ")" << std::endl;
         }
 
         return std::make_shared<const VertexCoordinates>(geolocations);
