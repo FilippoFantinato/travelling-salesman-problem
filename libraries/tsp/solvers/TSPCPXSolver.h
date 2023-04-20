@@ -4,9 +4,6 @@
 #include "TSPSolver.h"
 #include "../../cpxmacro.h"
 
-// static int status;
-// static char errmsg[BUF_SIZE];
-
 class TSPCPXSolver : public TSPSolver
 {
 protected:
@@ -16,11 +13,13 @@ protected:
     const std::string& name;
 
 public:
-    TSPCPXSolver(const TSP& tsp, const std::string& name = "");
+    TSPCPXSolver(const TSP& tsp, const std::string& name);
 
     virtual void build() = 0;
 
     double solve() override;
+
+    void write_file(const std::string& directory = "");
 
     void free();
 };

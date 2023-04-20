@@ -4,7 +4,7 @@ GavishGraves::GavishGraves(const TSP& tsp, const std::string& name) : TSPCPXSolv
 
 void GavishGraves::build()
 {
-    const std::set<Vertex> vertices = tsp.get_vertices();
+    const std::set<Vertex>& vertices = tsp.get_vertices();
     const std::set<Edge *>& edges = tsp.get_edges();
     const int N = tsp.get_n();
     const Vertex IN = *(vertices.cbegin());
@@ -15,6 +15,7 @@ void GavishGraves::build()
     long current_var = 0;
 
     // OBJ function
+    
     // add y vars [in o.f.: sum[i, j] c_ij yij]
     for(auto edge: edges)
     {

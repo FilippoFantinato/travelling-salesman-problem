@@ -1,4 +1,4 @@
-#include "geo_location.h"
+#include "geo.h"
 
 namespace TSPFile::GEO
 {
@@ -16,16 +16,18 @@ namespace TSPFile::GEO
             int v; double x; double y;
             ifd >> v; ifd >> x; ifd >> y;
 
+            std::cout << v << ": " << "(" << x << ", " << y << ")" << std::endl;
+
             geolocations.insert(
                 std::make_shared<std::pair<Vertex, std::shared_ptr<Coordinate>>>(v, new GeoLocation(x, y))
             );
         }
 
-        // for(auto geolocation: geolocations)
-        // {
-        //     auto geo = dynamic_cast<const GeoLocation&>(*(geolocation->second));
-        //     std::cout << geolocation->first << ": " << "(" << geo.longitude << ", " << geo.latitude << ")" << std::endl;
-        // }
+        for(auto geolocation: geolocations)
+        {
+            auto geo = dynamic_cast<const GeoLocation&>(*(geolocation->second));
+            std::cout << geolocation->first << ": " << "(" << geo.longitude << ", " << geo.latitude << ")" << std::endl;
+        }
 
         return std::make_shared<const VertexCoordinates>(geolocations);
     }

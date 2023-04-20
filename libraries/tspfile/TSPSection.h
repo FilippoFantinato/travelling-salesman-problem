@@ -21,9 +21,8 @@ namespace TSPFile
         none_tsp_section
     };
 
-    class TSPSection
+    struct TSPSection
     {
-    public:
         const static std::string name;
         const static std::string comment;
         const static std::string type;
@@ -49,9 +48,8 @@ namespace TSPFile
         none_edge_weight_type
     };
 
-    class EdgeWeightType
+    struct EdgeWeightType
     {
-    public:
         const static std::string euc2d;
         const static std::string geo_location;
         const static std::string explicit_matrix;
@@ -67,9 +65,8 @@ namespace TSPFile
         none_edge_weight_format
     };
 
-    class EdgeWeightFormat
+    struct EdgeWeightFormat
     {
-    public:
         const static std::string full_matrix;
 
         const static std::map<std::string, EnumEdgeWeightFormat> string_to_enum;

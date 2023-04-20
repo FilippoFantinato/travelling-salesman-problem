@@ -1,5 +1,5 @@
-#ifndef TSPFILE_GEO_LOCATION_H
-#define TSPFILE_GEO_LOCATION_H
+#ifndef TSPFILE_GEO_H
+#define TSPFILE_GEO_H
 
 #include <memory>
 #include <sstream>

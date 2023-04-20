@@ -15,7 +15,7 @@
 #include "TSPSection.h"
 #include "TSPInformation.h"
 #include "euc2d.h"
-#include "geo_location.h"
+#include "geo.h"
 #include "full_matrix.h"
 
 namespace TSPFile

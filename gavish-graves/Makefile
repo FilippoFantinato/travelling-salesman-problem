@@ -8,12 +8,9 @@ CPX_LIBDIR  = $(CPX_BASE)/cplex/lib/x86-64_linux/static_pic
 CPX_LDFLAGS = -lcplex -lm -pthread -ldl
 
 EXE := main.out
-
 SOURCES := $(wildcard *.cpp) $(shell find ../libraries -name "*.cpp")
 OBJECTS := $(patsubst %.cpp,%.o,$(SOURCES))
 DEPENDS := $(patsubst %.cpp,%.d,$(SOURCES))
-
-$(info ${SOURCES})
 
 %.o: %.cpp
 	$(CC) $(CPPFLAGS) -I$(CPX_INCDIR) -c $^ -o $@
@@ -21,7 +18,7 @@ $(info ${SOURCES})
 main: $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $(EXE) -L$(CPX_LIBDIR) $(CPX_LDFLAGS)
 
--include $(DEPENDS)
+# -include $(DEPENDS)
 
 clean:
 	rm -rf $(OBJECTS) $(DEPENDS) $(EXE)

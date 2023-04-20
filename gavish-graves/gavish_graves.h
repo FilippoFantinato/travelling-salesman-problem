@@ -7,7 +7,7 @@
 class GavishGraves : public TSPCPXSolver
 {
 public:
-    GavishGraves(const TSP& tsp, const std::string& name = "");
+    GavishGraves(const TSP& tsp, const std::string& name);
 
     void build() override;
 };

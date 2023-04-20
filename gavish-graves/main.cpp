@@ -6,7 +6,6 @@
 
 #include "../libraries/tspfile/tspfile.h"
 #include "gavish_graves.h"
-#include "gavish_graves_symmetric.h"
 
 int main(int argc, char const *argv[])
 {
@@ -22,12 +21,15 @@ int main(int argc, char const *argv[])
 
 		try
 		{
-			std::shared_ptr<TSPSolver> solver(new GavishGraves(*tsp, info->name));
+			std::shared_ptr<TSPCPXSolver> solver(new GavishGraves(*tsp, info->name));
 
 			std::cout << *info << std::endl;
 
 			double obj_value = solver->solve();
-			// std::cout << *tsp << std::endl;
+			
+			solver->write_file("out/");
+
+			std::cout << *tsp << std::endl;
 			std::cout << "Object function value: " << obj_value << std::endl;
 		}
 		catch(const std::exception& e)

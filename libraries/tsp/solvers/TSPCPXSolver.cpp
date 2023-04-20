@@ -26,17 +26,21 @@ double TSPCPXSolver::solve()
     build();
     
     CHECKED_CPX_CALL( CPXmipopt, env, lp );
-    
-    if(!name.empty())
-    {
-        CHECKED_CPX_CALL(CPXwriteprob, env, lp, (name + std::string(".lp")).c_str(), NULL);
-        CHECKED_CPX_CALL(CPXsolwrite, env, lp, (name + std::string(".sol")).c_str());
-    }
 
+    write_file("out/");
 
     double objval;
     CHECKED_CPX_CALL(CPXgetobjval, env, lp, &objval);
+    
     return objval;
+}
+
+void TSPCPXSolver::write_file(const std::string& directory)
+{
+    std::string path = directory + name;
+
+    CHECKED_CPX_CALL(CPXwriteprob, env, lp, (path + std::string(".lp")).c_str(), NULL);
+    CHECKED_CPX_CALL(CPXsolwrite, env, lp, (path + std::string(".sol")).c_str());
 }
 
 

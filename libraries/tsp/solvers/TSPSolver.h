@@ -10,6 +10,7 @@ protected:
 
 public:
     TSPSolver(const TSP& tsp);
+    virtual ~TSPSolver() = default;
 
     virtual double solve() = 0;
 };
