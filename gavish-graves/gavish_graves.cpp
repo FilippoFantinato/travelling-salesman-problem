@@ -1,5 +1,7 @@
 #include "gavish_graves.h"
 
+GavishGraves::GavishGraves(const TSP& tsp, const std::string& name) : TSPCPXSolver(tsp, name) { }
+
 void GavishGraves::build()
 {
     const std::set<Vertex> vertices = tsp.get_vertices();

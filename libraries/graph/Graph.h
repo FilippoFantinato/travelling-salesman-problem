@@ -6,7 +6,8 @@
 #include <iostream>
 
 template <class V, class W>
-class Graph {
+class Graph
+{
 private:
     typedef std::tuple<V, V, W> Edge;
 

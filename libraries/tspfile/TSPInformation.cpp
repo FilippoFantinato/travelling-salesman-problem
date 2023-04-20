@@ -9,14 +9,17 @@ namespace TSPFile
         TSPInformation info;
 
         bool not_node_coord_section_met = true;
+        bool not_edge_weight_section_met = true;
 
         std::string line;
-        while (not_node_coord_section_met && getline(ifd, line))
+        while (not_edge_weight_section_met && not_node_coord_section_met && getline(ifd, line))
         {
             Utils::trim(line);
             not_node_coord_section_met = line.compare(TSPSection::node_coord_section) != 0;
+            not_edge_weight_section_met = line.compare(TSPSection::edge_weight_section) != 0;
 
-            if (not_node_coord_section_met)
+
+            if (not_node_coord_section_met && not_edge_weight_section_met)
             {
                 std::string section = Utils::trim_copy(line.substr(0, line.find(delimiter)));
                 std::string value = Utils::trim_copy(line.substr(line.find(delimiter) + 1));
@@ -35,6 +38,9 @@ namespace TSPFile
                 case EnumTSPSection::edge_weight_type:
                     info.edge_weight_type = value;
                     break;
+                case EnumTSPSection::edge_weight_format:
+                    info.edge_weight_format = value;
+                    break;
                 case EnumTSPSection::dimension:
                     info.dimension = std::atoi(value.c_str());
                     break;
@@ -47,29 +53,37 @@ namespace TSPFile
             }
         }
 
-        if (not_node_coord_section_met) throw IncompleteTSPFile(TSPSection::node_coord_section);
+        if (not_node_coord_section_met && not_edge_weight_section_met)
+        {
+            throw IncompleteTSPFile(TSPSection::node_coord_section);
+        }
 
         return std::make_shared<const TSPInformation>(info);
     }
+
+    std::ostream& operator<<(std::ostream& os, const TSPFile::TSPInformation &info)
+    {
+        os << "NAME: " << info.name << std::endl;
+        os << "COMMENT: " << info.comment << std::endl;
+        os << "TYPE: " << info.type << std::endl;
+        os << "EDGE_WEIGHT_TYPE: " << info.edge_weight_type << std::endl;
+        
+        if(!info.edge_weight_format.empty())
+        {
+            os << "EDGE_WEIGHT_FORMAT: " << info.edge_weight_format << std::endl;
+        }
+        
+        os << "DIMENSION: " << info.dimension << std::endl;
+        os << "OPTIMAL_SOLUTION: ";
+        if (info.optimal_solution != -1)
+        {
+            os << info.optimal_solution;
+        }
+        else
+        {
+            os << "N/A";
+        }
+
+        return os;
+    }
 };
-
-std::ostream &operator<<(std::ostream &os, const TSPFile::TSPInformation &info)
-{
-    os << "NAME: " << info.name << std::endl;
-    os << "COMMENT: " << info.comment << std::endl;
-    os << "TYPE: " << info.type << std::endl;
-    os << "EDGE_WEIGHT_TYPE: " << info.edge_weight_type << std::endl;
-    os << "DIMENSION: " << info.dimension << std::endl;
-    os << "OPTIMAL_SOLUTION: ";
-    if (info.optimal_solution != -1)
-    {
-        os << info.optimal_solution;
-    }
-    else
-    {
-        os << "N/A";
-    }
-
-    return os;
-}
-

@@ -27,11 +27,11 @@ typedef CPXCLPptr CProb;
 
 /* Cplex Error Status and Message Buffer */
 
-extern int status;
+static int status;
 
 const unsigned int BUF_SIZE = 4096;
 
-extern char errmsg[BUF_SIZE];
+static char errmsg[BUF_SIZE];
 
 /* Shortcut for declaring a Cplex Env */
 #define DECL_ENV(name) \
