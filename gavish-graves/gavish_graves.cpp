@@ -1,6 +1,6 @@
 #include "gavish_graves.h"
 
-void GavishGraves::build() override
+void GavishGraves::build()
 {
     const std::set<Vertex> vertices = tsp.get_vertices();
     const std::set<Edge *>& edges = tsp.get_edges();

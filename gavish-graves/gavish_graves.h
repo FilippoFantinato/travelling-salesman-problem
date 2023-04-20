@@ -1,6 +1,7 @@
 #ifndef GAVISHGRAVES_H
 #define GAVISHGRAVES_H
 
+#include <vector>
 #include "../libraries/tsp/TSPCPXSolver.h"
 
 class GavishGraves : public TSPCPXSolver

@@ -25,7 +25,7 @@ int main(int argc, char const *argv[])
 
 			double obj_value = solver->solve();
 
-			std::cout << *info << std::endl;
+			// std::cout << *info << std::endl;
 			std::cout << "Object function value: " << obj_value << std::endl;
 		}
 		catch(const std::exception& e)
