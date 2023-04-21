@@ -15,9 +15,10 @@
 #include "TSPSection.h"
 #include "TSPInformation.h"
 #include "readers/euc2d.h"
+#include "readers/att.h"
 #include "readers/geo.h"
 #include "readers/full_matrix.h"
-#include "readers/att.h"
+#include "readers/upper_row.h"
 
 namespace TSPFile
 {

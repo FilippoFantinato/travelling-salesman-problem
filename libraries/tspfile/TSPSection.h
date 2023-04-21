@@ -61,15 +61,19 @@ namespace TSPFile
         static EnumEdgeWeightType to_enum(std::string s);
     };
 
+    // ==============================================================================
+
     enum EnumEdgeWeightFormat
     {
         full_matrix,
+        upper_row,
         none_edge_weight_format
     };
 
     struct EdgeWeightFormat
     {
         const static std::string full_matrix;
+        const static std::string upper_row;
 
         const static std::map<std::string, EnumEdgeWeightFormat> string_to_enum;
 

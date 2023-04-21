@@ -67,9 +67,11 @@ namespace TSPFile
 
     // EdgeWeightFormat
     const std::string EdgeWeightFormat::full_matrix = "FULL_MATRIX";
+    const std::string EdgeWeightFormat::upper_row = "UPPER_ROW";
 
     const std::map<std::string, EnumEdgeWeightFormat> EdgeWeightFormat::string_to_enum = {
-        {EdgeWeightFormat::full_matrix, EnumEdgeWeightFormat::full_matrix}
+        {EdgeWeightFormat::full_matrix, EnumEdgeWeightFormat::full_matrix},
+        {EdgeWeightFormat::upper_row, EnumEdgeWeightFormat::upper_row}
     };
 
     EnumEdgeWeightFormat EdgeWeightFormat::to_enum(std::string s) 

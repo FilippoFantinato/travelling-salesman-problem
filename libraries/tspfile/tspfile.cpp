@@ -30,6 +30,9 @@ namespace TSPFile
             {
             case EnumEdgeWeightFormat::full_matrix:
                 return TSPFile::FULL_MATRIX::init_tsp;
+
+            case EnumEdgeWeightFormat::upper_row:
+                return TSPFile::UPPER_ROW::init_tsp;
             
             default:
                 throw EdgeWeightNotHandled(info.edge_weight_format);
