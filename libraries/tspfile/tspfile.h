@@ -14,9 +14,10 @@
 #include "types.h"
 #include "TSPSection.h"
 #include "TSPInformation.h"
-#include "euc2d.h"
-#include "geo.h"
-#include "full_matrix.h"
+#include "readers/euc2d.h"
+#include "readers/geo.h"
+#include "readers/full_matrix.h"
+#include "readers/att.h"
 
 namespace TSPFile
 {

@@ -43,11 +43,13 @@ namespace TSPFile
     // EdgeWeightType
     const std::string EdgeWeightType::euc2d = "EUC_2D";
     const std::string EdgeWeightType::geo_location = "GEO";
+    const std::string EdgeWeightType::att = "ATT";
     const std::string EdgeWeightType::explicit_matrix = "EXPLICIT";
 
     const std::map<std::string, EnumEdgeWeightType> EdgeWeightType::string_to_enum = {
         {EdgeWeightType::euc2d, EnumEdgeWeightType::euc2d},
         {EdgeWeightType::geo_location, EnumEdgeWeightType::geo_location},
+        {EdgeWeightType::att, EnumEdgeWeightType::att},
         {EdgeWeightType::explicit_matrix, EnumEdgeWeightType::explicit_matrix}
     };
 

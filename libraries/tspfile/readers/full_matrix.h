@@ -6,7 +6,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "types.h"
+#include "../types.h"
 
 namespace TSPFile::FULL_MATRIX
 {

@@ -9,8 +9,8 @@ private:
     static double to_radian(double d);
 
 public:
-    const double longitude; 
     const double latitude;
+    const double longitude; 
 
     GeoLocation(double x, double y);
 

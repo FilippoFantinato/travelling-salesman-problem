@@ -44,7 +44,8 @@ namespace TSPFile
     {
         euc2d,
         geo_location,
-        explicit_matrix, 
+        att,
+        explicit_matrix,
         none_edge_weight_type
     };
 
@@ -52,6 +53,7 @@ namespace TSPFile
     {
         const static std::string euc2d;
         const static std::string geo_location;
+        const static std::string att;
         const static std::string explicit_matrix;
 
         const static std::map<std::string, EnumEdgeWeightType> string_to_enum;

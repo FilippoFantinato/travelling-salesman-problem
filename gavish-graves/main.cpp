@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
 			
 			solver->write_file("out/");
 
-			std::cout << *tsp << std::endl;
+			// std::cout << *tsp << std::endl;
 			std::cout << "Object function value: " << obj_value << std::endl;
 		}
 		catch(const std::exception& e)

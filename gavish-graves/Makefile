@@ -1,5 +1,5 @@
 CC = g++
-CPPFLAGS = -g -Wall -O2 -MD -MP
+CPPFLAGS = -g -Wall -O2
 LDFLAGS =
 
 CPX_BASE    = /opt/ibm/ILOG/CPLEX_Studio

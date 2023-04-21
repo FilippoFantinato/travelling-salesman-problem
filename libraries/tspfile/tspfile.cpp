@@ -21,6 +21,9 @@ namespace TSPFile
         case EnumEdgeWeightType::geo_location:
             return TSPFile::GEO::init_tsp;
 
+        case EnumEdgeWeightType::att:
+            return TSPFile::ATT::init_tsp;
+
         case EnumEdgeWeightType::explicit_matrix:
 
             switch (EdgeWeightFormat::to_enum(info.edge_weight_format))
