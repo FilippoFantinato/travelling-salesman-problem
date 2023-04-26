@@ -5,6 +5,7 @@
 #include <unordered_set>
 
 #include "../libraries/tspfile/tspfile.h"
+#include "../libraries/utils/measure_time.h"
 #include "gavish_graves.h"
 
 int main(int argc, char const *argv[])
@@ -23,13 +24,14 @@ int main(int argc, char const *argv[])
 		{
 			std::shared_ptr<TSPCPXSolver> solver(new GavishGraves(*tsp, info->name));
 
-			std::cout << *info << std::endl;
 
-			double obj_value = solver->solve();
-			
-			solver->write_file("out/");
+			double time = Utils::measure_time([&solver](){
+				solver->solve();
+			});
+			double obj_value = solver->get_obj_value();
 
-			// std::cout << *tsp << std::endl;
+			std::cout << *info << std::endl << std::endl;
+			std::cout << "Execution time: " << time << "s" << std::endl;
 			std::cout << "Object function value: " << obj_value << std::endl;
 		}
 		catch(const std::exception& e)

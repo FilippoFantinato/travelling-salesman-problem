@@ -24,15 +24,9 @@ TSPCPXSolver::TSPCPXSolver(const TSP& tsp, const std::string& name)
 double TSPCPXSolver::solve()
 {
     build();
-    
-    CHECKED_CPX_CALL( CPXmipopt, env, lp );
+    CHECKED_CPX_CALL(CPXmipopt, env, lp );
 
-    write_file("out/");
-
-    double objval;
-    CHECKED_CPX_CALL(CPXgetobjval, env, lp, &objval);
-    
-    return objval;
+    return get_obj_value();
 }
 
 void TSPCPXSolver::write_file(const std::string& directory)
@@ -41,6 +35,14 @@ void TSPCPXSolver::write_file(const std::string& directory)
 
     CHECKED_CPX_CALL(CPXwriteprob, env, lp, (path + std::string(".lp")).c_str(), NULL);
     CHECKED_CPX_CALL(CPXsolwrite, env, lp, (path + std::string(".sol")).c_str());
+}
+
+double TSPCPXSolver::get_obj_value() const
+{
+    double obj_value;
+    CHECKED_CPX_CALL(CPXgetobjval, env, lp, &obj_value);
+
+    return obj_value;
 }
 
 

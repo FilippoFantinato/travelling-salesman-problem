@@ -64,7 +64,12 @@ namespace TSPFile
     std::ostream& operator<<(std::ostream& os, const TSPFile::TSPInformation &info)
     {
         os << "NAME: " << info.name << std::endl;
-        os << "COMMENT: " << info.comment << std::endl;
+        
+        if(!info.comment.empty())
+        {
+            os << "COMMENT: " << info.comment << std::endl;
+        }
+
         os << "TYPE: " << info.type << std::endl;
         os << "EDGE_WEIGHT_TYPE: " << info.edge_weight_type << std::endl;
         
@@ -75,6 +80,7 @@ namespace TSPFile
         
         os << "DIMENSION: " << info.dimension << std::endl;
         os << "OPTIMAL_SOLUTION: ";
+
         if (info.optimal_solution != -1)
         {
             os << info.optimal_solution;

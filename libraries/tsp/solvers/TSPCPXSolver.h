@@ -16,11 +16,9 @@ public:
     TSPCPXSolver(const TSP& tsp, const std::string& name);
 
     virtual void build() = 0;
-
     double solve() override;
-
     void write_file(const std::string& directory = "");
-
+    double get_obj_value() const;
     void free();
 };
 

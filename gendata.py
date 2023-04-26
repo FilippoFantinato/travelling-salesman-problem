@@ -1,18 +1,19 @@
 import argparse
 import random
 from enum import Enum
+from collections import defaultdict
 
 
 class TSPType(Enum):
-    tsp     = "stsp"
-    atsp    = "atsp"
+    tsp = "TSP"
+    atsp = "ATSP"
 
     def __str__(self):
         return self.value
 
 
 class EdgeWeightType(Enum):
-    euc2d    = "EUC2D"
+    euc2d    = "EUC_2D"
     geo      = "GEO"
     explicit = "EXPLICIT"
     att      = "ATT"
@@ -28,69 +29,89 @@ class EdgeWeightFormat(Enum):
         return self.value
 
 
-def read_information(name, type, N):
-    info = {
-        name: name,
-        comment: "",
-        dimension: N
-        type: type,
-        edge_weight_type: ''
-        edge_weight_format: ''
-    }
-    info.name = input('NAME: ({name})')
-    info.comment = input('COMMENT: ')
-    
-    if type == TSPType.atsp:
+class TSPInformation:
+    def __init__(self, name, N, tsp_type, edge_weight_format):
+        self.name = name
+        self.comment = ''
+        self.dimension = N
+        self.type = tsp_type
+        self.edge_weight_type = ''
+        self.edge_weight_format = edge_weight_format
+
+
+def read_information(name: str, N: int, tsp_type: TSPType) -> TSPInformation:
+    info: TSPInformation = TSPInformation(name, N, tsp_type, EdgeWeightFormat.full_matrix)
+
+    tmp_name = input(f'NAME: ({name}) ').strip()
+    if tmp_name:
+        info.name = tmp_name
+
+    info.comment = input('COMMENT: ').strip()
+
+    if tsp_type == TSPType.atsp:
         info.edge_weight_type = EdgeWeightType.explicit
-    elif type == TSPType.stsp:
-        info.edge_weight_type = EdgeWeightType[input("EDGE_WEIGHT_TYPE: ").upper()]
+    elif tsp_type == TSPType.tsp:
+        info.edge_weight_type = EdgeWeightType(input("EDGE_WEIGHT_TYPE: ").strip().upper())
 
-    if info.edge_weight_type == EdgeWeightType.explicit:
-        info.edge_weight_format = EdgeWeightFormat[input("EDGE_WEIGHT_FORMAT: ").upper()]
+    return info
 
+
+def generate_asymmetric_tsp(N: int, min: float, max: float):
+    per_line = 10
+
+    data = defaultdict(list)
+    for n in range(N):
+        i = n // per_line
+        w = round(random.uniform(min, max), 2)
+        data[i].append(w)
     return data
 
 
-def generate_asymmetric_tsp(N):
-    print("Insert all the weights")
-
-    data = []
-    for i in range(N):
-        row = []
-        for j in range(N):
-            print("({i}, {j})")
-            w = float(input("({i}, {j})>"))
-            row.append(w)
-        data.append(row)
-    return data
-
-
-def generate_symmetric_tsp(N, min, max):
+def generate_symmetric_tsp(N: int, min: float, max: float):
     if min >= max: raise "Max must be greater than Min"
 
     data = []
     for i in range(N):
-        row = []
-        for j in range(N):
-            v = (i*N+j) + 1
-            x = round(random.uniform(min, max), 2)
-            y = round(random.uniform(min, max), 2)
-            row.append((v, x, y))
-        data.append(row)
+        x = round(random.uniform(min, max), 2)
+        y = round(random.uniform(min, max), 2)
+        data.append((i+1, x, y))
     return data
 
 
-def write_file(name, info, data):
-    with open("{name}.tsp", "w") as fd:
-        fd.writelines()
+def write_file(out: str, name: str, info: TSPInformation, data):
+    with open(f"{f'{out}/' if out else ''}{name}.tsp", "w") as fd:
+        fd.write(f'NAME: {info.name}\n')
+        
+        if info.comment:
+            fd.write(f'COMMENT: {info.comment}\n')
+
+        fd.write(f'DIMENSION: {info.dimension}\n')
+        fd.write(f'TYPE: {info.type}\n')
+        fd.write(f'EDGE_WEIGHT_TYPE: {info.edge_weight_type}\n')
+        
+        if info.edge_weight_type == EdgeWeightType.explicit:
+            fd.write(f'EDGE_WEIGHT_FORMAT: {info.edge_weight_format}\n')
+
+        if info.edge_weight_type == EdgeWeightType.explicit:
+            fd.write('EDGE_WEIGHT_SECTION\n')
+            for i in data:
+                for w in data[i]:
+                    fd.write(f' {w}')
+                fd.write('\n')
+        else:
+            fd.write('NODE_COORD_SECTION\n')
+            for (v, x, y) in data:
+                fd.write(f'{v} {x} {y}\n')
+
+        fd.write("EOF")
 
 
 def init_args():
     parser = argparse.ArgumentParser()
 
-    def check_positive(v):
+    def check_positivity(v):
         v = int(v)
-        if v <= 0:
+        if v < 0:
             raise argparse.ArgumentTypeError(f"{v} is an invalid positive int value")
         return v
 
@@ -101,27 +122,33 @@ def init_args():
         help="Name of the file to generate"
     )
     parser.add_argument(
-        "--type", 
-        type=TSPType,
-        default=TSPType.tsp
-        help="TSP type"
-    )
-    parser.add_argument(
         "-N",
         type=int,
         required=True,
         help="Number of points",
     )
     parser.add_argument(
+        "--type", 
+        type=TSPType,
+        default=TSPType.tsp,
+        help="TSP type"
+    )
+    parser.add_argument(
+        "--out", 
+        type=str,
+        default="data",
+        help="Output directory"
+    )
+    parser.add_argument(
         "--min",
-        type=check_positive,
-        default=1
+        type=check_positivity,
+        default=1,
         help="How many times to run an algorithm"
     )
     parser.add_argument(
         "--max",
-        type=check_positive,
-        default=10
+        type=check_positivity,
+        default=10,
         help="How many dataset files to load"
     )
 
@@ -132,14 +159,16 @@ def main():
     args = init_args().parse_args()
 
     generators = {
-        TSPType.stsp: generate_symmetric_tsp,
+        TSPType.tsp: generate_symmetric_tsp,
         TSPType.atsp: generate_asymmetric_tsp
     }
 
-    info = read_information(args.name, args.type, args.N)
+    info = read_information(args.name, args.N, args.type)
+    
     data = generators[args.type](args.N, args.min, args.max)
 
-    write_file(name, info, data)
+    write_file(args.out, args.name, info, data)
+
 
 if __name__ == "__main__":
     main()
