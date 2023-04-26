@@ -1,6 +1,8 @@
 #ifndef TSPCPXSOLVER_H
 #define TSPCPXSOLVER_H
 
+#include <vector>
+
 #include "TSPSolver.h"
 #include "../../cpxmacro.h"
 
@@ -15,11 +17,15 @@ protected:
 public:
     TSPCPXSolver(const TSP& tsp, const std::string& name);
 
+    double get_obj_value() const;
+    std::shared_ptr<std::vector<double>> get_vars() const;
+    std::shared_ptr<std::vector<double>> get_vars(const int N_COLS) const; 
+
     virtual void build() = 0;
     double solve() override;
     void write_file(const std::string& directory = "");
-    double get_obj_value() const;
     void free();
+
 };
 
 // std::vector<double> varVals;

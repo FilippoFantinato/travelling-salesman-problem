@@ -20,6 +20,28 @@ TSPCPXSolver::TSPCPXSolver(const TSP& tsp, const std::string& name)
     }
 }
 
+double TSPCPXSolver::get_obj_value() const
+{
+    double obj_value;
+    CHECKED_CPX_CALL(CPXgetobjval, env, lp, &obj_value);
+
+    return obj_value;
+}
+
+std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars(const int N_COLS) const
+{
+    std::vector<double> var_vals(N_COLS, 0);
+
+    CHECKED_CPX_CALL( CPXgetx, env, lp, &var_vals[0], 0, N_COLS - 1);
+    
+    return std::make_shared<std::vector<double>>(var_vals);
+}
+
+std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars() const
+{
+    const int N_COLS = CPXgetnumcols(env, lp);
+    return get_vars(N_COLS);
+}
 
 double TSPCPXSolver::solve()
 {
@@ -36,15 +58,6 @@ void TSPCPXSolver::write_file(const std::string& directory)
     CHECKED_CPX_CALL(CPXwriteprob, env, lp, (path + std::string(".lp")).c_str(), NULL);
     CHECKED_CPX_CALL(CPXsolwrite, env, lp, (path + std::string(".sol")).c_str());
 }
-
-double TSPCPXSolver::get_obj_value() const
-{
-    double obj_value;
-    CHECKED_CPX_CALL(CPXgetobjval, env, lp, &obj_value);
-
-    return obj_value;
-}
-
 
 void TSPCPXSolver::free()
 {
