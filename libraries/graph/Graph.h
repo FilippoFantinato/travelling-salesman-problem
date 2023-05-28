@@ -9,13 +9,16 @@ template <class V, class W>
 class Graph
 {
 private:
-    typedef std::tuple<V, V, W> Edge;
 
     std::set<Edge *> edges;
     std::set<V> vertices;
     std::map<V, std::map<V, W>> adj_list;
 
+protected:
+    typedef std::tuple<V, V, W> Edge;
+
 public:
+
     // Graph(const std::set<Edge *> edges& = std::set())
     // {
     //     for(auto edge: edges) 
@@ -23,6 +26,10 @@ public:
     //         this->add_edge(std::get<0>(*edge), std::get<1>(*edge), std::get<2>(*edge));
     //     }
     // }
+
+    int get_n() const { return this->vertices.size(); }
+
+    int get_m() const { return this->edges.size(); }
 
     const std::set<V>& get_vertices() const
     {
@@ -34,17 +41,17 @@ public:
         return this->edges;
     }
 
-    const std::map<V, W>& get_adj_list_by_vertex(const V v) const
+    const std::map<V, W>& get_adj_list_by_vertex(const V& v) const
     {
         return this->adj_list.at(v);
     }
 
-    W get_weight(const V v, const V t) const
+    W get_weight(const V& v, const V& t) const
     {
         return this->adj_list.at(v).at(t);
     }
 
-    bool exist_edge(const V v, const V t) const
+    bool exist_edge(const V& v, const V& t) const
     {
         try
         {
@@ -57,34 +64,37 @@ public:
         }
     }
 
-    int get_n() const { return this->vertices.size(); }
-    int get_m() const { return this->edges.size(); }
-
-    void add_edge(const V v, const V t, const W w)
+    const Edge* add_edge(const V& v, const V& t, const W& w)
     {
         vertices.insert(v); vertices.insert(t);
 
         this->adj_list[v][t] = w;
-        this->edges.insert(new std::tuple(v, t, w));
+
+        const Edge *e = new std::tuple(v, t, w);
+
+        this->edges.insert();
+
+        return e;
     }
 
-    bool remove_edge(const V v, const V t)
+    const Edge* remove_edge(const V& v, const V& t)
     {
+        Edge *edge = NULL;
         try
         {
-            this->adj_list.at(v).erase(t);
+            edge = this->adj_list.at(v).at(t);
             
+            this->adj_list.at(v).erase(t);
+
             if(this->adj_list.at(v).size() == 0)
             {
                 this->adj_list.erase(v);
                 vertices.erase(vertices.find(v));
             }
-            return true;
         }
-        catch(const std::exception& e)
-        {
-            return false;
-        }
+        catch(const std::out_of_range& e) { }
+
+        return edge;
     }
 };
 
