@@ -1,0 +1,263 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"build" : "libraries",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					],
+					"jsonFile" : "directory-libraries-Debug-a240e4b91e98ca34081a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libraries"
+				},
+				{
+					"build" : "libraries/coordinate",
+					"jsonFile" : "directory-libraries.coordinate-Debug-009781c0dc976cec78d8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libraries/coordinate",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "libraries/exceptions",
+					"jsonFile" : "directory-libraries.exceptions-Debug-885ebda0962a1c7374c0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libraries/exceptions",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "libraries/tour",
+					"jsonFile" : "directory-libraries.tour-Debug-cea77cacd29f001182b9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libraries/tour",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "libraries/tsp-file",
+					"jsonFile" : "directory-libraries.tsp-file-Debug-4a23a30bbdab41c10512.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libraries/tsp-file",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "libraries/tsp-readers",
+					"jsonFile" : "directory-libraries.tsp-readers-Debug-98a866438ec0fdbc2994.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libraries/tsp-readers",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "libraries/tsp-solvers",
+					"jsonFile" : "directory-libraries.tsp-solvers-Debug-aa9c4bb01579bda9d5c5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libraries/tsp-solvers",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "libraries/utils",
+					"jsonFile" : "directory-libraries.utils-Debug-5fbb9debfb45fcec19f9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libraries/utils",
+					"targetIndexes" : 
+					[
+						8
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					],
+					"name" : "lin-kernighan",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "coordinate::@37d150fcf1271077b511",
+					"jsonFile" : "target-coordinate-Debug-4284cfff031b45abb9c6.json",
+					"name" : "coordinate",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "exceptions::@b3181ca761bffe50f1d8",
+					"jsonFile" : "target-exceptions-Debug-06816834af7f813a7923.json",
+					"name" : "exceptions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gavish-graves::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gavish-graves-Debug-1f60d973b6d0cff15419.json",
+					"name" : "gavish-graves",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lin-kernighan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lin-kernighan-Debug-bbaaa50d1919610cb72e.json",
+					"name" : "lin-kernighan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "tour::@30c405cb062b624914ec",
+					"jsonFile" : "target-tour-Debug-c4bf3ae2eacf8ca5ee25.json",
+					"name" : "tour",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "tsp-file::@5e4b29b4ee13e66d67b9",
+					"jsonFile" : "target-tsp-file-Debug-ec3ccf8d68e904c69c47.json",
+					"name" : "tsp-file",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "tsp-readers::@5617abb2608e2f923869",
+					"jsonFile" : "target-tsp-readers-Debug-e5b958adef05cc0f3717.json",
+					"name" : "tsp-readers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "tsp-solvers::@b2da3ee521dfe25e3177",
+					"jsonFile" : "target-tsp-solvers-Debug-5f5944e27eb60896613b.json",
+					"name" : "tsp-solvers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "utils::@d7b23c7729ce88f2ee67",
+					"jsonFile" : "target-utils-Debug-7d35f54c472f3dee793e.json",
+					"name" : "utils",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug",
+		"source" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

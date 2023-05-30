@@ -1,0 +1,217 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "libraries/tsp-readers/libtsp-readers.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"libraries/tsp-readers/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 3,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 5,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -Wall -O2 -g -fdiagnostics-color=always"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/coordinate"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/../coordinate"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/utils"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/../utils"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/tsp_file"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/../tsp-file"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				1,
+				3,
+				5,
+				7,
+				9
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "coordinate::@37d150fcf1271077b511"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "exceptions::@b3181ca761bffe50f1d8"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tsp-file::@5e4b29b4ee13e66d67b9"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "utils::@d7b23c7729ce88f2ee67"
+		}
+	],
+	"id" : "tsp-readers::@5617abb2608e2f923869",
+	"name" : "tsp-readers",
+	"nameOnDisk" : "libtsp-readers.a",
+	"paths" : 
+	{
+		"build" : "libraries/tsp-readers",
+		"source" : "libraries/tsp-readers"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				4,
+				6,
+				8
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				1,
+				3,
+				5,
+				7,
+				9
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "libraries/tsp-readers/att.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/tsp-readers/att.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/tsp-readers/euc2d.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/tsp-readers/euc2d.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/tsp-readers/full_matrix.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/tsp-readers/full_matrix.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/tsp-readers/geo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/tsp-readers/geo.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libraries/tsp-readers/upper_row.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libraries/tsp-readers/upper_row.cpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <memory>
-#include <unordered_set>
 
-#include "../libraries/tspfile/tspfile.h"
-#include "../libraries/utils/measure_time.h"
+#include "../libraries/tsp-file/tsp-file.h"
+#include "../libraries/utils/measure-time.h"
 #include "../libraries/utils/print.h"
-#include "gavish_graves.h"
+#include "GavishGraves.h"
 
 int main(int argc, char const *argv[])
 {
@@ -31,7 +29,7 @@ int main(int argc, char const *argv[])
 				solver->solve();
 			});
 			double obj_value = solver->get_obj_value();
-			solver->write_file("out/");
+//			solver->write_file("out/");
 
 			std::cout << *info << std::endl << std::endl;
 			std::cout << "Execution time: " << time << "s" << std::endl;

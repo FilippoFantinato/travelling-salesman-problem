@@ -1,6 +1,7 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
+#include <functional>
 #include <map>
 #include <set>
 #include <iostream>
@@ -8,14 +9,19 @@
 template <class V, class W>
 class Graph
 {
-private:
-
-    std::set<Edge *> edges;
-    std::set<V> vertices;
-    std::map<V, std::map<V, W>> adj_list;
-
 protected:
     typedef std::tuple<V, V, W> Edge;
+    // struct EdgeHash {
+    //     size_t operator()(const Edge& e) const {
+    //         size_t h1 = std::hash<Vertex;
+    //         return hash;
+    //     }
+    // }
+    typedef std::set<Edge*> Edges;
+
+    Edges edges;
+    std::set<V> vertices;
+    std::map<V, std::map<V, W>> adj_list;
 
 public:
 
@@ -70,9 +76,9 @@ public:
 
         this->adj_list[v][t] = w;
 
-        const Edge *e = new std::tuple(v, t, w);
+        Edge *e = new std::tuple(v, t, w);
 
-        this->edges.insert();
+        this->edges.insert(e);
 
         return e;
     }

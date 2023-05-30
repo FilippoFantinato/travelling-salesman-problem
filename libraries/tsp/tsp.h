@@ -1,10 +1,8 @@
 #ifndef TSP_H
 #define TSP_H
 
-#include <memory>
-
 #include "../graph/Graph.h"
-#include "../tspfile/TSPInformation.h"
+#include "../tsp-file/TSPInformation.h"
 
 typedef int Vertex;
 typedef double Weight;

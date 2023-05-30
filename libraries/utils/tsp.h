@@ -5,11 +5,11 @@
 #include <fstream>
 
 #include "../coordinate/Coordinate.h"
-#include "../tspfile/types.h"
+#include "../tsp-file/types.h"
 
 namespace Utils
 {
     std::shared_ptr<const TSP> tsp_from_coordinates(std::shared_ptr<const TSPFile::VertexCoordinates> coordinates);
-};
+}
 
 #endif
