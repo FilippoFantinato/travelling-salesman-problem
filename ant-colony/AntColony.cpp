@@ -14,14 +14,14 @@ AntColony::AntColony(
     q(q),
     degradation_factor(degradation_factor)
 {
-    int n = tsp.get_n();
+    size_t n = tsp.get_n();
 
     intensity = std::make_unique<std::unique_ptr<double[]>[]>(n);
 
-    for(int i = 0; i < n; ++i)
+    for(size_t i = 0; i < n; ++i)
     {
         intensity[i] = std::make_unique<double[]>(n);
-        for(int j = 0; j < n; ++j)
+        for(size_t j = 0; j < n; ++j)
         {
             intensity[i][j] = pheromone_level;
         }
@@ -46,15 +46,11 @@ double AntColony::solve()
                 return this->traverse_graph(starting_node);
             }));
         }
-//        for(const auto& ant: ants) { ant.wait(); }
+        for(const auto& ant: ants) { ant.wait(); }
         for(auto & ant : ants)
         {
             cycles.push_back(ant.get());
         }
-
-//        std::sort(cycles.begin(), cycles.end(), [](const auto& e1, const auto& e2) -> bool {
-//            return *(e1->begin()) < *(e2->begin());
-//        });
 
         if(best_cycle)
         {
@@ -71,16 +67,16 @@ double AntColony::solve()
             }
 
             double delta = q / cycle_cost;
+            double factor = 1 - degradation_factor;
 
             for(int k = 0; k < (cycle->size() - 1); ++k)
             {
-//                intensity[cycle[k]][cycle[k+1]] += delta * degradation_factor;
                 auto v = *std::next(cycle->begin(), k);
                 auto u = *std::next(cycle->begin(), k+1);
 
-                intensity[v][u] = delta * degradation_factor;
+                intensity[v][u] *= factor;
             }
-            intensity[*cycle->rbegin()][*cycle->begin()] += delta * degradation_factor;
+            intensity[*cycle->rbegin()][*cycle->begin()] *= factor;
         }
     }
 

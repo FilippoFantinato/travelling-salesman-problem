@@ -45,7 +45,6 @@ public:
 
     void add_edge(const V& v, const V& t, const W& w) override
     {
-        std::cout << v << ", " << t << ": " << w << std::endl;
         Graph<V, W>::vertices.insert(v);
         Graph<V, W>::vertices.insert(t);
 

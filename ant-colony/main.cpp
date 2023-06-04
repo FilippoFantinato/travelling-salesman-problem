@@ -40,7 +40,7 @@ int main(int argc, char const *argv[])
 
         auto pheromone = mean_tsp_distance(*tsp);
         auto iterations = 50;
-        auto n_ants = 100;
+        auto n_ants = 200;
         std::shared_ptr<AntColony> solver(new AntColony(*tsp, pheromone, iterations, n_ants));
 
         double time = Utils::measure_time([&solver](){
