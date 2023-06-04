@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "bin/lin-kernighan"
+			"path" : "bin/ant-colony"
 		}
 	],
 	"backtrace" : 1,
@@ -26,19 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 16,
+				"line" : 31,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 21,
+				"line" : 36,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 31,
+				"line" : 46,
 				"parent" : 0
 			}
 		]
@@ -98,7 +98,7 @@
 			"id" : "utils::@d7b23c7729ce88f2ee67"
 		}
 	],
-	"id" : "lin-kernighan::@6890427a1f51a3e7e1df",
+	"id" : "ant-colony::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -164,8 +164,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "lin-kernighan",
-	"nameOnDisk" : "lin-kernighan",
+	"name" : "ant-colony",
+	"nameOnDisk" : "ant-colony",
 	"paths" : 
 	{
 		"build" : ".",
@@ -194,18 +194,18 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "lin-kernighan/main.cpp",
+			"path" : "ant-colony/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "lin-kernighan/LinKernighan.h",
+			"path" : "ant-colony/AntColony.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "lin-kernighan/LinKernighan.cpp",
+			"path" : "ant-colony/AntColony.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

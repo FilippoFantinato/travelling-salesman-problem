@@ -733,37 +733,13 @@
 		{
 			"isGenerated" : true,
 			"path" : "cmake-build-debug/CMakeFiles/3.25.2/CMakeCXXCompiler.cmake"
-		},
-		{
-			"path" : "libraries/CMakeLists.txt"
-		},
-		{
-			"path" : "libraries/coordinate/CMakeLists.txt"
-		},
-		{
-			"path" : "libraries/exceptions/CMakeLists.txt"
-		},
-		{
-			"path" : "libraries/tour/CMakeLists.txt"
-		},
-		{
-			"path" : "libraries/tsp-file/CMakeLists.txt"
-		},
-		{
-			"path" : "libraries/tsp-readers/CMakeLists.txt"
-		},
-		{
-			"path" : "libraries/tsp-solvers/CMakeLists.txt"
-		},
-		{
-			"path" : "libraries/utils/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug",
-		"source" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem"
+		"build" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tour/cmake-build-debug",
+		"source" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tour"
 	},
 	"version" : 
 	{

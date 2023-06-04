@@ -7,7 +7,7 @@
 
 #include "../libraries/tsp-solvers/TSPSolver.h"
 #include "../libraries/tour/Tour.h"
-#include "../libraries/graph-functions/compute_cost.h"
+//#include "../libraries/graph-functions/compute_cost.h"
 
 struct CmpGainNeighbours {
     bool operator()(
@@ -17,9 +17,9 @@ struct CmpGainNeighbours {
     }
 };
 
-struct VectorHasher {
-	int operator()(const std::vector<Vertex>& v) const {
-		int hash = v.size();
+struct VertexVectorHasher {
+	size_t operator()(const std::vector<Vertex>& v) const {
+		size_t hash = v.size();
 		for(auto& i : v) {
 			hash ^= i + 0x9e3779b9 + (hash << 6) + (hash >> 2);
 		}
@@ -30,44 +30,44 @@ struct VectorHasher {
 class LinKernighan : public TSPSolver
 {
 private:
-	std::unordered_map<Vertex, std::vector<double>> neighbours;
+	std::unordered_map<Vertex, std::vector<Vertex>> neighbours;
 
-	std::unordered_map<std::vector<Vertex>, bool, VectorHasher> solutions;
-	std::vector<Vertex> *path = NULL;
-	double cost = 0;
+	std::unordered_set<std::vector<Vertex>, VertexVectorHasher> solutions;
+	std::vector<Vertex> const *path;
+	double cost;
 
-	std::multiset<std::pair<Vertex, std::vector<double>>, CmpGainNeighbours> closest(
-		const Vertex& v, 
+	std::multiset<std::pair<Vertex, std::vector<double>>, CmpGainNeighbours>* closest(
+		Vertex v,
 		const Tour& tour, 
 		double gain, 
-		const std::vector<VertexPair>& broken, 
+		const std::vector<VertexPair>& broken,
 		const std::vector<VertexPair>& joined);
 
 	bool chooseX(
 		const Tour& tour,
-		const Vertex& v,
-		const Vertex& last,
+		Vertex v,
+		Vertex last,
 		double gain,
 		const std::vector<VertexPair>& broken,
 		const std::vector<VertexPair>& joined);
 
 	bool chooseY(
 		const Tour& tour,
-		const Vertex& v,
-		const Vertex& u,
+		Vertex v,
+		Vertex u,
 		double gain,
 		const std::vector<VertexPair>& broken,
 		const std::vector<VertexPair>& joined);
-	
+
 	bool improve();
 
 public:
 	LinKernighan(const TSP& tsp,
-                 const std::function<std::vector<Vertex>*(const TSP&)>& initial_path,
+                 const std::function<std::vector<Vertex> const *(const TSP&)>& initial_path,
                  const std::string& name = "");
 
 	double solve() override;
-    void write_file(const std::string& directory = "") override {}
+    void write_file(const std::string& directory) override {}
 	double get_solution_cost() const;
 };
 

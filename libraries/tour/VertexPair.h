@@ -8,8 +8,7 @@
 class VertexPair : public std::pair<Vertex, Vertex>
 {
 public:
-    VertexPair(const Vertex& u, const Vertex& v);
+    VertexPair(Vertex a, Vertex b);
 };
-
 
 #endif

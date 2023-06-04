@@ -21,11 +21,12 @@ int main(int argc, char const *argv[])
 		std::shared_ptr<const TSPFile::TSPInformation> info = information_tsp->first;
 		std::shared_ptr<const TSP> tsp = information_tsp->second;
 
-		const int N = tsp->get_n();
+//		const int N = tsp->get_n();
 
-		std::shared_ptr<LinKernighan> solver(new LinKernighan(*tsp, [](const TSP& tsp) -> std::vector<Vertex>* {
-			const std::set<Vertex>& vertices = tsp.get_vertices();
-			return new std::vector<Vertex>(vertices.cbegin(), vertices.cend());
+		std::shared_ptr<LinKernighan> solver(new LinKernighan(*tsp, [](const TSP& tsp) -> std::vector<Vertex> * {
+            const auto& vertices = tsp.get_vertices();
+			auto *path = new std::vector<Vertex>(vertices.begin(), vertices.end());
+            return path;
 		}));
 
 		double time = Utils::measure_time([&solver](){

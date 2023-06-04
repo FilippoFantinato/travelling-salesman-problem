@@ -19,8 +19,9 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						2,
-						3
+						0,
+						3,
+						4
 					]
 				},
 				{
@@ -56,7 +57,7 @@
 					"source" : "libraries/coordinate",
 					"targetIndexes" : 
 					[
-						0
+						1
 					]
 				},
 				{
@@ -71,7 +72,7 @@
 					"source" : "libraries/exceptions",
 					"targetIndexes" : 
 					[
-						1
+						2
 					]
 				},
 				{
@@ -86,7 +87,7 @@
 					"source" : "libraries/tour",
 					"targetIndexes" : 
 					[
-						4
+						5
 					]
 				},
 				{
@@ -101,7 +102,7 @@
 					"source" : "libraries/tsp-file",
 					"targetIndexes" : 
 					[
-						5
+						6
 					]
 				},
 				{
@@ -116,7 +117,7 @@
 					"source" : "libraries/tsp-readers",
 					"targetIndexes" : 
 					[
-						6
+						7
 					]
 				},
 				{
@@ -131,7 +132,7 @@
 					"source" : "libraries/tsp-solvers",
 					"targetIndexes" : 
 					[
-						7
+						8
 					]
 				},
 				{
@@ -146,7 +147,7 @@
 					"source" : "libraries/utils",
 					"targetIndexes" : 
 					[
-						8
+						9
 					]
 				}
 			],
@@ -177,12 +178,20 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ant-colony::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ant-colony-Debug-68183fa25bcfbfb04fd6.json",
+					"name" : "ant-colony",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 2,
 					"id" : "coordinate::@37d150fcf1271077b511",
@@ -200,14 +209,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "gavish-graves::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gavish-graves-Debug-1f60d973b6d0cff15419.json",
+					"jsonFile" : "target-gavish-graves-Debug-dff4f6ef1b7fdf7de170.json",
 					"name" : "gavish-graves",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "lin-kernighan::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-lin-kernighan-Debug-bbaaa50d1919610cb72e.json",
+					"jsonFile" : "target-lin-kernighan-Debug-dde17d129f3ba73c0c38.json",
 					"name" : "lin-kernighan",
 					"projectIndex" : 0
 				},
@@ -242,7 +251,7 @@
 				{
 					"directoryIndex" : 8,
 					"id" : "utils::@d7b23c7729ce88f2ee67",
-					"jsonFile" : "target-utils-Debug-7d35f54c472f3dee793e.json",
+					"jsonFile" : "target-utils-Debug-db70a1d8f9a91636beb5.json",
 					"name" : "utils",
 					"projectIndex" : 0
 				}

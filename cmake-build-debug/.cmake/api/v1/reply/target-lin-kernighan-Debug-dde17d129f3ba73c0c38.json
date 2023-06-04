@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "bin/gavish-graves"
+			"path" : "bin/lin-kernighan"
 		}
 	],
 	"backtrace" : 1,
@@ -26,25 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 32,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 37,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 45,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 31,
+				"line" : 46,
 				"parent" : 0
 			}
 		]
@@ -61,7 +55,7 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"path" : "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include"
 				}
 			],
@@ -104,7 +98,7 @@
 			"id" : "utils::@d7b23c7729ce88f2ee67"
 		}
 	],
-	"id" : "gavish-graves::@6890427a1f51a3e7e1df",
+	"id" : "lin-kernighan::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -153,16 +147,6 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
-				"fragment" : "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a",
-				"role" : "libraries"
-			},
-			{
 				"backtrace" : 2,
 				"fragment" : "libraries/coordinate/libcoordinate.a",
 				"role" : "libraries"
@@ -180,8 +164,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "gavish-graves",
-	"nameOnDisk" : "gavish-graves",
+	"name" : "lin-kernighan",
+	"nameOnDisk" : "lin-kernighan",
 	"paths" : 
 	{
 		"build" : ".",
@@ -210,18 +194,18 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "gavish-graves/main.cpp",
+			"path" : "lin-kernighan/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "gavish-graves/GavishGraves.h",
+			"path" : "lin-kernighan/LinKernighan.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "gavish-graves/GavishGraves.cpp",
+			"path" : "lin-kernighan/LinKernighan.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

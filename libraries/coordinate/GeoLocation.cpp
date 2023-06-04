@@ -5,7 +5,7 @@ GeoLocation::GeoLocation(double x, double y)
 
 double GeoLocation::distance(const Coordinate& geo_location) const
 {
-    const GeoLocation& geo = dynamic_cast<const GeoLocation&>(geo_location);
+    const auto& geo = dynamic_cast<const GeoLocation&>(geo_location);
 
     double RRR = 6378.388;
     double q1 = cos(longitude - geo.longitude);

@@ -4,7 +4,7 @@ ATTPoint::ATTPoint(double x, double y) : x(x), y(y) {}
 
 double ATTPoint::distance(const Coordinate& att_point) const
 {
-    const ATTPoint& att = dynamic_cast<const ATTPoint&>(att_point);
+    const auto& att = dynamic_cast<const ATTPoint&>(att_point);
     
     double xd = x - att.x;
     double yd = y - att.y;

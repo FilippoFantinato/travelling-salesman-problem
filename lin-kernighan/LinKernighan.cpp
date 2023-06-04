@@ -2,11 +2,16 @@
 
 LinKernighan::LinKernighan(
         const TSP& tsp,
-        const std::function<std::vector<Vertex>*(const TSP&)>& initial_path,
+        const std::function<std::vector<Vertex> const *(const TSP&)>& initial_path,
         const std::string& name)
     : TSPSolver(tsp, name), path(initial_path(tsp))
 {
-
+    std::cout << "Initial path: ";
+    for(auto& e : *path) {
+        std::cout << e << " ";
+    }
+    std::cout << std::endl;
+    this->cost = Tour::compute_tour_cost(tsp, *path);
 }
 
 double LinKernighan::get_solution_cost() const
@@ -25,7 +30,8 @@ double LinKernighan::solve()
         for(auto e : tsp.get_adj_list_by_vertex(v))
         {
             Vertex u = e.first;
-            Weight w = e.second; 
+            Weight w = e.second;
+
             if(w > 0 && (std::find(path->cbegin(), path->cend(), u) != path->cend()))
             {
                 neighbours[v].push_back(u);
@@ -36,10 +42,15 @@ double LinKernighan::solve()
     while(better)
     {
         better = improve();
-        solutions[*path] = true;
+        std::cout << "Improved path: ";
+        for(auto& e : *path) {
+            std::cout << e << " ";
+        }
+        std::cout << std::endl;
+        solutions.insert(*path);
     }
 
-    cost += compute_tour_cost(tsp, *path);
+    cost = Tour::compute_path_cost(tsp, std::vector<Vertex>(path->cbegin(), path->cend()));
 
     return cost;
 }
@@ -50,8 +61,8 @@ bool LinKernighan::improve()
 
     for(auto u : *path)
     {
-        std::vector<Vertex> around = tour.around(u);
-        for(auto v : around)
+        std::vector<Vertex> *around = tour.around(u);
+        for(auto v : *around)
         {
             double gain = tsp.get_weight(u, v);
             std::vector<VertexPair> broken({VertexPair(u, v)});
@@ -60,24 +71,25 @@ bool LinKernighan::improve()
 
             int tries = 5;
 
-            for(auto& el : close)
+            for(const auto& el : *close)
             {
-                const Vertex& t = el.first;
-                const double& g = el.second[1];
+                Vertex t = el.first;
+                double g = el.second[1];
 
-                if(std::find(around.cbegin(), around.cend(), t) == around.cend())
+                if(std::find(around->begin(), around->end(), t) != around->end())
                 {
-                    std::vector<VertexPair> joined({VertexPair(v, t)});
-
-                    if(chooseX(tour, u, t, g, broken, joined))
-                    {
-                        return true;
-                    }
-
-                    tries -= 1;
-
-                    if(tries == 0) break;
+                    continue;
                 }
+                std::vector<VertexPair> joined({VertexPair(v, t)});
+
+                if(chooseX(tour, u, t, g, broken, joined))
+                {
+                    return true;
+                }
+
+                tries -= 1;
+
+                if(tries == 0) break;
             }
         }
     }
@@ -85,11 +97,11 @@ bool LinKernighan::improve()
     return false;
 }
 
-std::multiset<std::pair<Vertex, std::vector<double>>, CmpGainNeighbours> LinKernighan::closest(
-		const Vertex& v, 
+std::multiset<std::pair<Vertex, std::vector<double>>, CmpGainNeighbours>* LinKernighan::closest(
+		Vertex v,
 		const Tour& tour, 
 		double gain, 
-		const std::vector<VertexPair>& broken, 
+		const std::vector<VertexPair>& broken,
 		const std::vector<VertexPair>& joined)
 {
     std::map<Vertex, std::vector<double>> neig;
@@ -99,18 +111,19 @@ std::multiset<std::pair<Vertex, std::vector<double>>, CmpGainNeighbours> LinKern
         VertexPair v_u(v, u);
         double g = gain - tsp.get_weight(v, u);
 
-        if((g <= 0) || 
-           (std::find(broken.cbegin(), broken.cend(), v_u) != broken.cend()) || 
-           (tour.index(v_u) != -1))
+        if((g <= 0) ||
+           (std::find(broken.cbegin(), broken.cend(), v_u) != broken.cend()) ||
+           (tour.contains(v_u)))
         {
             continue;
         }
 
-        for(auto t : tour.around(u))
+        auto around = tour.around(u);
+        for(auto t : *around)
         {
             VertexPair u_t(u, t);
 
-            if((std::find(broken.cbegin(), broken.cend(), u_t) == broken.cend()) && 
+            if((std::find(broken.cbegin(), broken.cend(), u_t) == broken.cend()) &&
                (std::find(joined.cbegin(), joined.cend(), u_t) == joined.cend()))
             {
                 double diff = tsp.get_weight(u, t) - tsp.get_weight(v, u);
@@ -127,35 +140,34 @@ std::multiset<std::pair<Vertex, std::vector<double>>, CmpGainNeighbours> LinKern
         }
     }
 
-    std::multiset<std::pair<Vertex, std::vector<double>>, CmpGainNeighbours> values(
-        neig.cbegin(),
-        neig.cend()
+    return new std::multiset<std::pair<Vertex, std::vector<double>>, CmpGainNeighbours>(
+            neig.cbegin(),
+            neig.cend()
     );
-
-    return values;
 }
 
 bool LinKernighan::chooseX(
 		const Tour& tour,
-		const Vertex& v,
-		const Vertex& last,
+		Vertex v,
+		Vertex last,
 		double gain,
 		const std::vector<VertexPair>& broken,
 		const std::vector<VertexPair>& joined)
 {
-    std::vector<Vertex> around;
+    std::vector<Vertex> *around;
     if(broken.size() == 4) {
-        std::vector<Vertex> tmp = tour.around(last);
-        const Vertex& pred = tmp[0];
-        const Vertex& succ = tmp[1];
-        
-        around.push_back(tsp.get_weight(pred, last) > tsp.get_weight(succ, last) 
+        std::vector<Vertex> *tmp = tour.around(last);
+        Vertex pred = *(tmp->begin());
+        Vertex succ = *(std::next(tmp->begin()));
+
+        around = new std::vector<Vertex>();
+        around->push_back(tsp.get_weight(pred, last) > tsp.get_weight(succ, last)
                             ? pred : succ);
     } else {
         around = tour.around(last);
     }
 
-    for(auto& u : around)
+    for(auto u : *around)
     {
         VertexPair last_u(last, u);
 
@@ -164,8 +176,8 @@ bool LinKernighan::chooseX(
         if(std::find(joined.begin(), joined.cend(), last_u) == joined.cend() &&
         std::find(broken.cbegin(), broken.cend(), last_u) == broken.cend())
         {
-            std::vector<VertexPair> added(joined);
-            std::vector<VertexPair> removed(broken);
+            std::vector<VertexPair> added(joined.begin(), joined.end());
+            std::vector<VertexPair> removed(broken.begin(), broken.end());
 
             removed.push_back(last_u);
             added.emplace_back(u, v);
@@ -173,30 +185,33 @@ bool LinKernighan::chooseX(
             double relink = g - tsp.get_weight(u, v);
             std::vector<Vertex> *new_tour = tour.generate(removed, added);
 
-            if(new_tour != nullptr || added.size() <= 2)
+            if(new_tour == nullptr && added.size() > 2)
             {
-                if (solutions.count(*new_tour) != 0)
-                    return false;
+                continue;
+            }
 
+            if(new_tour != nullptr && solutions.count(*new_tour) != 0)
+            {
+                return false;
+            }
 
-                if(new_tour != NULL && relink > 0)
+            if(new_tour != nullptr && relink > 0)
+            {
+                path = new_tour;
+                cost -= relink;
+                return true;
+            }
+            else
+            {
+                bool choice = chooseY(tour, v, u, g, removed, joined);
+
+                if(broken.size() == 2 && choice)
                 {
-                    path = new_tour;
-                    cost -= relink;
                     return true;
                 }
                 else
                 {
-                    bool choice = chooseY(tour, v, u, g, removed, joined);
-
-                    if(broken.size() == 2 && choice)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return choice;
-                    }
+                    return choice;
                 }
             }
         }
@@ -207,19 +222,19 @@ bool LinKernighan::chooseX(
 
 bool LinKernighan::chooseY(
     const Tour& tour,
-    const Vertex& v,
-    const Vertex& u,
+    Vertex v,
+    Vertex u,
     double gain,
     const std::vector<VertexPair>& broken,
     const std::vector<VertexPair>& joined)
 {
     auto ordered = closest(u, tour, gain, broken, joined);
     
-    int top = broken.size() == 2 ? 5 : 3;
+    int top = broken.size() == 2 ? 5 : 1;
 
-    for(auto& el: ordered)
+    for(const auto& el: *ordered)
     {
-        const Vertex& t = el.first;
+        Vertex t = el.first;
         VertexPair u_t(u, t);
 
         std::vector<VertexPair> added(joined);
@@ -234,7 +249,7 @@ bool LinKernighan::chooseY(
 
         if(top == 0)
         {
-            return true;
+            return false;
         }
     }
 

@@ -28,6 +28,21 @@ target_link_libraries(lin-kernighan
         utils)
 
 # =====================================================================================
+add_executable(ant-colony
+        ant-colony/main.cpp
+        ant-colony/AntColony.h
+        ant-colony/AntColony.cpp)
+
+target_link_libraries(ant-colony
+        coordinate
+        exceptions
+        tour
+        tsp-file
+        tsp-readers
+        tsp-solvers
+        utils)
+
+# =====================================================================================
 include_directories(${CPLEX_INC_DIR})
 add_executable(gavish-graves
         gavish-graves/main.cpp

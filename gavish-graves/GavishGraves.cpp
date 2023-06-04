@@ -5,23 +5,23 @@ GavishGraves::GavishGraves(const TSP& tsp, const std::string& name) : TSPCPXSolv
 void GavishGraves::build()
 {
     const std::set<Vertex>& vertices = tsp.get_vertices();
-    const std::set<Edge *>& edges = tsp.get_edges();
-    const int N = tsp.get_n();
+    const auto& edges = tsp.get_edges();
+    const size_t N = tsp.get_n();
     const Vertex IN = *(vertices.cbegin());
 
     std::map<Vertex, std::map<Vertex, int>> map_x;
     std::map<Vertex, std::map<Vertex, int>> map_y;
 
-    long current_var = 0;
+    int current_var = 0;
 
     // OBJ function
     
     // add y vars [in o.f.: sum[i, j] c_ij yij]
     for(auto edge: edges)
     {
-        Vertex i = std::get<0>(*edge);
-        Vertex j = std::get<1>(*edge);
-        Weight w = std::get<2>(*edge);
+        Vertex i = std::get<0>(edge);
+        Vertex j = std::get<1>(edge);
+        Weight w = std::get<2>(edge);
 
         char type = 'B';
         double lb = 0.0;
@@ -37,8 +37,8 @@ void GavishGraves::build()
     // add x vars
     for(auto edge: edges)
     {
-        Vertex i = std::get<0>(*edge);
-        Vertex j = std::get<1>(*edge);
+        Vertex i = std::get<0>(edge);
+        Vertex j = std::get<1>(edge);
 
         if(j != IN) {
             char type = 'C';
@@ -85,7 +85,7 @@ void GavishGraves::build()
                 }
             }
 
-            CHECKED_CPX_CALL(CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], NULL, NULL);
+            CHECKED_CPX_CALL(CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], nullptr, nullptr);
         }
     }
 
@@ -107,7 +107,7 @@ void GavishGraves::build()
             }
         }
 
-        CHECKED_CPX_CALL( CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], NULL, NULL);
+        CHECKED_CPX_CALL( CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], nullptr, nullptr);
     }
 
     // for all j in N, sum[i] y_i_j = 1
@@ -128,14 +128,14 @@ void GavishGraves::build()
             }
         }
 
-        CHECKED_CPX_CALL( CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], NULL, NULL);
+        CHECKED_CPX_CALL( CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], nullptr, nullptr);
     }
 
     // for all (i,j) in A, x_i_j <= (|N|-1) y_i_j
     for(auto edge: edges)
     {
-        Vertex i = std::get<0>(*edge);
-        Vertex j = std::get<1>(*edge);
+        Vertex i = std::get<0>(edge);
+        Vertex j = std::get<1>(edge);
 
         if(j != IN)
         {
@@ -145,7 +145,7 @@ void GavishGraves::build()
             double rhs = 0.0;
             int matbeg = 0;
 
-            CHECKED_CPX_CALL(CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], NULL, NULL);
+            CHECKED_CPX_CALL(CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], nullptr, nullptr);
         }
     }
 }

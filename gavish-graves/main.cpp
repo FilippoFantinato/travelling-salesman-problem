@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
 			double time = Utils::measure_time([&solver](){
 				solver->solve();
 			});
-			double obj_value = solver->get_obj_value();
+			double obj_value = solver->get_solution_cost();
 //			solver->write_file("out/");
 
 			std::cout << *info << std::endl << std::endl;

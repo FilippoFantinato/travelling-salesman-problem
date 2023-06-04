@@ -9,7 +9,7 @@
 
 namespace Utils
 {
-    std::shared_ptr<const TSP> tsp_from_coordinates(std::shared_ptr<const TSPFile::VertexCoordinates> coordinates);
+    std::shared_ptr<const TSP> tsp_from_coordinates(const TSPFile::VertexCoordinates& coordinates);
 }
 
 #endif

@@ -7,6 +7,7 @@
 class Coordinate
 {
 public:
+//    virtual ~Coordinate() = 0;
     virtual double distance(const Coordinate&) const = 0;
 };
 

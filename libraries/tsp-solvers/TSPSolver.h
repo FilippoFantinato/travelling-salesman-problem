@@ -14,7 +14,8 @@ public:
     virtual ~TSPSolver() = default;
 
     virtual double solve() = 0;
-    virtual void write_file(const std::string& directory = "") = 0;
+    virtual void write_file(const std::string& directory) = 0;
+    virtual double get_solution_cost() const = 0;
 };
 
 #endif

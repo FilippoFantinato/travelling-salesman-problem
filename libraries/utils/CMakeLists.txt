@@ -8,4 +8,7 @@ add_library(utils
         trim.cpp
         tsp.h
         tsp.cpp
-        measure-time.h)
+        measure-time.h
+        hash-combine.h
+        hash-combine.cpp
+        random.h)

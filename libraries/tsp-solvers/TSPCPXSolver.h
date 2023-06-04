@@ -15,15 +15,14 @@ protected:
 public:
     TSPCPXSolver(const TSP& tsp, const std::string& name);
 
-    double get_obj_value() const;
+    double get_solution_cost() const override;
     std::shared_ptr<std::vector<double>> get_vars() const;
     std::shared_ptr<std::vector<double>> get_vars(const int N_COLS) const; 
 
     virtual void build() = 0;
     double solve() override;
-    void write_file(const std::string& directory = "") override;
+    void write_file(const std::string& directory) override;
     void free();
-
 };
 
 // std::vector<double> varVals;
