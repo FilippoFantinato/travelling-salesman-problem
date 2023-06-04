@@ -28,18 +28,18 @@ double TSPCPXSolver::get_solution_cost() const
     return obj_value;
 }
 
-std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars(const int N_COLS) const
+std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars(const size_t N_COLS) const
 {
     std::vector<double> var_vals(N_COLS, 0);
 
-    CHECKED_CPX_CALL( CPXgetx, env, lp, &var_vals[0], 0, N_COLS - 1);
+    CHECKED_CPX_CALL(CPXgetx, env, lp, &var_vals[0], 0, N_COLS - 1);
     
     return std::make_shared<std::vector<double>>(var_vals);
 }
 
 std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars() const
 {
-    const int N_COLS = CPXgetnumcols(env, lp);
+    size_t N_COLS = CPXgetnumcols(env, lp);
     return get_vars(N_COLS);
 }
 
@@ -61,6 +61,6 @@ void TSPCPXSolver::write_file(const std::string& directory)
 
 void TSPCPXSolver::free()
 {
-    // CPXfreeprob(env, &lp);
-    // CPXcloseCPLEX(&env);
+     CPXfreeprob(env, &lp);
+     CPXcloseCPLEX(const_cast<CPXENVptr *>(&env));
 }

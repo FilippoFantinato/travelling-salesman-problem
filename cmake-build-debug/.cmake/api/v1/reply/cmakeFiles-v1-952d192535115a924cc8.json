@@ -131,7 +131,7 @@
 			"path" : "libraries/exceptions/CMakeLists.txt"
 		},
 		{
-			"path" : "libraries/tour/CMakeLists.txt"
+			"path" : "libraries/path/CMakeLists.txt"
 		},
 		{
 			"path" : "libraries/tsp-file/CMakeLists.txt"

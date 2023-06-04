@@ -20,8 +20,7 @@
 					"targetIndexes" : 
 					[
 						0,
-						3,
-						4
+						3
 					]
 				},
 				{
@@ -76,18 +75,18 @@
 					]
 				},
 				{
-					"build" : "libraries/tour",
-					"jsonFile" : "directory-libraries.tour-Debug-cea77cacd29f001182b9.json",
+					"build" : "libraries/path",
+					"jsonFile" : "directory-libraries.path-Debug-268d025f30eb5f9503ee.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.24"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 0,
-					"source" : "libraries/tour",
+					"source" : "libraries/path",
 					"targetIndexes" : 
 					[
-						5
+						4
 					]
 				},
 				{
@@ -102,7 +101,7 @@
 					"source" : "libraries/tsp-file",
 					"targetIndexes" : 
 					[
-						6
+						5
 					]
 				},
 				{
@@ -117,7 +116,7 @@
 					"source" : "libraries/tsp-readers",
 					"targetIndexes" : 
 					[
-						7
+						6
 					]
 				},
 				{
@@ -132,7 +131,7 @@
 					"source" : "libraries/tsp-solvers",
 					"targetIndexes" : 
 					[
-						8
+						7
 					]
 				},
 				{
@@ -147,7 +146,7 @@
 					"source" : "libraries/utils",
 					"targetIndexes" : 
 					[
-						9
+						8
 					]
 				}
 			],
@@ -178,8 +177,7 @@
 						5,
 						6,
 						7,
-						8,
-						9
+						8
 					]
 				}
 			],
@@ -188,7 +186,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ant-colony::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ant-colony-Debug-68183fa25bcfbfb04fd6.json",
+					"jsonFile" : "target-ant-colony-Debug-c77df3c94b57e382aca8.json",
 					"name" : "ant-colony",
 					"projectIndex" : 0
 				},
@@ -209,22 +207,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "gavish-graves::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gavish-graves-Debug-dff4f6ef1b7fdf7de170.json",
+					"jsonFile" : "target-gavish-graves-Debug-bb7a7a8a8d3d4c6795d7.json",
 					"name" : "gavish-graves",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 0,
-					"id" : "lin-kernighan::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-lin-kernighan-Debug-dde17d129f3ba73c0c38.json",
-					"name" : "lin-kernighan",
-					"projectIndex" : 0
-				},
-				{
 					"directoryIndex" : 4,
-					"id" : "tour::@30c405cb062b624914ec",
-					"jsonFile" : "target-tour-Debug-c4bf3ae2eacf8ca5ee25.json",
-					"name" : "tour",
+					"id" : "path::@7fd0f0ea2866f8ed77e4",
+					"jsonFile" : "target-path-Debug-e7dab3c22f131f459170.json",
+					"name" : "path",
 					"projectIndex" : 0
 				},
 				{
@@ -251,7 +242,7 @@
 				{
 					"directoryIndex" : 8,
 					"id" : "utils::@d7b23c7729ce88f2ee67",
-					"jsonFile" : "target-utils-Debug-db70a1d8f9a91636beb5.json",
+					"jsonFile" : "target-utils-Debug-6138f67791f7824f7157.json",
 					"name" : "utils",
 					"projectIndex" : 0
 				}

@@ -41,53 +41,13 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target lin-kernighan
-
-
-#############################################
-# Order-only phony target for lin-kernighan
-
-build cmake_object_order_depends_target_lin-kernighan: phony || cmake_object_order_depends_target_coordinate cmake_object_order_depends_target_exceptions cmake_object_order_depends_target_tour cmake_object_order_depends_target_tsp-file cmake_object_order_depends_target_tsp-readers cmake_object_order_depends_target_tsp-solvers cmake_object_order_depends_target_utils
-
-build CMakeFiles/lin-kernighan.dir/lin-kernighan/main.cpp.o: CXX_COMPILER__lin-kernighan_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/lin-kernighan/main.cpp || cmake_object_order_depends_target_lin-kernighan
-  DEP_FILE = CMakeFiles/lin-kernighan.dir/lin-kernighan/main.cpp.o.d
-  FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
-  INCLUDES = -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include
-  OBJECT_DIR = CMakeFiles/lin-kernighan.dir
-  OBJECT_FILE_DIR = CMakeFiles/lin-kernighan.dir/lin-kernighan
-
-build CMakeFiles/lin-kernighan.dir/lin-kernighan/LinKernighan.cpp.o: CXX_COMPILER__lin-kernighan_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/lin-kernighan/LinKernighan.cpp || cmake_object_order_depends_target_lin-kernighan
-  DEP_FILE = CMakeFiles/lin-kernighan.dir/lin-kernighan/LinKernighan.cpp.o.d
-  FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
-  INCLUDES = -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include
-  OBJECT_DIR = CMakeFiles/lin-kernighan.dir
-  OBJECT_FILE_DIR = CMakeFiles/lin-kernighan.dir/lin-kernighan
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target lin-kernighan
-
-
-#############################################
-# Link the executable bin/lin-kernighan
-
-build bin/lin-kernighan: CXX_EXECUTABLE_LINKER__lin-kernighan_Debug CMakeFiles/lin-kernighan.dir/lin-kernighan/main.cpp.o CMakeFiles/lin-kernighan.dir/lin-kernighan/LinKernighan.cpp.o | libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/tour/libtour.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a libraries/coordinate/libcoordinate.a libraries/tsp-file/libtsp-file.a libraries/exceptions/libexceptions.a || libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/tour/libtour.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a
-  FLAGS = -g -Wall -O2 -g
-  LINK_LIBRARIES = libraries/coordinate/libcoordinate.a  libraries/exceptions/libexceptions.a  libraries/tour/libtour.a  libraries/tsp-file/libtsp-file.a  libraries/tsp-readers/libtsp-readers.a  libraries/tsp-solvers/libtsp-solvers.a  libraries/utils/libutils.a  libraries/coordinate/libcoordinate.a  libraries/tsp-file/libtsp-file.a  libraries/exceptions/libexceptions.a
-  OBJECT_DIR = CMakeFiles/lin-kernighan.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = bin/lin-kernighan
-  TARGET_PDB = lin-kernighan.dbg
-
-# =============================================================================
 # Object build statements for EXECUTABLE target ant-colony
 
 
 #############################################
 # Order-only phony target for ant-colony
 
-build cmake_object_order_depends_target_ant-colony: phony || cmake_object_order_depends_target_coordinate cmake_object_order_depends_target_exceptions cmake_object_order_depends_target_tour cmake_object_order_depends_target_tsp-file cmake_object_order_depends_target_tsp-readers cmake_object_order_depends_target_tsp-solvers cmake_object_order_depends_target_utils
+build cmake_object_order_depends_target_ant-colony: phony || cmake_object_order_depends_target_coordinate cmake_object_order_depends_target_exceptions cmake_object_order_depends_target_path cmake_object_order_depends_target_tsp-file cmake_object_order_depends_target_tsp-readers cmake_object_order_depends_target_tsp-solvers cmake_object_order_depends_target_utils
 
 build CMakeFiles/ant-colony.dir/ant-colony/main.cpp.o: CXX_COMPILER__ant-colony_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/ant-colony/main.cpp || cmake_object_order_depends_target_ant-colony
   DEP_FILE = CMakeFiles/ant-colony.dir/ant-colony/main.cpp.o.d
@@ -111,9 +71,9 @@ build CMakeFiles/ant-colony.dir/ant-colony/AntColony.cpp.o: CXX_COMPILER__ant-co
 #############################################
 # Link the executable bin/ant-colony
 
-build bin/ant-colony: CXX_EXECUTABLE_LINKER__ant-colony_Debug CMakeFiles/ant-colony.dir/ant-colony/main.cpp.o CMakeFiles/ant-colony.dir/ant-colony/AntColony.cpp.o | libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/tour/libtour.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a libraries/coordinate/libcoordinate.a libraries/tsp-file/libtsp-file.a libraries/exceptions/libexceptions.a || libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/tour/libtour.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a
+build bin/ant-colony: CXX_EXECUTABLE_LINKER__ant-colony_Debug CMakeFiles/ant-colony.dir/ant-colony/main.cpp.o CMakeFiles/ant-colony.dir/ant-colony/AntColony.cpp.o | libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/path/libpath.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a libraries/coordinate/libcoordinate.a libraries/tsp-file/libtsp-file.a libraries/exceptions/libexceptions.a || libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/path/libpath.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a
   FLAGS = -g -Wall -O2 -g
-  LINK_LIBRARIES = libraries/coordinate/libcoordinate.a  libraries/exceptions/libexceptions.a  libraries/tour/libtour.a  libraries/tsp-file/libtsp-file.a  libraries/tsp-readers/libtsp-readers.a  libraries/tsp-solvers/libtsp-solvers.a  libraries/utils/libutils.a  libraries/coordinate/libcoordinate.a  libraries/tsp-file/libtsp-file.a  libraries/exceptions/libexceptions.a
+  LINK_LIBRARIES = libraries/coordinate/libcoordinate.a  libraries/exceptions/libexceptions.a  libraries/path/libpath.a  libraries/tsp-file/libtsp-file.a  libraries/tsp-readers/libtsp-readers.a  libraries/tsp-solvers/libtsp-solvers.a  libraries/utils/libutils.a  libraries/coordinate/libcoordinate.a  libraries/tsp-file/libtsp-file.a  libraries/exceptions/libexceptions.a
   OBJECT_DIR = CMakeFiles/ant-colony.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -127,7 +87,7 @@ build bin/ant-colony: CXX_EXECUTABLE_LINKER__ant-colony_Debug CMakeFiles/ant-col
 #############################################
 # Order-only phony target for gavish-graves
 
-build cmake_object_order_depends_target_gavish-graves: phony || cmake_object_order_depends_target_coordinate cmake_object_order_depends_target_exceptions cmake_object_order_depends_target_tour cmake_object_order_depends_target_tsp-file cmake_object_order_depends_target_tsp-readers cmake_object_order_depends_target_tsp-solvers cmake_object_order_depends_target_utils
+build cmake_object_order_depends_target_gavish-graves: phony || cmake_object_order_depends_target_coordinate cmake_object_order_depends_target_exceptions cmake_object_order_depends_target_path cmake_object_order_depends_target_tsp-file cmake_object_order_depends_target_tsp-readers cmake_object_order_depends_target_tsp-solvers cmake_object_order_depends_target_utils
 
 build CMakeFiles/gavish-graves.dir/gavish-graves/main.cpp.o: CXX_COMPILER__gavish-graves_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/gavish-graves/main.cpp || cmake_object_order_depends_target_gavish-graves
   DEP_FILE = CMakeFiles/gavish-graves.dir/gavish-graves/main.cpp.o.d
@@ -151,9 +111,9 @@ build CMakeFiles/gavish-graves.dir/gavish-graves/GavishGraves.cpp.o: CXX_COMPILE
 #############################################
 # Link the executable bin/gavish-graves
 
-build bin/gavish-graves: CXX_EXECUTABLE_LINKER__gavish-graves_Debug CMakeFiles/gavish-graves.dir/gavish-graves/main.cpp.o CMakeFiles/gavish-graves.dir/gavish-graves/GavishGraves.cpp.o | libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/tour/libtour.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a libraries/coordinate/libcoordinate.a libraries/tsp-file/libtsp-file.a libraries/exceptions/libexceptions.a || libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/tour/libtour.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a
+build bin/gavish-graves: CXX_EXECUTABLE_LINKER__gavish-graves_Debug CMakeFiles/gavish-graves.dir/gavish-graves/main.cpp.o CMakeFiles/gavish-graves.dir/gavish-graves/GavishGraves.cpp.o | libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/path/libpath.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a libraries/coordinate/libcoordinate.a libraries/tsp-file/libtsp-file.a libraries/exceptions/libexceptions.a || libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/path/libpath.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a
   FLAGS = -g -Wall -O2 -g
-  LINK_LIBRARIES = libraries/coordinate/libcoordinate.a  libraries/exceptions/libexceptions.a  libraries/tour/libtour.a  libraries/tsp-file/libtsp-file.a  libraries/tsp-readers/libtsp-readers.a  libraries/tsp-solvers/libtsp-solvers.a  libraries/utils/libutils.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a  libraries/coordinate/libcoordinate.a  libraries/tsp-file/libtsp-file.a  libraries/exceptions/libexceptions.a
+  LINK_LIBRARIES = libraries/coordinate/libcoordinate.a  libraries/exceptions/libexceptions.a  libraries/path/libpath.a  libraries/tsp-file/libtsp-file.a  libraries/tsp-readers/libtsp-readers.a  libraries/tsp-solvers/libtsp-solvers.a  libraries/utils/libutils.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a  libraries/coordinate/libcoordinate.a  libraries/tsp-file/libtsp-file.a  libraries/exceptions/libexceptions.a
   OBJECT_DIR = CMakeFiles/gavish-graves.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -353,64 +313,58 @@ build libraries/exceptions/rebuild_cache: phony libraries/exceptions/CMakeFiles/
 # =============================================================================
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target tour
+# Object build statements for STATIC_LIBRARY target path
 
 
 #############################################
-# Order-only phony target for tour
+# Order-only phony target for path
 
-build cmake_object_order_depends_target_tour: phony || libraries/tour/CMakeFiles/tour.dir
+build cmake_object_order_depends_target_path: phony || libraries/path/CMakeFiles/path.dir
 
-build libraries/tour/CMakeFiles/tour.dir/Tour.cpp.o: CXX_COMPILER__tour_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tour/Tour.cpp || cmake_object_order_depends_target_tour
-  DEP_FILE = libraries/tour/CMakeFiles/tour.dir/Tour.cpp.o.d
+build libraries/path/CMakeFiles/path.dir/path.cpp.o: CXX_COMPILER__path_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/path/path.cpp || cmake_object_order_depends_target_path
+  DEP_FILE = libraries/path/CMakeFiles/path.dir/path.cpp.o.d
   FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
-  OBJECT_DIR = libraries/tour/CMakeFiles/tour.dir
-  OBJECT_FILE_DIR = libraries/tour/CMakeFiles/tour.dir
-
-build libraries/tour/CMakeFiles/tour.dir/VertexPair.cpp.o: CXX_COMPILER__tour_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tour/VertexPair.cpp || cmake_object_order_depends_target_tour
-  DEP_FILE = libraries/tour/CMakeFiles/tour.dir/VertexPair.cpp.o.d
-  FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
-  OBJECT_DIR = libraries/tour/CMakeFiles/tour.dir
-  OBJECT_FILE_DIR = libraries/tour/CMakeFiles/tour.dir
+  OBJECT_DIR = libraries/path/CMakeFiles/path.dir
+  OBJECT_FILE_DIR = libraries/path/CMakeFiles/path.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target tour
+# Link build statements for STATIC_LIBRARY target path
 
 
 #############################################
-# Link the static library libraries/tour/libtour.a
+# Link the static library libraries/path/libpath.a
 
-build libraries/tour/libtour.a: CXX_STATIC_LIBRARY_LINKER__tour_Debug libraries/tour/CMakeFiles/tour.dir/Tour.cpp.o libraries/tour/CMakeFiles/tour.dir/VertexPair.cpp.o
+build libraries/path/libpath.a: CXX_STATIC_LIBRARY_LINKER__path_Debug libraries/path/CMakeFiles/path.dir/path.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g -Wall -O2 -g
-  OBJECT_DIR = libraries/tour/CMakeFiles/tour.dir
+  OBJECT_DIR = libraries/path/CMakeFiles/path.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = libraries/tour/libtour.a
-  TARGET_PDB = tour.a.dbg
+  TARGET_FILE = libraries/path/libpath.a
+  TARGET_PDB = path.a.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
-build libraries/tour/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/libraries/tour && /opt/clion/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+build libraries/path/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/libraries/path && /opt/clion/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build libraries/tour/edit_cache: phony libraries/tour/CMakeFiles/edit_cache.util
+build libraries/path/edit_cache: phony libraries/path/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build libraries/tour/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/libraries/tour && /opt/clion/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem -B/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug
+build libraries/path/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/libraries/path && /opt/clion/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem -B/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build libraries/tour/rebuild_cache: phony libraries/tour/CMakeFiles/rebuild_cache.util
+build libraries/path/rebuild_cache: phony libraries/path/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -655,12 +609,6 @@ build libraries/tsp-solvers/rebuild_cache: phony libraries/tsp-solvers/CMakeFile
 
 build cmake_object_order_depends_target_utils: phony || libraries/utils/CMakeFiles/utils.dir
 
-build libraries/utils/CMakeFiles/utils.dir/print.cpp.o: CXX_COMPILER__utils_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/utils/print.cpp || cmake_object_order_depends_target_utils
-  DEP_FILE = libraries/utils/CMakeFiles/utils.dir/print.cpp.o.d
-  FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
-  OBJECT_DIR = libraries/utils/CMakeFiles/utils.dir
-  OBJECT_FILE_DIR = libraries/utils/CMakeFiles/utils.dir
-
 build libraries/utils/CMakeFiles/utils.dir/trim.cpp.o: CXX_COMPILER__utils_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/utils/trim.cpp || cmake_object_order_depends_target_utils
   DEP_FILE = libraries/utils/CMakeFiles/utils.dir/trim.cpp.o.d
   FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
@@ -687,7 +635,7 @@ build libraries/utils/CMakeFiles/utils.dir/hash-combine.cpp.o: CXX_COMPILER__uti
 #############################################
 # Link the static library libraries/utils/libutils.a
 
-build libraries/utils/libutils.a: CXX_STATIC_LIBRARY_LINKER__utils_Debug libraries/utils/CMakeFiles/utils.dir/print.cpp.o libraries/utils/CMakeFiles/utils.dir/trim.cpp.o libraries/utils/CMakeFiles/utils.dir/tsp.cpp.o libraries/utils/CMakeFiles/utils.dir/hash-combine.cpp.o
+build libraries/utils/libutils.a: CXX_STATIC_LIBRARY_LINKER__utils_Debug libraries/utils/CMakeFiles/utils.dir/trim.cpp.o libraries/utils/CMakeFiles/utils.dir/tsp.cpp.o libraries/utils/CMakeFiles/utils.dir/hash-combine.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g -Wall -O2 -g
   OBJECT_DIR = libraries/utils/CMakeFiles/utils.dir
   POST_BUILD = :
@@ -733,7 +681,7 @@ build libcoordinate.a: phony libraries/coordinate/libcoordinate.a
 
 build libexceptions.a: phony libraries/exceptions/libexceptions.a
 
-build libtour.a: phony libraries/tour/libtour.a
+build libpath.a: phony libraries/path/libpath.a
 
 build libtsp-file.a: phony libraries/tsp-file/libtsp-file.a
 
@@ -743,9 +691,7 @@ build libtsp-solvers.a: phony libraries/tsp-solvers/libtsp-solvers.a
 
 build libutils.a: phony libraries/utils/libutils.a
 
-build lin-kernighan: phony bin/lin-kernighan
-
-build tour: phony libraries/tour/libtour.a
+build path: phony libraries/path/libpath.a
 
 build tsp-file: phony libraries/tsp-file/libtsp-file.a
 
@@ -763,14 +709,14 @@ build utils: phony libraries/utils/libutils.a
 #############################################
 # Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug
 
-build all: phony bin/lin-kernighan bin/ant-colony bin/gavish-graves libraries/all
+build all: phony bin/ant-colony bin/gavish-graves libraries/all
 
 # =============================================================================
 
 #############################################
 # Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/libraries
 
-build libraries/all: phony libraries/coordinate/all libraries/exceptions/all libraries/tour/all libraries/tsp-file/all libraries/tsp-readers/all libraries/tsp-solvers/all libraries/utils/all
+build libraries/all: phony libraries/coordinate/all libraries/exceptions/all libraries/path/all libraries/tsp-file/all libraries/tsp-readers/all libraries/tsp-solvers/all libraries/utils/all
 
 # =============================================================================
 
@@ -789,9 +735,9 @@ build libraries/exceptions/all: phony libraries/exceptions/libexceptions.a
 # =============================================================================
 
 #############################################
-# Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/libraries/tour
+# Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/libraries/path
 
-build libraries/tour/all: phony libraries/tour/libtour.a
+build libraries/path/all: phony libraries/path/libpath.a
 
 # =============================================================================
 
@@ -828,14 +774,14 @@ build libraries/utils/all: phony libraries/utils/libutils.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/coordinate/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/exceptions/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tour/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-file/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-solvers/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/utils/CMakeLists.txt /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/coordinate/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/exceptions/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/path/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-file/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-solvers/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/utils/CMakeLists.txt /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/coordinate/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/exceptions/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tour/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-file/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-solvers/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/utils/CMakeLists.txt /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
+build /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/coordinate/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/exceptions/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/path/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-file/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-solvers/CMakeLists.txt /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/utils/CMakeLists.txt /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake /opt/clion/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.25.2/CMakeCCompiler.cmake CMakeFiles/3.25.2/CMakeCXXCompiler.cmake CMakeFiles/3.25.2/CMakeSystem.cmake: phony
 
 
 #############################################

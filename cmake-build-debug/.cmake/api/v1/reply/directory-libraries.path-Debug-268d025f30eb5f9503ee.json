@@ -8,7 +8,7 @@
 	"installers" : [],
 	"paths" : 
 	{
-		"build" : "libraries/tour",
-		"source" : "libraries/tour"
+		"build" : "libraries/path",
+		"source" : "libraries/path"
 	}
 }

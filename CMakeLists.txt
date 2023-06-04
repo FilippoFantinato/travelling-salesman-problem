@@ -13,21 +13,6 @@ file(GLOB cplex_libraries ${CPLEX_STATIC}/*.a)
 add_subdirectory(libraries)
 
 # =====================================================================================
-add_executable(lin-kernighan
-        lin-kernighan/main.cpp
-        lin-kernighan/LinKernighan.h
-        lin-kernighan/LinKernighan.cpp)
-
-target_link_libraries(lin-kernighan
-        coordinate
-        exceptions
-        tour
-        tsp-file
-        tsp-readers
-        tsp-solvers
-        utils)
-
-# =====================================================================================
 add_executable(ant-colony
         ant-colony/main.cpp
         ant-colony/AntColony.h
@@ -36,7 +21,7 @@ add_executable(ant-colony
 target_link_libraries(ant-colony
         coordinate
         exceptions
-        tour
+        path
         tsp-file
         tsp-readers
         tsp-solvers
@@ -52,7 +37,7 @@ add_executable(gavish-graves
 target_link_libraries(gavish-graves
         coordinate
         exceptions
-        tour
+        path
         tsp-file
         tsp-readers
         tsp-solvers

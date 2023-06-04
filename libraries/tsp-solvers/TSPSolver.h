@@ -2,6 +2,7 @@
 #define TSPSOLVER_H
 
 #include "../tsp/tsp.h"
+#include "../path/path.h"
 
 class TSPSolver
 {
@@ -16,6 +17,7 @@ public:
     virtual double solve() = 0;
     virtual void write_file(const std::string& directory) = 0;
     virtual double get_solution_cost() const = 0;
+    virtual std::shared_ptr<Path> get_best_cycle() const = 0;
 };
 
 #endif

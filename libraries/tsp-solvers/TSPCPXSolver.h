@@ -17,11 +17,12 @@ public:
 
     double get_solution_cost() const override;
     std::shared_ptr<std::vector<double>> get_vars() const;
-    std::shared_ptr<std::vector<double>> get_vars(const int N_COLS) const; 
+    std::shared_ptr<std::vector<double>> get_vars(const size_t N_COLS) const;
 
-    virtual void build() = 0;
     double solve() override;
     void write_file(const std::string& directory) override;
+    virtual void build() = 0;
+    virtual std::shared_ptr<Path> get_best_cycle() const = 0;
     void free();
 };
 

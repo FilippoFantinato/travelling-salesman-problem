@@ -51,6 +51,17 @@ int main(int argc, char const *argv[])
         std::cout << *info << std::endl << std::endl;
         std::cout << "Execution time: " << time << "s" << std::endl;
         std::cout << "Object function value: " << obj_value << std::endl;
+
+        auto path = solver->get_best_cycle();
+
+        std::cout << "Best cycle: ";
+        for(const auto& el : *path)
+        {
+            std::cout << el << " ";
+        }
+        std::cout << std::endl;
+
+        std::cout << std::set(path->begin(), path->end()).size() << std::endl;
     }
     else
     {

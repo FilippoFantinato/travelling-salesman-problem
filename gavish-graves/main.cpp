@@ -4,7 +4,6 @@
 
 #include "../libraries/tsp-file/tsp-file.h"
 #include "../libraries/utils/measure-time.h"
-#include "../libraries/utils/print.h"
 #include "GavishGraves.h"
 
 int main(int argc, char const *argv[])
@@ -19,8 +18,6 @@ int main(int argc, char const *argv[])
 		std::shared_ptr<const TSPFile::TSPInformation> info = information_tsp->first;
 		std::shared_ptr<const TSP> tsp = information_tsp->second;
 
-		const int N = tsp->get_n();
-
 		try
 		{
 			std::shared_ptr<TSPCPXSolver> solver(new GavishGraves(*tsp, info->name));
@@ -29,15 +26,22 @@ int main(int argc, char const *argv[])
 				solver->solve();
 			});
 			double obj_value = solver->get_solution_cost();
-//			solver->write_file("out/");
+//			solver->write_file("gavish-graves/out/");
 
 			std::cout << *info << std::endl << std::endl;
 			std::cout << "Execution time: " << time << "s" << std::endl;
 			std::cout << "Object function value: " << obj_value << std::endl;
 
-			std::shared_ptr<std::vector<double>> var_vals = solver->get_vars(N*N-N);
+			std::shared_ptr<Path> path = solver->get_best_cycle();
 
-			// Utils::print_cli(*var_vals, N);
+            std::cout << "Best cycle: ";
+            for(const auto& el : *path)
+            {
+                std::cout << el << " ";
+            }
+            std::cout << std::endl;
+
+            std::cout << std::set(path->begin(), path->end()).size() << std::endl;
 		}
 		catch(const std::exception& e)
 		{

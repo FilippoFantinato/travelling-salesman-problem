@@ -9,9 +9,6 @@ void GavishGraves::build()
     const size_t N = tsp.get_n();
     const Vertex IN = *(vertices.cbegin());
 
-    std::map<Vertex, std::map<Vertex, int>> map_x;
-    std::map<Vertex, std::map<Vertex, int>> map_y;
-
     int current_var = 0;
 
     // OBJ function
@@ -148,4 +145,36 @@ void GavishGraves::build()
             CHECKED_CPX_CALL(CPXaddrows, env, lp, 0, 1, idx.size(), &rhs, &sense, &matbeg, &idx[0], &coef[0], nullptr, nullptr);
         }
     }
+}
+
+std::shared_ptr<Path> GavishGraves::get_best_cycle() const
+{
+    auto N = tsp.get_n();
+    auto n_vars = N*N - N;
+    auto vars = get_vars(n_vars);
+
+    std::map<Vertex, Vertex> successors;
+
+    for(int i = 0; i < N; ++i)
+    {
+        for(int j = 0; j < N; ++j)
+        {
+            if(i != j && (*vars)[map_y.at(i).at(j)] != 0)
+            {
+                successors[i] = j;
+            }
+        }
+    }
+
+    Vertex current = *tsp.get_vertices().cbegin();
+    Path best_cycle {current};
+
+    for(int i = 0; i < N-1; ++i)
+    {
+        Vertex next = successors.at(current);
+        best_cycle.push_back(next);
+        current = next;
+    }
+
+    return std::make_shared<Path>(best_cycle);
 }

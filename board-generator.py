@@ -1,8 +1,6 @@
 import argparse
 import random
 import math
-from enum import Enum
-from collections import defaultdict
 
 
 class TSPInformation:
@@ -26,10 +24,12 @@ def read_information(name: str, N: int) -> TSPInformation:
     return info
 
 
-def get_number_holes(length: float, width: float):
-    HOLE_DIM = 3; HOLE_DISTANCE = 1
-
-    dim = HOLE_DIM + HOLE_DISTANCE
+def get_number_holes(
+    length: float, 
+    width: float,
+    dim_holes: float,
+    distance_holes: float):
+    dim = dim_holes + distance_holes
 
     n_holes_length = math.floor(length / dim)
     n_holes_width  = math.floor(width / dim)
@@ -88,7 +88,7 @@ def init_args():
         "-N",
         type=int,
         required=True,
-        help="Number of points",
+        help="Number of holes",
     )
     parser.add_argument(
         "--out", 
@@ -100,13 +100,25 @@ def init_args():
         "--length",
         type=check_positivity,
         default=10,
-        help=""
+        help="Length of the board"
     )
     parser.add_argument(
         "--width",
         type=check_positivity,
         default=10,
-        help=""
+        help="Width of the board"
+    )
+    parser.add_argument(
+        "--dim_holes",
+        type=check_positivity,
+        default=3,
+        help="How big the holes are"
+    )
+    parser.add_argument(
+        "--distance_holes",
+        type=check_positivity,
+        default=1,
+        help="How big the holes are"
     )
 
     return parser
@@ -115,7 +127,11 @@ def init_args():
 def main():
     args = init_args().parse_args()
 
-    n_holes_length, n_holes_width = get_number_holes(args.length, args.width)
+    n_holes_length, n_holes_width = get_number_holes(
+        args.length, 
+        args.width,
+        args.dim_holes,
+        args.distance_holes)
 
     if(args.N > (n_holes_length * n_holes_width)): 
         raise Exception(f"Not enough space for {args.N} holes.")
@@ -126,7 +142,6 @@ def main():
                         n_holes_width, 
                         args.length, 
                         args.width)
-
     write_file(args.out, args.name, info, data)
 
 
