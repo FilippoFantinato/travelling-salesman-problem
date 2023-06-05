@@ -1,6 +1,6 @@
-#include "AntColony.h"
+#include "ACO.h"
 
-AntColony::AntColony(
+ACO::ACO(
         const TSP& tsp,
         double pheromone_level,
         double iteration,
@@ -30,19 +30,21 @@ AntColony::AntColony(
             intensity[i][j] = pheromone_level;
         }
     }
+
+    this->best_cycle_cost = std::make_pair(nullptr, std::numeric_limits<double>::infinity());
 }
 
-double AntColony::solve()
+double ACO::solve()
 {
     for(int i = 0; i < iteration; ++i)
     {
-        std::vector<std::shared_ptr<Path>> cycles;
+        std::vector<PairPathCost> cycles;
 
         std::random_device rd;
         std::mt19937 rng(rd());
         std::uniform_int_distribution<int> uni(0, tsp.get_vertices().size() - 1);
 
-        std::vector<std::future<std::shared_ptr<Path>>> ants;
+        std::vector<std::future<PairPathCost>> ants;
         for(int j = 0; j < n_ants; ++j)
         {
             ants.push_back(std::async(std::launch::async, [this, &uni, &rng]{
@@ -56,31 +58,29 @@ double AntColony::solve()
             cycles.push_back(ant.get());
         }
 
-        if(best_cycle)
+        if(best_cycle_cost.first)
         {
-            cycles.push_back(best_cycle);
+            cycles.push_back(best_cycle_cost);
         }
 
         update_intensity(cycles);
     }
 
-    return best_cost;
+    return best_cycle_cost.second;
 }
 
-// TODO: Optimize it by returning the length of the path
-std::shared_ptr<Path> AntColony::ant(Vertex source_node) const
+PairPathCost ACO::ant(Vertex source_node) const
 {
     std::unordered_set<Vertex> visited {source_node};
     Vertex current = source_node;
     Path cycle {source_node};
-//    double cycle_length = 0;
+    double cycle_cost = 0;
 
     for(int steps = 0; steps < (tsp.get_n() - 1); ++steps)
     {
         std::vector<Vertex> jumps_neighbours;
         std::vector<double> jump_probabilities;
 
-//        double sum_probs = 0;
         for(auto& node : tsp.get_vertices())
         {
             if(visited.count(node) == 0)
@@ -88,28 +88,25 @@ std::shared_ptr<Path> AntColony::ant(Vertex source_node) const
                 double pheromone_level = std::max(intensity[current][node], 1e-5);
                 double prob = (pow(pheromone_level, alpha)) * (pow(1/tsp.get_weight(current, node), beta));
 
-//                sum_probs += prob;
                 jumps_neighbours.push_back(node);
                 jump_probabilities.push_back(prob);
             }
         }
 
-//        for(auto& prob : jump_probabilities)
-//        {
-//            prob = prob / sum_probs;
-//        }
-
         Vertex next_node = Utils::choice(jumps_neighbours, jump_probabilities);
         visited.insert(next_node);
         cycle.push_back(next_node);
+        cycle_cost += tsp.get_weight(current, next_node);
 
         current = next_node;
     }
 
-    return std::make_shared<Path>(cycle);
+    cycle_cost += tsp.get_weight(*cycle.rbegin(), *cycle.begin());
+
+    return std::make_pair(std::make_shared<Path>(cycle), cycle_cost);
 }
 
-//void AntColony::update_intensity(const std::vector<std::shared_ptr<Path>>& cycles)
+//void ACO::update_intensity(const std::vector<std::shared_ptr<Path>>& cycles)
 //{
 //    for(const auto& cycle: cycles)
 //    {
@@ -134,7 +131,7 @@ std::shared_ptr<Path> AntColony::ant(Vertex source_node) const
 //    }
 //}
 
-void AntColony::update_intensity(const std::vector<std::shared_ptr<Path>>& cycles)
+void ACO::update_intensity(const std::vector<PairPathCost>& cycles)
 {
     size_t n = tsp.get_n();
     double update_matrix[n][n];
@@ -147,25 +144,29 @@ void AntColony::update_intensity(const std::vector<std::shared_ptr<Path>>& cycle
         }
     }
 
-    for(const auto& cycle: cycles)
+    auto best_cycle = best_cycle_cost.first;
+    double best_cost = best_cycle_cost.second;
+
+    for(const auto& current_cycle_cost: cycles)
     {
-        double cycle_cost = compute_tour_cost(tsp, *cycle);
-        if(cycle_cost < best_cost)
+        auto current_cycle = current_cycle_cost.first;
+        double current_cost = current_cycle_cost.second;
+
+        if(current_cost < best_cost)
         {
-            best_cost  = cycle_cost;
-            best_cycle = cycle;
+            best_cycle_cost = current_cycle_cost;
         }
 
-        double delta = q / cycle_cost;
+        double delta = q / current_cost;
 
-        for(int k = 0; k < (cycle->size() - 1); ++k)
+        for(int k = 0; k < (current_cycle->size() - 1); ++k)
         {
-            auto v = *std::next(cycle->begin(), k);
-            auto u = *std::next(cycle->begin(), k+1);
+            auto v = *std::next(current_cycle->begin(), k);
+            auto u = *std::next(current_cycle->begin(), k+1);
 
             update_matrix[v][u] += delta;
         }
-        update_matrix[*cycle->rbegin()][*cycle->begin()] += delta;
+        update_matrix[*current_cycle->rbegin()][*current_cycle->begin()] += delta;
     }
 
     for(int i = 0; i < n; ++i)
@@ -178,12 +179,12 @@ void AntColony::update_intensity(const std::vector<std::shared_ptr<Path>>& cycle
 }
 
 
-double AntColony::get_solution_cost() const
+double ACO::get_solution_cost() const
 {
-    return best_cost;
+    return best_cycle_cost.second;
 }
 
-std::shared_ptr<Path> AntColony::get_best_cycle() const
+std::shared_ptr<Path> ACO::get_best_cycle() const
 {
-    return best_cycle;
+    return best_cycle_cost.first;
 }

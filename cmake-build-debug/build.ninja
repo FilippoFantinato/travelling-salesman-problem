@@ -41,44 +41,44 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target ant-colony
+# Object build statements for EXECUTABLE target ant-colony-optimization
 
 
 #############################################
-# Order-only phony target for ant-colony
+# Order-only phony target for ant-colony-optimization
 
-build cmake_object_order_depends_target_ant-colony: phony || cmake_object_order_depends_target_coordinate cmake_object_order_depends_target_exceptions cmake_object_order_depends_target_path cmake_object_order_depends_target_tsp-file cmake_object_order_depends_target_tsp-readers cmake_object_order_depends_target_tsp-solvers cmake_object_order_depends_target_utils
+build cmake_object_order_depends_target_ant-colony-optimization: phony || cmake_object_order_depends_target_coordinate cmake_object_order_depends_target_exceptions cmake_object_order_depends_target_path cmake_object_order_depends_target_tsp-file cmake_object_order_depends_target_tsp-readers cmake_object_order_depends_target_tsp-solvers cmake_object_order_depends_target_utils
 
-build CMakeFiles/ant-colony.dir/ant-colony/main.cpp.o: CXX_COMPILER__ant-colony_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/ant-colony/main.cpp || cmake_object_order_depends_target_ant-colony
-  DEP_FILE = CMakeFiles/ant-colony.dir/ant-colony/main.cpp.o.d
+build CMakeFiles/ant-colony-optimization.dir/ant-colony-optimization/main.cpp.o: CXX_COMPILER__ant-colony-optimization_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/ant-colony-optimization/main.cpp || cmake_object_order_depends_target_ant-colony-optimization
+  DEP_FILE = CMakeFiles/ant-colony-optimization.dir/ant-colony-optimization/main.cpp.o.d
   FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
   INCLUDES = -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include
-  OBJECT_DIR = CMakeFiles/ant-colony.dir
-  OBJECT_FILE_DIR = CMakeFiles/ant-colony.dir/ant-colony
+  OBJECT_DIR = CMakeFiles/ant-colony-optimization.dir
+  OBJECT_FILE_DIR = CMakeFiles/ant-colony-optimization.dir/ant-colony-optimization
 
-build CMakeFiles/ant-colony.dir/ant-colony/AntColony.cpp.o: CXX_COMPILER__ant-colony_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/ant-colony/AntColony.cpp || cmake_object_order_depends_target_ant-colony
-  DEP_FILE = CMakeFiles/ant-colony.dir/ant-colony/AntColony.cpp.o.d
+build CMakeFiles/ant-colony-optimization.dir/ant-colony-optimization/ACO.cpp.o: CXX_COMPILER__ant-colony-optimization_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/ant-colony-optimization/ACO.cpp || cmake_object_order_depends_target_ant-colony-optimization
+  DEP_FILE = CMakeFiles/ant-colony-optimization.dir/ant-colony-optimization/ACO.cpp.o.d
   FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
   INCLUDES = -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include
-  OBJECT_DIR = CMakeFiles/ant-colony.dir
-  OBJECT_FILE_DIR = CMakeFiles/ant-colony.dir/ant-colony
+  OBJECT_DIR = CMakeFiles/ant-colony-optimization.dir
+  OBJECT_FILE_DIR = CMakeFiles/ant-colony-optimization.dir/ant-colony-optimization
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target ant-colony
+# Link build statements for EXECUTABLE target ant-colony-optimization
 
 
 #############################################
-# Link the executable bin/ant-colony
+# Link the executable bin/ant-colony-optimization
 
-build bin/ant-colony: CXX_EXECUTABLE_LINKER__ant-colony_Debug CMakeFiles/ant-colony.dir/ant-colony/main.cpp.o CMakeFiles/ant-colony.dir/ant-colony/AntColony.cpp.o | libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/path/libpath.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a libraries/coordinate/libcoordinate.a libraries/tsp-file/libtsp-file.a libraries/exceptions/libexceptions.a || libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/path/libpath.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a
+build bin/ant-colony-optimization: CXX_EXECUTABLE_LINKER__ant-colony-optimization_Debug CMakeFiles/ant-colony-optimization.dir/ant-colony-optimization/main.cpp.o CMakeFiles/ant-colony-optimization.dir/ant-colony-optimization/ACO.cpp.o | libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/path/libpath.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a libraries/coordinate/libcoordinate.a libraries/tsp-file/libtsp-file.a libraries/exceptions/libexceptions.a || libraries/coordinate/libcoordinate.a libraries/exceptions/libexceptions.a libraries/path/libpath.a libraries/tsp-file/libtsp-file.a libraries/tsp-readers/libtsp-readers.a libraries/tsp-solvers/libtsp-solvers.a libraries/utils/libutils.a
   FLAGS = -g -Wall -O2 -g
   LINK_LIBRARIES = libraries/coordinate/libcoordinate.a  libraries/exceptions/libexceptions.a  libraries/path/libpath.a  libraries/tsp-file/libtsp-file.a  libraries/tsp-readers/libtsp-readers.a  libraries/tsp-solvers/libtsp-solvers.a  libraries/utils/libutils.a  libraries/coordinate/libcoordinate.a  libraries/tsp-file/libtsp-file.a  libraries/exceptions/libexceptions.a
-  OBJECT_DIR = CMakeFiles/ant-colony.dir
+  OBJECT_DIR = CMakeFiles/ant-colony-optimization.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = bin/ant-colony
-  TARGET_PDB = ant-colony.dbg
+  TARGET_FILE = bin/ant-colony-optimization
+  TARGET_PDB = ant-colony-optimization.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target gavish-graves
@@ -669,7 +669,7 @@ build libraries/utils/rebuild_cache: phony libraries/utils/CMakeFiles/rebuild_ca
 # =============================================================================
 # Target aliases.
 
-build ant-colony: phony bin/ant-colony
+build ant-colony-optimization: phony bin/ant-colony-optimization
 
 build coordinate: phony libraries/coordinate/libcoordinate.a
 
@@ -709,7 +709,7 @@ build utils: phony libraries/utils/libutils.a
 #############################################
 # Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug
 
-build all: phony bin/ant-colony bin/gavish-graves libraries/all
+build all: phony bin/ant-colony-optimization bin/gavish-graves libraries/all
 
 # =============================================================================
 

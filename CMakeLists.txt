@@ -13,12 +13,12 @@ file(GLOB cplex_libraries ${CPLEX_STATIC}/*.a)
 add_subdirectory(libraries)
 
 # =====================================================================================
-add_executable(ant-colony
-        ant-colony/main.cpp
-        ant-colony/AntColony.h
-        ant-colony/AntColony.cpp)
+add_executable(ant-colony-optimization
+        ant-colony-optimization/main.cpp
+        ant-colony-optimization/ACO.h
+        ant-colony-optimization/ACO.cpp)
 
-target_link_libraries(ant-colony
+target_link_libraries(ant-colony-optimization
         coordinate
         exceptions
         path

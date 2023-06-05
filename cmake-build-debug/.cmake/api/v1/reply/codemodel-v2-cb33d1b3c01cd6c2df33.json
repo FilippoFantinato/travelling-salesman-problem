@@ -185,9 +185,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "ant-colony::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ant-colony-Debug-c77df3c94b57e382aca8.json",
-					"name" : "ant-colony",
+					"id" : "ant-colony-optimization::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ant-colony-optimization-Debug-2dbd722def7605839187.json",
+					"name" : "ant-colony-optimization",
 					"projectIndex" : 0
 				},
 				{
