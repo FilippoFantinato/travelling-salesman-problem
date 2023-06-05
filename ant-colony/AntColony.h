@@ -19,7 +19,7 @@ private:
     const double alpha;
     const double beta;
     const double q;
-    const double degradation_factor;
+    const double evaporation_factor;
 
     std::unique_ptr<std::unique_ptr<double[]>[]> intensity;
 
@@ -27,6 +27,8 @@ private:
     double best_cost = std::numeric_limits<double>::infinity();
 
     std::shared_ptr<Path> ant(Vertex source_node) const;
+
+    void update_intensity(const std::vector<std::shared_ptr<Path>> &cycles);
 
 public:
     AntColony(const TSP& tsp,
@@ -36,7 +38,7 @@ public:
               double alpha  = 0.9,
               double beta   = 1.5,
               double q      = 10,
-              double degradation_factor = 0.9,
+              double evaporation_factor = 0.9,
               const std::string& name = "");
 
     double solve() override;

@@ -39,7 +39,7 @@ int main(int argc, char const *argv[])
         std::shared_ptr<const TSP> tsp = information_tsp->second;
 
         auto pheromone = mean_tsp_distance(*tsp);
-        auto iterations = 50;
+        auto iterations = 100;
         auto n_ants = 200;
         std::shared_ptr<AntColony> solver(new AntColony(*tsp, pheromone, iterations, n_ants));
 
