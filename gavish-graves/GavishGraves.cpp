@@ -159,8 +159,10 @@ std::shared_ptr<Path> GavishGraves::get_best_cycle() const
     {
         for(int j = 0; j < N; ++j)
         {
-            if(i != j && (*vars)[map_y.at(i).at(j)] != 0)
+            if(i != j && (*vars)[map_y.at(i).at(j)] > 1e-5)
             {
+//                std::cout << "Adding: ";
+//                std::cout << "(" << i << ", " << j << ") " << (*vars)[map_y.at(i).at(j)] << std::endl;
                 successors[i] = j;
             }
         }
