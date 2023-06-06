@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])
         }
         std::cout << std::endl;
 
-//        std::cout << "Size of cycle: " << std::set(path->begin(), path->end()).size() << std::endl;
+        std::cout << "Size of cycle: " << std::set<Vertex>(path->begin(), path->end()).size() << std::endl;
     }
     else
     {

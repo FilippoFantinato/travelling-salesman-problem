@@ -64,7 +64,7 @@ int main(int argc, char const *argv[])
         }
         std::cout << std::endl;
 
-//        std::cout << std::set(path->begin(), path->end()).size() << std::endl;
+        std::cout << std::set<Vertex>(path->begin(), path->end()).size() << std::endl;
     }
     else
     {
