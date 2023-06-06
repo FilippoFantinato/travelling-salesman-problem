@@ -2,22 +2,23 @@
 #define DENSE_GRAPH_H
 
 #include <memory>
+
 #include "Graph.h"
 
 template <class V, class W>
 class DenseGraph : public Graph<V, W>
 {
 protected:
-    size_t n;
+    const size_t n;
 
-    std::unique_ptr<std::unique_ptr<W[]>[]> matrix;
+    std::vector<std::vector<W>> matrix;
 
 public:
     DenseGraph(size_t dim) : Graph<V, W>(), n(dim) {
-        matrix = std::make_unique<std::unique_ptr<W[]>[]>(n);
+        matrix = std::vector<std::vector<W>>(n);
         for(size_t i = 0; i < n; ++i)
         {
-            matrix[i] = std::make_unique<W[]>(n);
+            matrix[i] = std::vector<W>(n);
             for(size_t j = 0; j < n; ++j)
             {
                 matrix[i][j] = std::numeric_limits<W>::infinity();
@@ -28,9 +29,13 @@ public:
     size_t get_n() const override { return this->n; }
     size_t get_m() const override { return this->edges.size(); }
 
-    const std::map<V, W>& get_adj_list_by_vertex(const V& v) const
+    std::vector<V> get_adj_list_by_vertex(const V& v) const
     {
-        return this->adj_list.at(v);
+        std::vector<V> v_adj_list;
+        for(int u = 0; u < n; ++u) if(exist_edge(v, u)) {
+            v_adj_list.push_back(u);
+        }
+        return v_adj_list;
     }
 
     const W& get_weight(const V& v, const V& t) const override

@@ -36,13 +36,12 @@ ACO::ACO(
 
 double ACO::solve()
 {
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> uni(0, tsp.get_vertices().size() - 1);
+
     for(int i = 0; i < iteration; ++i)
     {
         std::vector<PairPathCost> cycles;
-
-        std::random_device rd;
-        std::mt19937 rng(rd());
-        std::uniform_int_distribution<int> uni(0, tsp.get_vertices().size() - 1);
 
         std::vector<std::future<PairPathCost>> ants;
         for(int j = 0; j < n_ants; ++j)
@@ -53,14 +52,27 @@ double ACO::solve()
             }));
         }
         for(const auto& ant: ants) { ant.wait(); }
-        for(auto & ant : ants)
+        for(auto& ant : ants)
         {
             cycles.push_back(ant.get());
         }
 
-        if(best_cycle_cost.first)
+//        for(int j = 0; j < n_ants; ++j)
+//        {
+//            Vertex starting_node = uni(rng);
+//            cycles.push_back(this->ant(starting_node));
+//        }
+
+        double best_cost = best_cycle_cost.second;
+        for(const auto& current_cycle_cost: cycles)
         {
-            cycles.push_back(best_cycle_cost);
+            auto current_cycle = current_cycle_cost.first;
+            double current_cost = current_cycle_cost.second;
+
+            if(current_cost < best_cost)
+            {
+                best_cycle_cost = current_cycle_cost;
+            }
         }
 
         update_intensity(cycles);
@@ -106,56 +118,23 @@ PairPathCost ACO::ant(Vertex source_node) const
     return std::make_pair(std::make_shared<Path>(cycle), cycle_cost);
 }
 
-//void ACO::update_intensity(const std::vector<std::shared_ptr<Path>>& cycles)
-//{
-//    for(const auto& cycle: cycles)
-//    {
-//        double cycle_cost = compute_tour_cost(tsp, *cycle);
-//        if(cycle_cost < best_cost)
-//        {
-//            best_cost  = cycle_cost;
-//            best_cycle = cycle;
-//        }
-//
-//        double delta = q / cycle_cost;
-//
-//        for(int k = 0; k < (cycle->size() - 1); ++k)
-//        {
-//            auto v = *std::next(cycle->begin(), k);
-//            auto u = *std::next(cycle->begin(), k+1);
-//
-//            intensity[v][u] = intensity[v][u] * evaporation_factor + delta;
-//        }
-//        intensity[*cycle->rbegin()][*cycle->begin()] =
-//                intensity[*cycle->rbegin()][*cycle->begin()] * evaporation_factor + delta;
-//    }
-//}
-
 void ACO::update_intensity(const std::vector<PairPathCost>& cycles)
 {
     size_t n = tsp.get_n();
-    double update_matrix[n][n];
+    double delta_matrix[n][n];
 
     for(int i = 0; i < n; ++i)
     {
         for(int j = 0; j < n; ++j)
         {
-            update_matrix[i][j] = 0;
+            delta_matrix[i][j] = 0;
         }
     }
-
-    auto best_cycle = best_cycle_cost.first;
-    double best_cost = best_cycle_cost.second;
 
     for(const auto& current_cycle_cost: cycles)
     {
         auto current_cycle = current_cycle_cost.first;
         double current_cost = current_cycle_cost.second;
-
-        if(current_cost < best_cost)
-        {
-            best_cycle_cost = current_cycle_cost;
-        }
 
         double delta = q / current_cost;
 
@@ -164,16 +143,16 @@ void ACO::update_intensity(const std::vector<PairPathCost>& cycles)
             auto v = *std::next(current_cycle->begin(), k);
             auto u = *std::next(current_cycle->begin(), k+1);
 
-            update_matrix[v][u] += delta;
+            delta_matrix[v][u] += delta;
         }
-        update_matrix[*current_cycle->rbegin()][*current_cycle->begin()] += delta;
+        delta_matrix[*current_cycle->rbegin()][*current_cycle->begin()] += delta;
     }
 
     for(int i = 0; i < n; ++i)
     {
         for(int j = 0; j < n; ++j)
         {
-            intensity[i][j] = (1-evaporation_factor) * intensity[i][j] + update_matrix[i][j];
+            intensity[i][j] = (1-evaporation_factor) * intensity[i][j] + delta_matrix[i][j];
         }
     }
 }

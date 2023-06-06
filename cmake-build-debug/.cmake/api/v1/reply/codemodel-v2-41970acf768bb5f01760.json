@@ -8,7 +8,11 @@
 					"build" : ".",
 					"childIndexes" : 
 					[
-						1
+						1,
+						9,
+						10,
+						11,
+						12
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -16,12 +20,7 @@
 						"string" : "3.24"
 					},
 					"projectIndex" : 0,
-					"source" : ".",
-					"targetIndexes" : 
-					[
-						0,
-						3
-					]
+					"source" : "."
 				},
 				{
 					"build" : "libraries",
@@ -56,7 +55,7 @@
 					"source" : "libraries/coordinate",
 					"targetIndexes" : 
 					[
-						1
+						2
 					]
 				},
 				{
@@ -71,7 +70,7 @@
 					"source" : "libraries/exceptions",
 					"targetIndexes" : 
 					[
-						2
+						3
 					]
 				},
 				{
@@ -86,7 +85,7 @@
 					"source" : "libraries/path",
 					"targetIndexes" : 
 					[
-						4
+						6
 					]
 				},
 				{
@@ -101,7 +100,7 @@
 					"source" : "libraries/tsp-file",
 					"targetIndexes" : 
 					[
-						5
+						7
 					]
 				},
 				{
@@ -116,7 +115,7 @@
 					"source" : "libraries/tsp-readers",
 					"targetIndexes" : 
 					[
-						6
+						8
 					]
 				},
 				{
@@ -131,7 +130,7 @@
 					"source" : "libraries/tsp-solvers",
 					"targetIndexes" : 
 					[
-						7
+						9
 					]
 				},
 				{
@@ -146,7 +145,67 @@
 					"source" : "libraries/utils",
 					"targetIndexes" : 
 					[
-						8
+						10
+					]
+				},
+				{
+					"build" : "nearest-neighbour",
+					"jsonFile" : "directory-nearest-neighbour-Debug-8ea768440e577c21ab85.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "nearest-neighbour",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "ant-colony-optimization",
+					"jsonFile" : "directory-ant-colony-optimization-Debug-b34ef4161f49793aa00c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "ant-colony-optimization",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "ant-colony-system",
+					"jsonFile" : "directory-ant-colony-system-Debug-b00b70ac0b3f542e45b4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "ant-colony-system",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "gavish-graves",
+					"jsonFile" : "directory-gavish-graves-Debug-c78bda5bfa2da989fca7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "gavish-graves",
+					"targetIndexes" : 
+					[
+						4
 					]
 				}
 			],
@@ -164,7 +223,11 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9,
+						10,
+						11,
+						12
 					],
 					"name" : "lin-kernighan",
 					"targetIndexes" : 
@@ -177,72 +240,88 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9,
+						10
 					]
 				}
 			],
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 0,
-					"id" : "ant-colony-optimization::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ant-colony-optimization-Debug-2dbd722def7605839187.json",
+					"directoryIndex" : 10,
+					"id" : "ant-colony-optimization::@ad8b21b3bc94e9102b2a",
+					"jsonFile" : "target-ant-colony-optimization-Debug-86074d1d3518fc41132e.json",
 					"name" : "ant-colony-optimization",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "ant-colony-system::@8d08e4a571395e1d0f02",
+					"jsonFile" : "target-ant-colony-system-Debug-13924fb0167b3358f0ce.json",
+					"name" : "ant-colony-system",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "coordinate::@37d150fcf1271077b511",
-					"jsonFile" : "target-coordinate-Debug-4284cfff031b45abb9c6.json",
+					"jsonFile" : "target-coordinate-Debug-f8bbeb5fd92c402736c6.json",
 					"name" : "coordinate",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "exceptions::@b3181ca761bffe50f1d8",
-					"jsonFile" : "target-exceptions-Debug-06816834af7f813a7923.json",
+					"jsonFile" : "target-exceptions-Debug-67ac5d97debd5239cff2.json",
 					"name" : "exceptions",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 0,
-					"id" : "gavish-graves::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gavish-graves-Debug-bb7a7a8a8d3d4c6795d7.json",
+					"directoryIndex" : 12,
+					"id" : "gavish-graves::@2520bb3d4e9c7361b4c0",
+					"jsonFile" : "target-gavish-graves-Debug-7426344582b497e2fbc8.json",
 					"name" : "gavish-graves",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "nearest-neighbour::@f530fb97f3cce67a74bb",
+					"jsonFile" : "target-nearest-neighbour-Debug-ea51d8a3e389e37dfc0e.json",
+					"name" : "nearest-neighbour",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "path::@7fd0f0ea2866f8ed77e4",
-					"jsonFile" : "target-path-Debug-e7dab3c22f131f459170.json",
+					"jsonFile" : "target-path-Debug-130965b43713751420ee.json",
 					"name" : "path",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 5,
 					"id" : "tsp-file::@5e4b29b4ee13e66d67b9",
-					"jsonFile" : "target-tsp-file-Debug-ec3ccf8d68e904c69c47.json",
+					"jsonFile" : "target-tsp-file-Debug-593698cb9fb09b5c4b03.json",
 					"name" : "tsp-file",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 6,
 					"id" : "tsp-readers::@5617abb2608e2f923869",
-					"jsonFile" : "target-tsp-readers-Debug-e5b958adef05cc0f3717.json",
+					"jsonFile" : "target-tsp-readers-Debug-9b54051772ae76176b5a.json",
 					"name" : "tsp-readers",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 7,
 					"id" : "tsp-solvers::@b2da3ee521dfe25e3177",
-					"jsonFile" : "target-tsp-solvers-Debug-5f5944e27eb60896613b.json",
+					"jsonFile" : "target-tsp-solvers-Debug-56074222c81fe6f623d6.json",
 					"name" : "tsp-solvers",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 8,
 					"id" : "utils::@d7b23c7729ce88f2ee67",
-					"jsonFile" : "target-utils-Debug-6138f67791f7824f7157.json",
+					"jsonFile" : "target-utils-Debug-9f7b72b573241752999c.json",
 					"name" : "utils",
 					"projectIndex" : 0
 				}

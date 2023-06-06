@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "bin/ant-colony-optimization"
+			"path" : "bin/nearest-neighbour"
 		}
 	],
 	"backtrace" : 1,
@@ -16,6 +16,7 @@
 		],
 		"files" : 
 		[
+			"nearest-neighbour/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -26,20 +27,23 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 16,
+				"line" : 3,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 21,
+				"line" : 8,
 				"parent" : 0
 			},
 			{
+				"file" : 1
+			},
+			{
 				"command" : 2,
-				"file" : 0,
-				"line" : 31,
-				"parent" : 0
+				"file" : 1,
+				"line" : 13,
+				"parent" : 3
 			}
 		]
 	},
@@ -55,7 +59,7 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include"
 				}
 			],
@@ -98,7 +102,7 @@
 			"id" : "utils::@d7b23c7729ce88f2ee67"
 		}
 	],
-	"id" : "ant-colony-optimization::@6890427a1f51a3e7e1df",
+	"id" : "nearest-neighbour::@f530fb97f3cce67a74bb",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -164,12 +168,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "ant-colony-optimization",
-	"nameOnDisk" : "ant-colony-optimization",
+	"name" : "nearest-neighbour",
+	"nameOnDisk" : "nearest-neighbour",
 	"paths" : 
 	{
-		"build" : ".",
-		"source" : "."
+		"build" : "nearest-neighbour",
+		"source" : "nearest-neighbour"
 	},
 	"sourceGroups" : 
 	[
@@ -194,18 +198,18 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "ant-colony-optimization/main.cpp",
+			"path" : "nearest-neighbour/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "ant-colony-optimization/ACO.h",
+			"path" : "nearest-neighbour/NearestNeighbour.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "ant-colony-optimization/ACO.cpp",
+			"path" : "nearest-neighbour/NearestNeighbour.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -10,7 +10,7 @@ using namespace std::chrono;
 
 namespace Utils
 {
-    double measure_time(auto f)
+    double measure_time(const std::function<void(void)>& f)
     {
         system_clock::time_point t1 = time_now();
         f();

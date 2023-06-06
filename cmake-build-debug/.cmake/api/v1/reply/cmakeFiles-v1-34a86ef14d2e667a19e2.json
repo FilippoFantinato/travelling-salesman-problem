@@ -144,6 +144,18 @@
 		},
 		{
 			"path" : "libraries/utils/CMakeLists.txt"
+		},
+		{
+			"path" : "nearest-neighbour/CMakeLists.txt"
+		},
+		{
+			"path" : "ant-colony-optimization/CMakeLists.txt"
+		},
+		{
+			"path" : "ant-colony-system/CMakeLists.txt"
+		},
+		{
+			"path" : "gavish-graves/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

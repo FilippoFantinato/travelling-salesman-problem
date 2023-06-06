@@ -17,7 +17,8 @@
 		],
 		"files" : 
 		[
-			"libraries/tsp-readers/CMakeLists.txt"
+			"libraries/tsp-readers/CMakeLists.txt",
+			"CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -35,6 +36,15 @@
 				"file" : 0,
 				"line" : 20,
 				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 13,
+				"parent" : 3
 			},
 			{
 				"command" : 2,
@@ -68,27 +78,31 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
+					"path" : "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include"
+				},
+				{
+					"backtrace" : 5,
 					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/coordinate"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 5,
 					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/../coordinate"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/utils"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 6,
 					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/../utils"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 7,
 					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/tsp_file"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 7,
 					"path" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/tsp-readers/../tsp-file"
 				}
 			],

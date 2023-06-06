@@ -7,7 +7,7 @@
 namespace Utils
 {
     template<class V>
-    V choice(const std::vector<V> choices, const std::vector<double>& weights)
+    const V& choice(const std::vector<V> choices, const std::vector<double>& weights)
     {
         std::random_device rd;
         std::discrete_distribution<> dist(weights.begin(), weights.end());
