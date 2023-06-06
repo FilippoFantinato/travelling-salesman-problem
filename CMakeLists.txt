@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.10)
 
 project(lin-kernighan)
 set(CMAKE_CXX_FLAGS "-g -Wall -O2")

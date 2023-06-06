@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.10)
 
 add_library(coordinate
         ATTPoint.h
@@ -7,5 +7,4 @@ add_library(coordinate
         GeoLocation.cpp
         GeoLocation.h
         Point.h
-        Point.cpp
-        )
+        Point.cpp)

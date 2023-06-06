@@ -55,7 +55,7 @@ public:
 
         this->matrix[v][t] = w;
 
-        this->edges.insert(std::tuple(v, t, w));
+        this->edges.insert(std::make_tuple(v, t, w));
     }
 
     std::ostream& format(std::ostream& os) const override {

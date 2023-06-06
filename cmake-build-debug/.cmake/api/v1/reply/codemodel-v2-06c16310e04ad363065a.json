@@ -17,7 +17,7 @@
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"projectIndex" : 0,
 					"source" : "."
@@ -37,7 +37,7 @@
 					"jsonFile" : "directory-libraries-Debug-a240e4b91e98ca34081a.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -48,7 +48,7 @@
 					"jsonFile" : "directory-libraries.coordinate-Debug-009781c0dc976cec78d8.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 0,
@@ -63,7 +63,7 @@
 					"jsonFile" : "directory-libraries.exceptions-Debug-885ebda0962a1c7374c0.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 0,
@@ -78,7 +78,7 @@
 					"jsonFile" : "directory-libraries.path-Debug-268d025f30eb5f9503ee.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 0,
@@ -93,7 +93,7 @@
 					"jsonFile" : "directory-libraries.tsp-file-Debug-4a23a30bbdab41c10512.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 0,
@@ -108,7 +108,7 @@
 					"jsonFile" : "directory-libraries.tsp-readers-Debug-98a866438ec0fdbc2994.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 0,
@@ -123,7 +123,7 @@
 					"jsonFile" : "directory-libraries.tsp-solvers-Debug-aa9c4bb01579bda9d5c5.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 0,
@@ -138,7 +138,7 @@
 					"jsonFile" : "directory-libraries.utils-Debug-5fbb9debfb45fcec19f9.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 0,
@@ -153,7 +153,7 @@
 					"jsonFile" : "directory-nearest-neighbour-Debug-8ea768440e577c21ab85.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -168,7 +168,7 @@
 					"jsonFile" : "directory-ant-colony-optimization-Debug-b34ef4161f49793aa00c.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -183,7 +183,7 @@
 					"jsonFile" : "directory-ant-colony-system-Debug-b00b70ac0b3f542e45b4.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -198,7 +198,7 @@
 					"jsonFile" : "directory-gavish-graves-Debug-c78bda5bfa2da989fca7.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.10"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,

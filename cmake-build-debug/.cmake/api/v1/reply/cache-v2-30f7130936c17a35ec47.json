@@ -1172,6 +1172,30 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/filippofantinato/Desktop/UniPD/travelling-salesman-problem"
+		},
+		{
+			"name" : "tsp-file_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;exceptions;"
+		},
+		{
+			"name" : "tsp-readers_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;coordinate;general;utils;general;tsp-file;"
 		}
 	],
 	"kind" : "cache",
