@@ -70,3 +70,5 @@
 4125	5834	1686045832929836680	ant-colony-system/CMakeFiles/ant-colony-system.dir/__/nearest-neighbour/NearestNeighbour.cpp.o	1986cc92fc22860f
 2985	6805	1686045833899846713	ant-colony-system/CMakeFiles/ant-colony-system.dir/ACS.cpp.o	63700da76a00cd35
 6805	6934	1686045834028848047	bin/ant-colony-system	13af4d461ac8fcfc
+3	1426	1686049886763715868	ant-colony-system/CMakeFiles/ant-colony-system.dir/main.cpp.o	a636daf263044d0
+1426	1561	1686049886896717244	bin/ant-colony-system	13af4d461ac8fcfc
