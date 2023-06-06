@@ -1,6 +1,8 @@
 #ifndef SPARSE_GRAPH_H
 #define SPARSE_GRAPH_H
 
+#include <vector>
+
 #include "Graph.h"
 
 template <class V, class W>

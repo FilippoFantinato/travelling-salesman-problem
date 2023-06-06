@@ -4,6 +4,7 @@
 #include <functional>
 #include <map>
 #include <set>
+#include <vector>
 #include <iostream>
 #include <limits>
 

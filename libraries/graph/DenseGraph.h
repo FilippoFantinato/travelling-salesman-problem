@@ -2,6 +2,7 @@
 #define DENSE_GRAPH_H
 
 #include <memory>
+#include <vector>
 
 #include "Graph.h"
 
