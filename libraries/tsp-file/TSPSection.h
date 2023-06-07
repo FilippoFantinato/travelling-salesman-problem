@@ -79,6 +79,6 @@ namespace TSPFile
 
         static EnumEdgeWeightFormat to_enum(std::string s);
     };
-};
+}
 
 #endif

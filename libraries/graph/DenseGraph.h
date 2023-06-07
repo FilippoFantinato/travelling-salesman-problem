@@ -27,17 +27,8 @@ public:
         }
     }
 
-    size_t get_n() const override { return this->n; }
-    size_t get_m() const override { return this->edges.size(); }
-
-    std::vector<V> get_adj_list_by_vertex(const V& v) const
-    {
-        std::vector<V> v_adj_list;
-        for(int u = 0; u < n; ++u) if(exist_edge(v, u)) {
-            v_adj_list.push_back(u);
-        }
-        return v_adj_list;
-    }
+    int get_n() const override { return this->n; }
+    int get_m() const override { return this->edges.size(); }
 
     const W& get_weight(const V& v, const V& t) const override
     {

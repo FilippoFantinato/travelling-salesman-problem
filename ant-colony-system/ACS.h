@@ -1,5 +1,5 @@
-#ifndef ACO_H
-#define ACO_H
+#ifndef ACS_H
+#define ACS_H
 
 #include <cmath>
 #include <iterator>
@@ -49,7 +49,6 @@ public:
     double solve() override;
     double get_solution_cost() const override;
     std::shared_ptr<Path> get_best_cycle() const override;
-    void write_file(const std::string &directory) override {}
 };
 
 #endif

@@ -19,3 +19,12 @@ double compute_tour_cost(const TSP& tsp, const Path& tour)
     return compute_path_cost(tsp, tour)
             + tsp.get_weight(*tour.rbegin(), *(tour.begin()));
 }
+
+std::ostream& operator<<(std::ostream& os, const Path& p)
+{
+    for(const auto& el : p)
+    {
+        os << el << " ";
+    }
+    return os;
+}

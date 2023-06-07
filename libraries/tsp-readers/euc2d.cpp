@@ -2,7 +2,6 @@
 
 namespace TSPFile::EUC2D
 {
-
     std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, int dimension)
     {
         return Utils::tsp_from_coordinates(*read_coordinates(ifd, dimension));
@@ -18,7 +17,7 @@ namespace TSPFile::EUC2D
             ifd >> v; ifd >> x; ifd >> y;
 
             coordinates.insert(
-                std::make_shared<std::pair<Vertex, std::shared_ptr<Coordinate>>>(i, new Point(x, y))
+                    std::pair<Vertex, std::shared_ptr<Coordinate>>(i, new Point(x, y))
             );
         }
 

@@ -10,7 +10,7 @@
 namespace TSPFile
 {
     typedef std::pair<Vertex, std::shared_ptr<Coordinate>> VertexCoordinate;
-    typedef std::set<std::shared_ptr<VertexCoordinate>> VertexCoordinates;
-};
+    typedef std::set<VertexCoordinate> VertexCoordinates;
+}
 
 #endif

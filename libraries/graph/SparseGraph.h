@@ -12,13 +12,8 @@ protected:
     std::map<V, std::map<V, W>> adj_list;
 
 public:
-    size_t get_n() const { return this->vertices.size(); }
-    size_t get_m() const { return this->edges.size(); }
-
-    const std::map<V, W>& get_adj_list_by_vertex(const V& v) const
-    {
-        return this->adj_list.at(v);
-    }
+    int get_n() const { return this->vertices.size(); }
+    int get_m() const { return this->edges.size(); }
 
     const W& get_weight(const V& v, const V& t) const override
     {

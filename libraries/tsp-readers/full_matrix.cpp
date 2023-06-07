@@ -22,4 +22,4 @@ namespace TSPFile::FULL_MATRIX
 
         return tsp;
     }
-};
+}

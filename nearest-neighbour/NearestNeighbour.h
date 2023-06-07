@@ -17,7 +17,6 @@ public:
                      const std::string& name = "");
 
     double solve() override;
-    void write_file(const std::string& directory) override;
     double get_solution_cost() const override;
     std::shared_ptr<Path> get_best_cycle() const override;
 };

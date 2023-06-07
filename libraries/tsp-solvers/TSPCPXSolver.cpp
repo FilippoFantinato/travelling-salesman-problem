@@ -20,6 +20,11 @@ TSPCPXSolver::TSPCPXSolver(const TSP& tsp, const std::string& name)
     }
 }
 
+TSPCPXSolver::~TSPCPXSolver()
+{
+    free();
+}
+
 double TSPCPXSolver::get_solution_cost() const
 {
     double obj_value;
@@ -28,7 +33,7 @@ double TSPCPXSolver::get_solution_cost() const
     return obj_value;
 }
 
-std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars(const size_t N_COLS) const
+std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars(size_t N_COLS) const
 {
     std::vector<double> var_vals(N_COLS, 0);
 
@@ -39,19 +44,24 @@ std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars(const size_t N_COLS)
 
 std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars() const
 {
-    size_t N_COLS = CPXgetnumcols(env, lp);
+    size_t N_COLS = get_n_vars();
     return get_vars(N_COLS);
+}
+
+size_t TSPCPXSolver::get_n_vars() const
+{
+    return CPXgetnumcols(env, lp);
 }
 
 double TSPCPXSolver::solve()
 {
     build();
-    CHECKED_CPX_CALL(CPXmipopt, env, lp );
+    CHECKED_CPX_CALL(CPXmipopt, env, lp);
 
     return get_solution_cost();
 }
 
-void TSPCPXSolver::write_file(const std::string& directory)
+void TSPCPXSolver::write_file(const std::string& directory) const
 {
     std::string path = directory + name;
 

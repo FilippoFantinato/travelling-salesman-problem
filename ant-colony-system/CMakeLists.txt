@@ -1,17 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
-add_executable(ant-colony-system
-        main.cpp
+add_library(ant-colony-system
         ACS.h
-        ACS.cpp
-        ../nearest-neighbour/NearestNeighbour.h
-        ../nearest-neighbour/NearestNeighbour.cpp)
+        ACS.cpp)
 
-target_link_libraries(ant-colony-system
-        coordinate
-        exceptions
-        path
-        tsp-file
-        tsp-readers
-        tsp-solvers
-        utils)
+add_executable(ant-colony-system-bin main.cpp)
+target_link_libraries(ant-colony-system-bin
+        ant-colony-system
+        nearest-neighbour
+        libraries)
+set_target_properties(ant-colony-system-bin
+        PROPERTIES OUTPUT_NAME ant-colony-system)

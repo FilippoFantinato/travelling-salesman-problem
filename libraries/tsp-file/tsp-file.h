@@ -25,8 +25,8 @@ namespace TSPFile
     typedef std::shared_ptr<const TSP> (*TSPHandler)(std::ifstream &ifd, int dimension);
     typedef std::pair<std::shared_ptr<const TSPInformation>, std::shared_ptr<const TSP>> PairInformationTSP;
 
-    std::shared_ptr<const PairInformationTSP> init_tsp_from_file(std::ifstream &ifd);
+    PairInformationTSP init_tsp_from_file(std::ifstream &ifd);
     TSPHandler choose_tsp_handler(const TSPInformation& info);
-};
+}
 
 #endif

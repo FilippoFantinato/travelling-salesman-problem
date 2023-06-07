@@ -17,7 +17,7 @@ namespace TSPFile::GEO
             ifd >> v; ifd >> x; ifd >> y;
 
             coordinates.insert(
-                std::make_shared<std::pair<Vertex, std::shared_ptr<Coordinate>>>(i, new GeoLocation(x, y))
+                std::pair<Vertex, std::shared_ptr<Coordinate>>(i, new GeoLocation(x, y))
             );
         }
 

@@ -1,16 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
-add_executable(gavish-graves
-        main.cpp
+add_library(gavish-graves
         GavishGraves.h
         GavishGraves.cpp)
 
-target_link_libraries(gavish-graves
-        coordinate
-        exceptions
-        path
-        tsp-file
-        tsp-readers
-        tsp-solvers
-        utils)
-target_link_libraries(gavish-graves ${cplex_libraries})
+add_executable(gavish-graves-bin main.cpp)
+target_link_libraries(gavish-graves-bin
+        gavish-graves
+        libraries
+        ${cplex_libraries})
+set_target_properties(gavish-graves-bin
+        PROPERTIES OUTPUT_NAME gavish-graves)

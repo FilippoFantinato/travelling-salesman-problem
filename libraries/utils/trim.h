@@ -16,6 +16,6 @@ namespace Utils
     void trim(std::string &s);
 
     std::string trim_copy(std::string s);
-};
+}
 
 #endif

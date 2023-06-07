@@ -17,7 +17,7 @@ namespace TSPFile::ATT
             ifd >> v; ifd >> x; ifd >> y;
 
             coordinates.insert(
-                std::make_shared<std::pair<Vertex, std::shared_ptr<Coordinate>>>(i, new ATTPoint(x, y))
+                std::pair<Vertex, std::shared_ptr<Coordinate>>(i, new ATTPoint(x, y))
             );
         }
 

@@ -41,7 +41,6 @@ double NearestNeighbour::solve()
     return best_cost;
 }
 
-void NearestNeighbour::write_file(const std::string& directory) { }
-
 std::shared_ptr<Path> NearestNeighbour::get_best_cycle() const { return best_cycle; }
+
 double NearestNeighbour::get_solution_cost() const { return best_cost; }

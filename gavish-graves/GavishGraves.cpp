@@ -1,13 +1,33 @@
 #include "GavishGraves.h"
 
-GavishGraves::GavishGraves(const TSP& tsp, const std::string& name) : TSPCPXSolver(tsp, name) { }
+GavishGraves::GavishGraves(const TSP& tsp, Vertex IN, const std::string& name)
+    : TSPCPXSolver(tsp, name), IN(IN)
+{
+    int N = tsp.get_n();
+
+    N_Y_VAR = N*N-N;
+    N_X_VAR = N*N-2*N-1;
+
+    // Initialization map for storing the indexes of x and y vars
+    map_y = std::make_unique<std::unique_ptr<int[]>[]>(N);
+    map_x = std::make_unique<std::unique_ptr<int[]>[]>(N);
+    for(int i = 0; i < N; ++i)
+    {
+        map_y[i] = std::make_unique<int[]>(N);
+        map_x[i] = std::make_unique<int[]>(N);
+        for(int j = 0; j < N; ++j)
+        {
+            map_y[i][j] = -1;
+            map_x[i][j] = -1;
+        }
+    }
+}
 
 void GavishGraves::build()
 {
     const std::set<Vertex>& vertices = tsp.get_vertices();
     const auto& edges = tsp.get_edges();
     const size_t N = tsp.get_n();
-    const Vertex IN = *(vertices.cbegin());
 
     int current_var = 0;
 
@@ -150,19 +170,15 @@ void GavishGraves::build()
 std::shared_ptr<Path> GavishGraves::get_best_cycle() const
 {
     auto N = tsp.get_n();
-    auto n_vars = N*N - N;
-    auto vars = get_vars(n_vars);
+    auto vars = get_vars(N_Y_VAR);
 
     std::map<Vertex, Vertex> successors;
-
     for(int i = 0; i < N; ++i)
     {
         for(int j = 0; j < N; ++j)
         {
-            if(i != j && (*vars)[map_y.at(i).at(j)] > 1e-5)
+            if(i != j && (*vars)[map_y[i][j]] > 1e-5)
             {
-//                std::cout << "Adding: ";
-//                std::cout << "(" << i << ", " << j << ") " << (*vars)[map_y.at(i).at(j)] << std::endl;
                 successors[i] = j;
             }
         }
@@ -170,7 +186,6 @@ std::shared_ptr<Path> GavishGraves::get_best_cycle() const
 
     Vertex current = *tsp.get_vertices().cbegin();
     Path best_cycle {current};
-
     for(int i = 0; i < N-1; ++i)
     {
         Vertex next = successors.at(current);

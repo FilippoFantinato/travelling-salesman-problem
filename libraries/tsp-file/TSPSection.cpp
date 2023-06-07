@@ -85,4 +85,4 @@ namespace TSPFile
             return EnumEdgeWeightFormat::none_edge_weight_format;
         }
     }
-};
+}

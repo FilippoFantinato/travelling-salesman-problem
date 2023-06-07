@@ -15,7 +15,7 @@ ACO::ACO(
     n_ants(n_ants),
     alpha(alpha),
     beta(beta),
-    q(q),
+    Q(q),
     evaporation_factor(evaporation_factor)
 {
     size_t n = tsp.get_n();
@@ -136,7 +136,7 @@ void ACO::update_intensity(const std::vector<PairPathCost>& cycles)
         auto current_cycle = current_cycle_cost.first;
         double current_cost = current_cycle_cost.second;
 
-        double delta = q / current_cost;
+        double delta = Q / current_cost;
 
         for(int k = 0; k < (current_cycle->size() - 1); ++k)
         {

@@ -92,4 +92,4 @@ namespace TSPFile
 
         return os;
     }
-};
+}

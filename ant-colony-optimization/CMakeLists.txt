@@ -1,17 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
-add_executable(ant-colony-optimization
-        main.cpp
+add_library(ant-colony-optimization
         ACO.h
-        ACO.cpp
-        ../nearest-neighbour/NearestNeighbour.h
-        ../nearest-neighbour/NearestNeighbour.cpp)
+        ACO.cpp)
 
-target_link_libraries(ant-colony-optimization
-        coordinate
-        exceptions
-        path
-        tsp-file
-        tsp-readers
-        tsp-solvers
-        utils)
+add_executable(ant-colony-optimization-bin main.cpp)
+target_link_libraries(ant-colony-optimization-bin
+        ant-colony-optimization
+        nearest-neighbour
+        libraries)
+set_target_properties(ant-colony-optimization-bin
+        PROPERTIES OUTPUT_NAME ant-colony-optimization)

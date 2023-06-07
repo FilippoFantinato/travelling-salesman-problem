@@ -7,11 +7,18 @@
 class GavishGraves : public TSPCPXSolver
 {
 private:
-    std::map<Vertex, std::map<Vertex, int>> map_x;
-    std::map<Vertex, std::map<Vertex, int>> map_y;
+    const Vertex IN;
+
+    int N_Y_VAR;
+    int N_X_VAR;
+
+    std::unique_ptr<std::unique_ptr<int[]>[]> map_y;
+    std::unique_ptr<std::unique_ptr<int[]>[]> map_x;
 
 public:
-    GavishGraves(const TSP& tsp, const std::string& name);
+    GavishGraves(const TSP& tsp,
+                 Vertex IN,
+                 const std::string& name = "");
 
     void build() override;
     std::shared_ptr<Path> get_best_cycle() const override;

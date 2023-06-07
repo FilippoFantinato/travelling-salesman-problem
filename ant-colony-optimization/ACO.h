@@ -19,7 +19,7 @@ private:
     const double n_ants;
     const double alpha;
     const double beta;
-    const double q;
+    const double Q;
     const double evaporation_factor;
 
     std::unique_ptr<std::unique_ptr<double[]>[]> intensity;
@@ -44,7 +44,6 @@ public:
     double solve() override;
     double get_solution_cost() const override;
     std::shared_ptr<Path> get_best_cycle() const override;
-    void write_file(const std::string &directory) override {}
 };
 
 #endif

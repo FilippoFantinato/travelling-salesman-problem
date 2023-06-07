@@ -2,13 +2,13 @@
 
 namespace TSPFile
 {
-    std::shared_ptr<const PairInformationTSP> init_tsp_from_file(std::ifstream &ifd)
+    PairInformationTSP init_tsp_from_file(std::ifstream &ifd)
     {
         std::shared_ptr<const TSPInformation> info = read_information(ifd);
         auto handler = choose_tsp_handler(*info);
         std::shared_ptr<const TSP> tsp = handler(ifd, info->dimension);
 
-        return std::make_shared<PairInformationTSP>(info, tsp);
+        return {info, tsp};
     }
 
     TSPHandler choose_tsp_handler(const TSPInformation& info)
@@ -42,5 +42,5 @@ namespace TSPFile
             throw EdgeWeightNotHandled(info.edge_weight_type);
         }
     }
-};
+}
 

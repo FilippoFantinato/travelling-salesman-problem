@@ -14,6 +14,6 @@ namespace TSPFile::ATT
 {
     std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, int dimension);
     std::shared_ptr<const VertexCoordinates> read_coordinates(std::ifstream& ifd, int dimension);
-};
+}
 
 #endif

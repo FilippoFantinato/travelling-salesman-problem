@@ -21,8 +21,8 @@ protected:
     std::set<V> vertices;
 
 public:
-    virtual size_t get_n() const = 0;
-    virtual size_t get_m() const = 0;
+    virtual int get_n() const = 0;
+    virtual int get_m() const = 0;
 
     const std::set<V>& get_vertices() const { return this->vertices; }
     const std::set<Edge>& get_edges() const { return this->edges; }

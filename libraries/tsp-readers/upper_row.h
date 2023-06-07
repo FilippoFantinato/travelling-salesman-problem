@@ -11,6 +11,6 @@
 namespace TSPFile::UPPER_ROW
 {
     std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, int dimension);
-};
+}
 
 #endif

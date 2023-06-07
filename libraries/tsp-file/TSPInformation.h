@@ -28,6 +28,6 @@ namespace TSPFile
     std::shared_ptr<const TSPInformation> read_information(std::ifstream &ifd);
 
     std::ostream& operator<<(std::ostream& os, const TSPFile::TSPInformation &info);
-};
+}
 
 #endif

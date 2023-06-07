@@ -20,5 +20,5 @@ namespace TSPFile::UPPER_ROW
 
         return tsp;
     }
-};
+}
 

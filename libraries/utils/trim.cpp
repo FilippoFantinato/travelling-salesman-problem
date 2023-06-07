@@ -27,4 +27,4 @@ namespace Utils
         trim(s);
         return s;
     }
-};
+}
