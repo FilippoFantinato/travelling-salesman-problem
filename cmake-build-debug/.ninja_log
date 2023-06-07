@@ -21,7 +21,7 @@
 3114	4580	1686139654546994801	libraries/CMakeFiles/libraries.dir/utils/tsp.cpp.o	13a0a1040ff0ab6
 3155	5310	1686139655277001690	gavish-graves/CMakeFiles/gavish-graves.dir/GavishGraves.cpp.o	876d77d0fa2964d3
 6	2092	1686139652058971324	libraries/CMakeFiles/libraries.dir/tsp-readers/euc2d.cpp.o	4c47720ce02018b6
-0	40	1686140762881435003	build.ninja	7c8d1fd772ca32d5
+0	40	1686141058365538043	build.ninja	7c8d1fd772ca32d5
 1437	1553	1686131700058720031	bin/ant-colony-system	7102a992c3dce706
 1520	3389	1686139653355983563	libraries/CMakeFiles/libraries.dir/tsp-readers/full_matrix.cpp.o	bf751b665a09b0f4
 5338	5906	1686139655867007257	bin/gavish-graves	d3d315599d09116a
@@ -47,6 +47,7 @@
 2	1752	1686139651718968116	libraries/CMakeFiles/libraries.dir/tsp-file/tsp-file.cpp.o	bd6aff14d5ae8940
 3	519	1686131484761511495	libraries/CMakeFiles/libraries.dir/exceptions/IncompleteTSPFile.cpp.o	8654ff7c055627f0
 0	465	1686123764322119559	libraries/utils/CMakeFiles/utils.dir/measure-time.cpp.o	87e4277d22ed9aca
+1	687	1686140768659495953	tsp	37b17ddca7c174b9
 2	2745	1686139669045131607	CMakeFiles/tsp.dir/cli/initializers.cpp.o	bc4a0b08f475eac8
 1	1098	1686123764955126569	ant-colony-system/CMakeFiles/ant-colony-system.dir/main.cpp.o	a636daf263044d0
 3026	3064	1686131487307538292	libraries/CMakeFiles/libraries.dir/utils/hash-combine.cpp.o	c6111121c3c99949
@@ -74,4 +75,4 @@
 3	1885	1686081190311698945	libraries/tsp-readers/CMakeFiles/tsp-readers.dir/att.cpp.o	6b757749c3676123
 3611	3643	1686139669942140071	ant-colony-system/libant-colony-system.a	e43ab80381383b3f
 1	1367	1686122331162337124	libraries/path/CMakeFiles/path.dir/path.cpp.o	eb6d4b1bfc4cce27
-1	687	1686140768659495953	tsp	37b17ddca7c174b9
+1	584	1686141059630551197	tsp	fc5d15ba9efdb2ec

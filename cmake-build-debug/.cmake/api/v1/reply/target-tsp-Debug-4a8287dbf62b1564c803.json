@@ -137,11 +137,6 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-ldl",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
 				"fragment" : "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a",
 				"role" : "libraries"
 			},

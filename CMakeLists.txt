@@ -34,7 +34,6 @@ target_link_libraries(tsp
         nearest-neighbour
         libraries)
 target_link_libraries(tsp
-        -ldl
         ${cplex_libraries}
         ${CMAKE_THREAD_LIBS_INIT}
         ${CMAKE_DL_LIBS})
