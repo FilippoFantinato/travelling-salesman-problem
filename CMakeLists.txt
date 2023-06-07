@@ -9,6 +9,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 set(CPLEX_INC_DIR "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include")
 set(CPLEX_STATIC "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic")
 
+find_package(Threads)
+
 # =====================================================================================
 file(GLOB cplex_libraries ${CPLEX_STATIC}/*.a)
 include_directories(${CPLEX_INC_DIR})
@@ -32,5 +34,5 @@ target_link_libraries(tsp
         ant-colony-system
         gavish-graves
         nearest-neighbour
-        libraries
-        ${cplex_libraries})
+        libraries)
+target_link_libraries(tsp ${cplex_libraries} ${CMAKE_THREAD_LIBS_INIT})

@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "bin/ant-colony-system"
+			"path" : "bin/gavish-graves"
 		}
 	],
 	"backtrace" : 1,
@@ -16,7 +16,7 @@
 		],
 		"files" : 
 		[
-			"ant-colony-system/CMakeLists.txt",
+			"gavish-graves/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -42,7 +42,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 14,
+				"line" : 16,
 				"parent" : 3
 			}
 		]
@@ -78,14 +78,10 @@
 		},
 		{
 			"backtrace" : 2,
-			"id" : "nearest-neighbour::@f530fb97f3cce67a74bb"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "ant-colony-system::@8d08e4a571395e1d0f02"
+			"id" : "gavish-graves::@2520bb3d4e9c7361b4c0"
 		}
 	],
-	"id" : "ant-colony-system-bin::@8d08e4a571395e1d0f02",
+	"id" : "gavish-graves-bin::@2520bb3d4e9c7361b4c0",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -100,28 +96,33 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "ant-colony-system/libant-colony-system.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "nearest-neighbour/libnearest-neighbour.a",
+				"fragment" : "gavish-graves/libgavish-graves.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
 				"fragment" : "libraries/liblibraries.a",
 				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "ant-colony-system-bin",
-	"nameOnDisk" : "ant-colony-system",
+	"name" : "gavish-graves-bin",
+	"nameOnDisk" : "gavish-graves",
 	"paths" : 
 	{
-		"build" : "ant-colony-system",
-		"source" : "ant-colony-system"
+		"build" : "gavish-graves",
+		"source" : "gavish-graves"
 	},
 	"sourceGroups" : 
 	[
@@ -138,7 +139,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "ant-colony-system/main.cpp",
+			"path" : "gavish-graves/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

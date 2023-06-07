@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "ant-colony-system/libant-colony-system.a"
+			"path" : "nearest-neighbour/libnearest-neighbour.a"
 		}
 	],
 	"backtrace" : 1,
@@ -16,7 +16,7 @@
 		],
 		"files" : 
 		[
-			"ant-colony-system/CMakeLists.txt",
+			"nearest-neighbour/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -36,7 +36,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 14,
+				"line" : 16,
 				"parent" : 2
 			}
 		]
@@ -64,13 +64,13 @@
 			]
 		}
 	],
-	"id" : "ant-colony-system::@8d08e4a571395e1d0f02",
-	"name" : "ant-colony-system",
-	"nameOnDisk" : "libant-colony-system.a",
+	"id" : "nearest-neighbour::@f530fb97f3cce67a74bb",
+	"name" : "nearest-neighbour",
+	"nameOnDisk" : "libnearest-neighbour.a",
 	"paths" : 
 	{
-		"build" : "ant-colony-system",
-		"source" : "ant-colony-system"
+		"build" : "nearest-neighbour",
+		"source" : "nearest-neighbour"
 	},
 	"sourceGroups" : 
 	[
@@ -93,13 +93,13 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "ant-colony-system/ACS.h",
+			"path" : "nearest-neighbour/NearestNeighbour.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "ant-colony-system/ACS.cpp",
+			"path" : "nearest-neighbour/NearestNeighbour.cpp",
 			"sourceGroupIndex" : 1
 		}
 	],
