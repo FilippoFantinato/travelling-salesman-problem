@@ -76,15 +76,15 @@ build CMakeFiles/tsp.dir/cli/initializers.cpp.o: CXX_COMPILER__tsp_Debug /home/f
 
 
 #############################################
-# Link the executable /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/bin/tsp
+# Link the executable tsp
 
-build /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/bin/tsp: CXX_EXECUTABLE_LINKER__tsp_Debug CMakeFiles/tsp.dir/main.cpp.o CMakeFiles/tsp.dir/cli/cli.cpp.o CMakeFiles/tsp.dir/cli/initializers.cpp.o | ant-colony-optimization/libant-colony-optimization.a ant-colony-system/libant-colony-system.a gavish-graves/libgavish-graves.a nearest-neighbour/libnearest-neighbour.a libraries/liblibraries.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a || ant-colony-optimization/libant-colony-optimization.a ant-colony-system/libant-colony-system.a gavish-graves/libgavish-graves.a libraries/liblibraries.a nearest-neighbour/libnearest-neighbour.a
+build tsp: CXX_EXECUTABLE_LINKER__tsp_Debug CMakeFiles/tsp.dir/main.cpp.o CMakeFiles/tsp.dir/cli/cli.cpp.o CMakeFiles/tsp.dir/cli/initializers.cpp.o | ant-colony-optimization/libant-colony-optimization.a ant-colony-system/libant-colony-system.a gavish-graves/libgavish-graves.a nearest-neighbour/libnearest-neighbour.a libraries/liblibraries.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a || ant-colony-optimization/libant-colony-optimization.a ant-colony-system/libant-colony-system.a gavish-graves/libgavish-graves.a libraries/liblibraries.a nearest-neighbour/libnearest-neighbour.a
   FLAGS = -g -Wall -O2 -g
-  LINK_LIBRARIES = ant-colony-optimization/libant-colony-optimization.a  ant-colony-system/libant-colony-system.a  gavish-graves/libgavish-graves.a  nearest-neighbour/libnearest-neighbour.a  libraries/liblibraries.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a
+  LINK_LIBRARIES = ant-colony-optimization/libant-colony-optimization.a  ant-colony-system/libant-colony-system.a  gavish-graves/libgavish-graves.a  nearest-neighbour/libnearest-neighbour.a  libraries/liblibraries.a  -ldl  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a  -ldl
   OBJECT_DIR = CMakeFiles/tsp.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/bin/tsp
+  TARGET_FILE = tsp
   TARGET_PDB = tsp.dbg
 
 
@@ -362,15 +362,15 @@ build nearest-neighbour/CMakeFiles/nearest-neighbour-bin.dir/main.cpp.o: CXX_COM
 
 
 #############################################
-# Link the executable bin/nearest-neighbour
+# Link the executable nearest-neighbour/nearest-neighbour
 
-build bin/nearest-neighbour: CXX_EXECUTABLE_LINKER__nearest-neighbour-bin_Debug nearest-neighbour/CMakeFiles/nearest-neighbour-bin.dir/main.cpp.o | nearest-neighbour/libnearest-neighbour.a libraries/liblibraries.a || libraries/liblibraries.a nearest-neighbour/libnearest-neighbour.a
+build nearest-neighbour/nearest-neighbour: CXX_EXECUTABLE_LINKER__nearest-neighbour-bin_Debug nearest-neighbour/CMakeFiles/nearest-neighbour-bin.dir/main.cpp.o | nearest-neighbour/libnearest-neighbour.a libraries/liblibraries.a || libraries/liblibraries.a nearest-neighbour/libnearest-neighbour.a
   FLAGS = -g -Wall -O2 -g
   LINK_LIBRARIES = nearest-neighbour/libnearest-neighbour.a  libraries/liblibraries.a
   OBJECT_DIR = nearest-neighbour/CMakeFiles/nearest-neighbour-bin.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = bin/nearest-neighbour
+  TARGET_FILE = nearest-neighbour/nearest-neighbour
   TARGET_PDB = nearest-neighbour.dbg
 
 
@@ -455,15 +455,15 @@ build ant-colony-optimization/CMakeFiles/ant-colony-optimization-bin.dir/main.cp
 
 
 #############################################
-# Link the executable bin/ant-colony-optimization
+# Link the executable ant-colony-optimization/ant-colony-optimization
 
-build bin/ant-colony-optimization: CXX_EXECUTABLE_LINKER__ant-colony-optimization-bin_Debug ant-colony-optimization/CMakeFiles/ant-colony-optimization-bin.dir/main.cpp.o | ant-colony-optimization/libant-colony-optimization.a nearest-neighbour/libnearest-neighbour.a libraries/liblibraries.a || ant-colony-optimization/libant-colony-optimization.a libraries/liblibraries.a nearest-neighbour/libnearest-neighbour.a
+build ant-colony-optimization/ant-colony-optimization: CXX_EXECUTABLE_LINKER__ant-colony-optimization-bin_Debug ant-colony-optimization/CMakeFiles/ant-colony-optimization-bin.dir/main.cpp.o | ant-colony-optimization/libant-colony-optimization.a nearest-neighbour/libnearest-neighbour.a libraries/liblibraries.a || ant-colony-optimization/libant-colony-optimization.a libraries/liblibraries.a nearest-neighbour/libnearest-neighbour.a
   FLAGS = -g -Wall -O2 -g
   LINK_LIBRARIES = ant-colony-optimization/libant-colony-optimization.a  nearest-neighbour/libnearest-neighbour.a  libraries/liblibraries.a
   OBJECT_DIR = ant-colony-optimization/CMakeFiles/ant-colony-optimization-bin.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = bin/ant-colony-optimization
+  TARGET_FILE = ant-colony-optimization/ant-colony-optimization
   TARGET_PDB = ant-colony-optimization.dbg
 
 
@@ -548,15 +548,15 @@ build ant-colony-system/CMakeFiles/ant-colony-system-bin.dir/main.cpp.o: CXX_COM
 
 
 #############################################
-# Link the executable bin/ant-colony-system
+# Link the executable ant-colony-system/ant-colony-system
 
-build bin/ant-colony-system: CXX_EXECUTABLE_LINKER__ant-colony-system-bin_Debug ant-colony-system/CMakeFiles/ant-colony-system-bin.dir/main.cpp.o | ant-colony-system/libant-colony-system.a nearest-neighbour/libnearest-neighbour.a libraries/liblibraries.a || ant-colony-system/libant-colony-system.a libraries/liblibraries.a nearest-neighbour/libnearest-neighbour.a
+build ant-colony-system/ant-colony-system: CXX_EXECUTABLE_LINKER__ant-colony-system-bin_Debug ant-colony-system/CMakeFiles/ant-colony-system-bin.dir/main.cpp.o | ant-colony-system/libant-colony-system.a nearest-neighbour/libnearest-neighbour.a libraries/liblibraries.a || ant-colony-system/libant-colony-system.a libraries/liblibraries.a nearest-neighbour/libnearest-neighbour.a
   FLAGS = -g -Wall -O2 -g
   LINK_LIBRARIES = ant-colony-system/libant-colony-system.a  nearest-neighbour/libnearest-neighbour.a  libraries/liblibraries.a
   OBJECT_DIR = ant-colony-system/CMakeFiles/ant-colony-system-bin.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = bin/ant-colony-system
+  TARGET_FILE = ant-colony-system/ant-colony-system
   TARGET_PDB = ant-colony-system.dbg
 
 
@@ -641,15 +641,15 @@ build gavish-graves/CMakeFiles/gavish-graves-bin.dir/main.cpp.o: CXX_COMPILER__g
 
 
 #############################################
-# Link the executable bin/gavish-graves
+# Link the executable gavish-graves/gavish-graves
 
-build bin/gavish-graves: CXX_EXECUTABLE_LINKER__gavish-graves-bin_Debug gavish-graves/CMakeFiles/gavish-graves-bin.dir/main.cpp.o | gavish-graves/libgavish-graves.a libraries/liblibraries.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a || gavish-graves/libgavish-graves.a libraries/liblibraries.a
+build gavish-graves/gavish-graves: CXX_EXECUTABLE_LINKER__gavish-graves-bin_Debug gavish-graves/CMakeFiles/gavish-graves-bin.dir/main.cpp.o | gavish-graves/libgavish-graves.a libraries/liblibraries.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a || gavish-graves/libgavish-graves.a libraries/liblibraries.a
   FLAGS = -g -Wall -O2 -g
-  LINK_LIBRARIES = gavish-graves/libgavish-graves.a  libraries/liblibraries.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a
+  LINK_LIBRARIES = gavish-graves/libgavish-graves.a  libraries/liblibraries.a  -ldl  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libcplex.a  /opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic/libilocplex.a
   OBJECT_DIR = gavish-graves/CMakeFiles/gavish-graves-bin.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = bin/gavish-graves
+  TARGET_FILE = gavish-graves/gavish-graves
   TARGET_PDB = gavish-graves.dbg
 
 
@@ -680,15 +680,15 @@ build gavish-graves/rebuild_cache: phony gavish-graves/CMakeFiles/rebuild_cache.
 
 build ant-colony-optimization: phony ant-colony-optimization/libant-colony-optimization.a
 
-build ant-colony-optimization-bin: phony bin/ant-colony-optimization
+build ant-colony-optimization-bin: phony ant-colony-optimization/ant-colony-optimization
 
 build ant-colony-system: phony ant-colony-system/libant-colony-system.a
 
-build ant-colony-system-bin: phony bin/ant-colony-system
+build ant-colony-system-bin: phony ant-colony-system/ant-colony-system
 
 build gavish-graves: phony gavish-graves/libgavish-graves.a
 
-build gavish-graves-bin: phony bin/gavish-graves
+build gavish-graves-bin: phony gavish-graves/gavish-graves
 
 build libant-colony-optimization.a: phony ant-colony-optimization/libant-colony-optimization.a
 
@@ -704,9 +704,7 @@ build libraries: phony libraries/liblibraries.a
 
 build nearest-neighbour: phony nearest-neighbour/libnearest-neighbour.a
 
-build nearest-neighbour-bin: phony bin/nearest-neighbour
-
-build tsp: phony /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/bin/tsp
+build nearest-neighbour-bin: phony nearest-neighbour/nearest-neighbour
 
 # =============================================================================
 # Folder targets.
@@ -716,28 +714,28 @@ build tsp: phony /home/filippofantinato/Desktop/UniPD/travelling-salesman-proble
 #############################################
 # Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug
 
-build all: phony /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/bin/tsp libraries/all nearest-neighbour/all ant-colony-optimization/all ant-colony-system/all gavish-graves/all
+build all: phony tsp libraries/all nearest-neighbour/all ant-colony-optimization/all ant-colony-system/all gavish-graves/all
 
 # =============================================================================
 
 #############################################
 # Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/ant-colony-optimization
 
-build ant-colony-optimization/all: phony ant-colony-optimization/libant-colony-optimization.a bin/ant-colony-optimization
+build ant-colony-optimization/all: phony ant-colony-optimization/libant-colony-optimization.a ant-colony-optimization/ant-colony-optimization
 
 # =============================================================================
 
 #############################################
 # Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/ant-colony-system
 
-build ant-colony-system/all: phony ant-colony-system/libant-colony-system.a bin/ant-colony-system
+build ant-colony-system/all: phony ant-colony-system/libant-colony-system.a ant-colony-system/ant-colony-system
 
 # =============================================================================
 
 #############################################
 # Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/gavish-graves
 
-build gavish-graves/all: phony gavish-graves/libgavish-graves.a bin/gavish-graves
+build gavish-graves/all: phony gavish-graves/libgavish-graves.a gavish-graves/gavish-graves
 
 # =============================================================================
 
@@ -751,7 +749,7 @@ build libraries/all: phony libraries/liblibraries.a
 #############################################
 # Folder: /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/cmake-build-debug/nearest-neighbour
 
-build nearest-neighbour/all: phony nearest-neighbour/libnearest-neighbour.a bin/nearest-neighbour
+build nearest-neighbour/all: phony nearest-neighbour/libnearest-neighbour.a nearest-neighbour/nearest-neighbour
 
 # =============================================================================
 # Built-in targets

@@ -4,8 +4,6 @@ project(travelling-salesman-problem)
 set(CMAKE_CXX_FLAGS "-g -Wall -O2")
 set(CMAKE_MODULE_LINKER_FLAGS "-lcplex -lm -pthread -ldl")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
-
 set(CPLEX_INC_DIR "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include")
 set(CPLEX_STATIC "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic")
 
@@ -35,4 +33,8 @@ target_link_libraries(tsp
         gavish-graves
         nearest-neighbour
         libraries)
-target_link_libraries(tsp ${cplex_libraries} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(tsp
+        -ldl
+        ${cplex_libraries}
+        ${CMAKE_THREAD_LIBS_INIT}
+        ${CMAKE_DL_LIBS})

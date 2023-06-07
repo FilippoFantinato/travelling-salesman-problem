@@ -8,6 +8,7 @@ add_executable(ant-colony-optimization-bin main.cpp)
 target_link_libraries(ant-colony-optimization-bin
         ant-colony-optimization
         nearest-neighbour
-        libraries)
+        libraries
+        ${CMAKE_THREAD_LIBS_INIT})
 set_target_properties(ant-colony-optimization-bin
         PROPERTIES OUTPUT_NAME ant-colony-optimization)
