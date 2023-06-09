@@ -243,6 +243,13 @@ build libraries/CMakeFiles/libraries.dir/utils/hash-combine.cpp.o: CXX_COMPILER_
   OBJECT_DIR = libraries/CMakeFiles/libraries.dir
   OBJECT_FILE_DIR = libraries/CMakeFiles/libraries.dir/utils
 
+build libraries/CMakeFiles/libraries.dir/utils/math.cpp.o: CXX_COMPILER__libraries_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/utils/math.cpp || cmake_object_order_depends_target_libraries
+  DEP_FILE = libraries/CMakeFiles/libraries.dir/utils/math.cpp.o.d
+  FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
+  INCLUDES = -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include
+  OBJECT_DIR = libraries/CMakeFiles/libraries.dir
+  OBJECT_FILE_DIR = libraries/CMakeFiles/libraries.dir/utils
+
 build libraries/CMakeFiles/libraries.dir/utils/measure-time.cpp.o: CXX_COMPILER__libraries_Debug /home/filippofantinato/Desktop/UniPD/travelling-salesman-problem/libraries/utils/measure-time.cpp || cmake_object_order_depends_target_libraries
   DEP_FILE = libraries/CMakeFiles/libraries.dir/utils/measure-time.cpp.o.d
   FLAGS = -g -Wall -O2 -g -fdiagnostics-color=always
@@ -272,7 +279,7 @@ build libraries/CMakeFiles/libraries.dir/utils/tsp.cpp.o: CXX_COMPILER__librarie
 #############################################
 # Link the static library libraries/liblibraries.a
 
-build libraries/liblibraries.a: CXX_STATIC_LIBRARY_LINKER__libraries_Debug libraries/CMakeFiles/libraries.dir/coordinate/ATTPoint.cpp.o libraries/CMakeFiles/libraries.dir/coordinate/GeoLocation.cpp.o libraries/CMakeFiles/libraries.dir/coordinate/Point.cpp.o libraries/CMakeFiles/libraries.dir/exceptions/EdgeWeightNotHandled.cpp.o libraries/CMakeFiles/libraries.dir/exceptions/IncompleteTSPFile.cpp.o libraries/CMakeFiles/libraries.dir/path/path.cpp.o libraries/CMakeFiles/libraries.dir/tsp-file/TSPInformation.cpp.o libraries/CMakeFiles/libraries.dir/tsp-file/TSPSection.cpp.o libraries/CMakeFiles/libraries.dir/tsp-file/tsp-file.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/att.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/euc2d.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/full_matrix.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/geo.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/upper_row.cpp.o libraries/CMakeFiles/libraries.dir/tsp-solvers/TSPCPXSolver.cpp.o libraries/CMakeFiles/libraries.dir/tsp-solvers/TSPSolver.cpp.o libraries/CMakeFiles/libraries.dir/utils/hash-combine.cpp.o libraries/CMakeFiles/libraries.dir/utils/measure-time.cpp.o libraries/CMakeFiles/libraries.dir/utils/trim.cpp.o libraries/CMakeFiles/libraries.dir/utils/tsp.cpp.o
+build libraries/liblibraries.a: CXX_STATIC_LIBRARY_LINKER__libraries_Debug libraries/CMakeFiles/libraries.dir/coordinate/ATTPoint.cpp.o libraries/CMakeFiles/libraries.dir/coordinate/GeoLocation.cpp.o libraries/CMakeFiles/libraries.dir/coordinate/Point.cpp.o libraries/CMakeFiles/libraries.dir/exceptions/EdgeWeightNotHandled.cpp.o libraries/CMakeFiles/libraries.dir/exceptions/IncompleteTSPFile.cpp.o libraries/CMakeFiles/libraries.dir/path/path.cpp.o libraries/CMakeFiles/libraries.dir/tsp-file/TSPInformation.cpp.o libraries/CMakeFiles/libraries.dir/tsp-file/TSPSection.cpp.o libraries/CMakeFiles/libraries.dir/tsp-file/tsp-file.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/att.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/euc2d.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/full_matrix.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/geo.cpp.o libraries/CMakeFiles/libraries.dir/tsp-readers/upper_row.cpp.o libraries/CMakeFiles/libraries.dir/tsp-solvers/TSPCPXSolver.cpp.o libraries/CMakeFiles/libraries.dir/tsp-solvers/TSPSolver.cpp.o libraries/CMakeFiles/libraries.dir/utils/hash-combine.cpp.o libraries/CMakeFiles/libraries.dir/utils/math.cpp.o libraries/CMakeFiles/libraries.dir/utils/measure-time.cpp.o libraries/CMakeFiles/libraries.dir/utils/trim.cpp.o libraries/CMakeFiles/libraries.dir/utils/tsp.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g -Wall -O2 -g
   OBJECT_DIR = libraries/CMakeFiles/libraries.dir
   POST_BUILD = :
