@@ -3,29 +3,18 @@
 #include <memory>
 
 #include "../libraries/tsp-file/tsp-file.h"
-#include "../libraries/utils/measure-time.h"
-#include "ACO.h"
+#include "../libraries/utils/utils.h"
+#include "AntSystem.h"
 
-#include "../nearest-neighbour/NearestNeighbour.h"
-
-double mean_tsp_distance(const TSP& tsp)
+double average_distance(const TSP& tsp)
 {
-    const auto& vertices = tsp.get_vertices();
-    auto N = tsp.get_n();
-
-    double sum = 0;
-    double n_elements = (N*(N-1)) / 2;
-    for(auto i = vertices.cbegin(); i != vertices.end(); ++i)
+    double avg = 0;
+    for(const auto& e: tsp.get_edges())
     {
-        Vertex v = *i;
-        ++i;
-        for(auto j = i; j != vertices.end(); ++j)
-        {
-            Vertex u = *j;
-            sum += tsp.get_weight(v, u);
-        }
+        double w = std::get<2>(e);
+        avg += w;
     }
-    return sum / n_elements;
+    return avg / tsp.get_m();
 }
 
 int main(int argc, char const *argv[])
@@ -35,8 +24,7 @@ int main(int argc, char const *argv[])
 
     if(!ifd.is_open())
     {
-        std::cerr << "File " << file << " doesn't exist" << std::endl;
-        return 1;
+        throw std::runtime_error((std::string("Cannot find file ") + std::string(file)).c_str());
     }
 
     auto information_tsp = TSPFile::init_tsp_from_file(ifd);
@@ -44,15 +32,14 @@ int main(int argc, char const *argv[])
     std::shared_ptr<const TSPFile::TSPInformation> info = information_tsp.first;
     std::shared_ptr<const TSP> tsp = information_tsp.second;
 
-//        auto pheromone = mean_tsp_distance(*tsp);
-    auto pheromone_level = NearestNeighbour(*tsp, *tsp->get_vertices().begin()).solve();
-    auto iterations = 100;
-    auto n_ants = 300;
+    auto pheromone_level = average_distance(*tsp);
+    auto iterations = 50;
+    auto n_ants = tsp->get_n();
     double alpha  = 0.9;
     double beta   = 1.5;
     double q      = 10;
     double evaporation_factor = 0.9;
-    ACO solver(
+    AntSystem solver(
             *tsp,
             pheromone_level,
             iterations,
@@ -69,11 +56,10 @@ int main(int argc, char const *argv[])
 
     std::cout << *info << std::endl << std::endl;
     std::cout << "Execution time: " << time << "s" << std::endl;
-    std::cout << "Object function value: " << obj_value << std::endl;
+    std::cout << "Best cycle cost: " << obj_value << std::endl;
 
     std::shared_ptr<Path> path = solver.get_best_cycle();
     std::cout << "Best cycle: " << *path << std::endl;
-    std::cout << "Size of cycle: " << std::set<Vertex>(path->begin(), path->end()).size() << std::endl;
 
     return 0;
 }

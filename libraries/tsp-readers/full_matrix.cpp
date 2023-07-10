@@ -1,8 +1,8 @@
-#include "full_matrix.h"
+#include "tsp-readers.h"
 
-namespace TSPFile::FULL_MATRIX
+namespace TSPReaders::FullMatrix
 {
-    std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, int dimension)
+    std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, long dimension)
     {
         std::shared_ptr<TSP> tsp = std::make_shared<TSP>(dimension);
         

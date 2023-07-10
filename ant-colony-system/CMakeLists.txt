@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
 add_library(ant-colony-system
-        ACS.h
-        ACS.cpp)
+        AntColonySystem.h
+        AntColonySystem.cpp)
 
 add_executable(ant-colony-system-bin main.cpp)
 target_link_libraries(ant-colony-system-bin

@@ -1,13 +1,13 @@
-#include "att.h"
+#include "tsp-readers.h"
 
-namespace TSPFile::ATT
+namespace TSPReaders::ATT
 {
-    std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, int dimension)
+    std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, long dimension)
     {
-        return Utils::tsp_from_coordinates(*read_coordinates(ifd, dimension));
+        return tsp_from_coordinates(*read_coordinates(ifd, dimension));
     }
 
-    std::shared_ptr<const VertexCoordinates> read_coordinates(std::ifstream& ifd, int dimension)
+    std::shared_ptr<const VertexCoordinates> read_coordinates(std::ifstream& ifd, long dimension)
     {
         VertexCoordinates coordinates;
 

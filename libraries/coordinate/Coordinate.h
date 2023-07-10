@@ -1,5 +1,5 @@
-#ifndef COORDINATE_H
-#define COORDINATE_H
+#ifndef TSP_COORDINATE_H
+#define TSP_COORDINATE_H
 
 #include <iostream>
 #include <cmath>

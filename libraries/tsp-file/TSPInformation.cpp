@@ -15,8 +15,8 @@ namespace TSPFile
         while (not_edge_weight_section_met && not_node_coord_section_met && getline(ifd, line))
         {
             Utils::trim(line);
-            not_node_coord_section_met = line.compare(TSPSection::node_coord_section) != 0;
-            not_edge_weight_section_met = line.compare(TSPSection::edge_weight_section) != 0;
+            not_node_coord_section_met = line != TSPSection::node_coord_section;
+            not_edge_weight_section_met = line != TSPSection::edge_weight_section;
 
 
             if (not_node_coord_section_met && not_edge_weight_section_met)
@@ -42,10 +42,10 @@ namespace TSPFile
                     info.edge_weight_format = value;
                     break;
                 case EnumTSPSection::dimension:
-                    info.dimension = std::atoi(value.c_str());
+                    info.dimension = std::strtol(value.c_str(), nullptr, 10);
                     break;
                 case EnumTSPSection::optimal_solution:
-                    info.optimal_solution = std::atoi(value.c_str());
+                    info.optimal_solution = std::stod(value);
                     break;
                 default:
                     break;

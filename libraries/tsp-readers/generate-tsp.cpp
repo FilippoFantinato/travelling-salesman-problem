@@ -1,8 +1,9 @@
-#include "tsp.h"
+#include "tsp-readers.h"
 
-namespace Utils
+
+namespace TSPReaders
 {
-    std::shared_ptr<const TSP> tsp_from_coordinates(const TSPFile::VertexCoordinates& coordinates)
+    std::shared_ptr<const TSP> tsp_from_coordinates(const VertexCoordinates& coordinates)
     {
         std::shared_ptr<TSP> tsp(new TSP(coordinates.size()));
 
@@ -26,4 +27,3 @@ namespace Utils
         return tsp;
     }
 }
-

@@ -1,5 +1,5 @@
-#ifndef GEOLOCATION_H
-#define GEOLOCATION_H
+#ifndef TSP_GEOLOCATION_H
+#define TSP_GEOLOCATION_H
 
 #include "Coordinate.h"
 

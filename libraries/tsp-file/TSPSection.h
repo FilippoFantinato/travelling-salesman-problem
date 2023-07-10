@@ -1,5 +1,5 @@
-#ifndef TSPSECTION_H
-#define TSPSECTION_H
+#ifndef TSP_TSP_SECTION_H
+#define TSP_TSP_SECTION_H
 
 #include <string>
 #include <map>
@@ -8,14 +8,14 @@ namespace TSPFile
 {
     enum EnumTSPSection
     {
-        name, 
+        name,
         comment,
-        type, 
-        edge_weight_type, 
+        type,
+        edge_weight_type,
         edge_weight_format,
         dimension,
         optimal_solution,
-        node_coord_section, 
+        node_coord_section,
         edge_weight_section,
         eof,
         none_tsp_section

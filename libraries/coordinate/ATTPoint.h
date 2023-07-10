@@ -1,5 +1,5 @@
-#ifndef ATT_POINT_H
-#define ATT_POINT_H
+#ifndef TSP_ATT_POINT_H
+#define TSP_ATT_POINT_H
 
 #include <cmath>
 

@@ -1,5 +1,5 @@
-#ifndef PATH_H
-#define PATH_H
+#ifndef TSP_PATH_H
+#define TSP_PATH_H
 
 #include <iostream>
 #include <vector>
@@ -8,8 +8,7 @@
 #include <functional>
 
 #include "../tsp/tsp.h"
-#include "../utils/hash-combine.h"
-
+#include "../utils/math.h"
 
 typedef std::vector<Vertex> Path;
 

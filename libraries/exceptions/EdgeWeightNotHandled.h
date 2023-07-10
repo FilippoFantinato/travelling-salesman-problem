@@ -1,5 +1,5 @@
-#ifndef EDGE_WEIGHT_NOT_HANDLED_H
-#define EDGE_WEIGHT_NOT_HANDLED_H
+#ifndef TSP_EDGE_WEIGHT_NOT_HANDLED_H
+#define TSP_EDGE_WEIGHT_NOT_HANDLED_H
 
 #include <exception>
 #include <string>

@@ -1,5 +1,5 @@
-#ifndef POINT_H
-#define POINT_H
+#ifndef TSP_POINT_H
+#define TSP_POINT_H
 
 #include "Coordinate.h"
 

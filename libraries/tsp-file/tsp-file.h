@@ -11,21 +11,33 @@
 
 #include "../exceptions/EdgeWeightNotHandled.h"
 
-#include "types.h"
 #include "TSPSection.h"
 #include "TSPInformation.h"
-#include "../tsp-readers/euc2d.h"
-#include "../tsp-readers/att.h"
-#include "../tsp-readers/geo.h"
-#include "../tsp-readers/full_matrix.h"
-#include "../tsp-readers/upper_row.h"
+#include "../tsp-readers/tsp-readers.h"
+#include "../tsp-readers/types.h"
 
+/*!
+    \brief methods for reading a tsp instance and generate the corresponding tsp from it
+*/
 namespace TSPFile
 {
-    typedef std::shared_ptr<const TSP> (*TSPHandler)(std::ifstream &ifd, int dimension);
-    typedef std::pair<std::shared_ptr<const TSPInformation>, std::shared_ptr<const TSP>> PairInformationTSP;
+    typedef std::shared_ptr<const TSP> (*TSPHandler)(std::ifstream &ifd, long dimension);
+    typedef std::pair<std::shared_ptr<const TSPFile::TSPInformation>, std::shared_ptr<const TSP>> PairInformationTSP;
 
+    /*!
+        \brief init tsp from a file
+
+        @param ifd: input stream of the file to read
+    */
     PairInformationTSP init_tsp_from_file(std::ifstream &ifd);
+
+    /*!
+        \brief choose the function to use for reading the coordinates
+               and generating the tsp according to the edge_weight_type,
+               which states the cost function of a tsp instance
+
+        @param info: object containing all information about a tsp instance
+    */
     TSPHandler choose_tsp_handler(const TSPInformation& info);
 }
 

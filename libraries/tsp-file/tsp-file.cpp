@@ -16,23 +16,23 @@ namespace TSPFile
         switch (EdgeWeightType::to_enum(info.edge_weight_type))
         {
         case EnumEdgeWeightType::euc2d:
-            return TSPFile::EUC2D::init_tsp;
+            return TSPReaders::EUC2D::init_tsp;
 
         case EnumEdgeWeightType::geo_location:
-            return TSPFile::GEO::init_tsp;
+            return TSPReaders::Geo::init_tsp;
 
         case EnumEdgeWeightType::att:
-            return TSPFile::ATT::init_tsp;
+            return TSPReaders::ATT::init_tsp;
 
         case EnumEdgeWeightType::explicit_matrix:
 
             switch (EdgeWeightFormat::to_enum(info.edge_weight_format))
             {
             case EnumEdgeWeightFormat::full_matrix:
-                return TSPFile::FULL_MATRIX::init_tsp;
+                return TSPReaders::FullMatrix::init_tsp;
 
             case EnumEdgeWeightFormat::upper_row:
-                return TSPFile::UPPER_ROW::init_tsp;
+                return TSPReaders::UpperRow::init_tsp;
             
             default:
                 throw EdgeWeightNotHandled(info.edge_weight_format);

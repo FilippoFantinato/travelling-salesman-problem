@@ -1,7 +1,7 @@
 #include "TSPCPXSolver.h"
 
-TSPCPXSolver::TSPCPXSolver(const TSP& tsp, const std::string& name) 
-    : TSPSolver(tsp, name)
+TSPCPXSolver::TSPCPXSolver(const TSP& tsp, const std::string& name)
+        : TSPSolver(tsp, name)
 {
     this->env = CPXopenCPLEX(&status);
     if (status){
@@ -25,6 +25,10 @@ TSPCPXSolver::~TSPCPXSolver()
     free();
 }
 
+void TSPCPXSolver::set_time_limit(double time_limit) {
+    CPXsetdblparam(env, CPX_PARAM_TILIM, time_limit);
+}
+
 double TSPCPXSolver::get_solution_cost() const
 {
     double obj_value;
@@ -38,7 +42,7 @@ std::shared_ptr<std::vector<double>> TSPCPXSolver::get_vars(size_t N_COLS) const
     std::vector<double> var_vals(N_COLS, 0);
 
     CHECKED_CPX_CALL(CPXgetx, env, lp, &var_vals[0], 0, N_COLS - 1);
-    
+
     return std::make_shared<std::vector<double>>(var_vals);
 }
 
@@ -55,7 +59,6 @@ size_t TSPCPXSolver::get_n_vars() const
 
 double TSPCPXSolver::solve()
 {
-    build();
     CHECKED_CPX_CALL(CPXmipopt, env, lp);
 
     return get_solution_cost();
@@ -71,6 +74,6 @@ void TSPCPXSolver::write_file(const std::string& directory) const
 
 void TSPCPXSolver::free()
 {
-     CPXfreeprob(env, &lp);
-     CPXcloseCPLEX(const_cast<CPXENVptr *>(&env));
+    CPXfreeprob(env, &lp);
+    CPXcloseCPLEX(&env);
 }

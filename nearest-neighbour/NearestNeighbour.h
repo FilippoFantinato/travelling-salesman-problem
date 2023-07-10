@@ -1,5 +1,5 @@
-#ifndef NEAREST_NEIGHBOUR_H
-#define NEAREST_NEIGHBOUR_H
+#ifndef TSP_NEAREST_NEIGHBOUR_H
+#define TSP_NEAREST_NEIGHBOUR_H
 
 #include "../libraries/tsp-solvers/TSPSolver.h"
 

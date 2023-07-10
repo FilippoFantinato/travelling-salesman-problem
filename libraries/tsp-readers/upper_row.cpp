@@ -1,8 +1,8 @@
-#include "upper_row.h"
+#include "tsp-readers.h"
 
-namespace TSPFile::UPPER_ROW
+namespace TSPReaders::UpperRow
 {
-    std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, int dimension)
+    std::shared_ptr<const TSP> init_tsp(std::ifstream& ifd, long dimension)
     {
         std::shared_ptr<TSP> tsp = std::make_shared<TSP>(dimension);
 

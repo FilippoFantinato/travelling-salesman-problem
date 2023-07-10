@@ -11,7 +11,6 @@
 #include <string>
 #include <stdexcept>
 #include <ilcplex/cplex.h>
-//#include "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include/ilcplex/cplex.h"
 
 #define STRINGIZE(something) STRINGIZE_HELPER(something) 
 #define STRINGIZE_HELPER(something) #something

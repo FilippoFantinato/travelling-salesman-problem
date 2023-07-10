@@ -1,5 +1,5 @@
-#ifndef INCOMPLETE_TSP_FILE_H
-#define INCOMPLETE_TSP_FILE_H
+#ifndef TSP_INCOMPLETE_TSP_FILE_H
+#define TSP_INCOMPLETE_TSP_FILE_H
 
 #include <exception>
 #include <string>
